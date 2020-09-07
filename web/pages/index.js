@@ -1,6 +1,10 @@
 import React from "react";
 import { NextSeo } from "next-seo";
-import sanity from "../client";
+
+import sanity from "settings/client";
+
+import Hero from "components/Hero";
+import Topnav from "components/Topnav";
 
 const query = `*[_type == "person"] {
   _id,
@@ -11,14 +15,13 @@ const query = `*[_type == "person"] {
 `;
 
 const People = ({ people }) => {
-  console.log("people", people);
+  // console.log("people", people);
 
   return (
     <>
-      <NextSeo
-        title="Simple Usage Example"
-        description="A short description goes here."
-      />
+      <NextSeo title="Whee!" description="Sykler og sånt" />
+      <Topnav />
+      <Hero />
       <div className="main">
         <h1>Whee!</h1>
       </div>
