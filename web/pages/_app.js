@@ -1,8 +1,9 @@
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 
-import "../styles/globals.scss";
+import "../styles/main.scss";
 
+// eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
   return (
     <>

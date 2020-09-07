@@ -1,8 +1,8 @@
 body {
-  margin: 50px;
-  background: gold;
+  background: $color-green;
 }
 
 h1 {
-  color: green;
+  color: $color-red;
+  margin: 50px;
 }
