@@ -1,0 +1,27 @@
+.block {
+  display: block;
+}
+
+// Modifiers
+
+@for $i from 1 through 10 {
+  .-top-#{$i} {
+    margin-top: var(--spacing-#{$i});
+  }
+}
+
+@for $i from 1 through 10 {
+  .-right-#{$i} {
+    margin-right: var(--spacing-#{$i});
+  }
+}
+@for $i from 1 through 10 {
+  .-bottom-#{$i} {
+    margin-bottom: var(--spacing-#{$i});
+  }
+}
+@for $i from 1 through 10 {
+  .-left-#{$i} {
+    margin-left: var(--spacing-#{$i});
+  }
+}

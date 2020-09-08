@@ -1,0 +1,39 @@
+// Global variables
+:root {
+  // Colors
+  --color-cream: #fffcf4;
+  --color-midnight: #373737;
+  --color-red: #ff3234;
+  --color-peach: #ffcfb5;
+  --color-green: #3d8858;
+  --color-yellow: #ffd74b;
+
+  // Spacing
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-7: 40px;
+  --spacing-8: 56px;
+  --spacing-9: 64px;
+  --spacing-10: 80px;
+
+  // General
+  --transition: 0.2s cubic-bezier(0, 0, 0.3, 0.9);
+  --transition-quick: 0.1s cubic-bezier(0, 0, 0.3, 0.9);
+  --border-radius: 4px;
+  --page-width-max: 1640px;
+  --page-width-narrow: 750px;
+
+  // Media queries
+  --small: "(min-width: 320px)";
+  --medium: "(min-width: 768px)";
+  --large: "(min-width: 1080px)";
+  --xlarge: "(min-width: 1328px)";
+  --max-small: "(max-width: 319px)";
+  --max-medium: "(max-width: 767px)";
+  --max-large: "(max-width: 1079px)";
+  --max-xlarge: "(max-width: 1327px)";
+}

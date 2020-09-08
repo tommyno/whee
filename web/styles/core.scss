@@ -1,0 +1,30 @@
+// Globals
+body {
+  background: var(--color-cream);
+  color: var(--color-midnight);
+  font-family: "Walsheim", sans-serif;
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Wrap
+.outer-wrap {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inner-padding {
+  padding: var(--spacing-6) var(--spacing-7);
+}
+
+// Default flow
+// https://24ways.org/2018/managing-flow-and-rhythm-with-css-custom-properties/
+.flow {
+  --flow-space: 2em;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space);
+}
