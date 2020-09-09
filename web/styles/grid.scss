@@ -1,0 +1,20 @@
+.grid {
+  display: flex;
+  margin: calc(var(--grid-gutter) * -1) 0 0 calc(var(--grid-gutter) * -1);
+}
+
+.grid--reverse {
+  flex-flow: row-reverse;
+}
+
+.grid__item {
+  flex: 1;
+  padding: calc(var(--grid-gutter) * 1) 0 0 calc(var(--grid-gutter) * 1);
+}
+
+@media (max-width: 767px) {
+  .grid {
+    display: block;
+    flex-flow: row; // Revert any inverted flow
+  }
+}

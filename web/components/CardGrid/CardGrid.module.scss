@@ -1,0 +1,7 @@
+.cardGrid > *:not(:last-child) {
+  margin-bottom: var(--spacing-6);
+}
+
+.reverse > *:nth-child(even) {
+  flex-flow: row-reverse;
+}

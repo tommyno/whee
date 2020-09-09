@@ -1,0 +1,10 @@
+.outer {
+  display: block;
+  width: 100%;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: var(--page-width-max);
+  padding: 0 var(--page-gutters);
+}

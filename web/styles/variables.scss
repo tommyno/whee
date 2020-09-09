@@ -20,20 +20,21 @@
   --spacing-9: 64px;
   --spacing-10: 80px;
 
-  // General
+  // Animations
   --transition: 0.2s cubic-bezier(0, 0, 0.3, 0.9);
   --transition-quick: 0.1s cubic-bezier(0, 0, 0.3, 0.9);
-  --border-radius: 4px;
-  --page-width-max: 1640px;
-  --page-width-narrow: 750px;
+
+  // Settings
+  --page-width-max: 1440px;
+  --page-gutters: 40px;
+  --grid-gutter: 20px;
 
   // Media queries
-  --small: "(min-width: 320px)";
-  --medium: "(min-width: 768px)";
-  --large: "(min-width: 1080px)";
-  --xlarge: "(min-width: 1328px)";
-  --max-small: "(max-width: 319px)";
-  --max-medium: "(max-width: 767px)";
-  --max-large: "(max-width: 1079px)";
-  --max-xlarge: "(max-width: 1327px)";
+  --mobile-and-up: "(min-width: 320px)";
+  --tablet-and-up: "(min-width: 768px)";
+  --laptop-and-up: "(min-width: 1080px)";
+  --desktop-and-up: "(min-width: 1328px)";
+  --mobile-and-down: "(max-width: 767px)";
+  --tablet-and-down: "(max-width: 1079px)";
+  --laptop-and-down: "(max-width: 1327px)";
 }

@@ -4,28 +4,15 @@ import classNames from "classnames";
 
 import styles from "./Block.module.scss";
 
-const Block = ({
-  top,
-  bottom,
-  left,
-  right,
-  responsive,
-  children,
-  ...props
-}) => {
+const Block = ({ top, bottom, left, right, children }) => {
   const blockClass = classNames({
     [styles.block]: true,
     [styles[`-top-${top}`]]: top,
     [styles[`-bottom-${bottom}`]]: bottom,
     [styles[`-left-${left}`]]: left,
-    [styles[`-right-${right}`]]: right,
-    [styles["-responsive"]]: responsive
+    [styles[`-right-${right}`]]: right
   });
-  return (
-    <div className={blockClass} {...props}>
-      {children}
-    </div>
-  );
+  return <div className={blockClass}>{children}</div>;
 };
 
 Block.defaultProps = {
@@ -33,7 +20,6 @@ Block.defaultProps = {
   right: false,
   bottom: false,
   left: false,
-  responsive: false,
   children: null
 };
 
@@ -42,7 +28,6 @@ Block.propTypes = {
   right: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   bottom: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   left: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-  responsive: PropTypes.bool,
   children: PropTypes.node
 };
 

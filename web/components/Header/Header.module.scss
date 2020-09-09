@@ -2,10 +2,7 @@
   width: 136px;
 }
 
-.navList {
+.navListItem {
   display: inline-block;
-
-  &Item {
-    display: inline-block;
-  }
+  padding-left: var(--spacing-6);
 }
