@@ -1,21 +1,14 @@
 import { NextSeo } from "next-seo";
+import Link from "next/link";
 
 import sanity from "settings/client";
 
+import { Section, Grid, Flow } from "components/Layout";
 import Footer from "components/Footer";
-import Section from "components/Section";
 import Hero from "components/Hero";
 import Header from "components/Header";
 import Card from "components/Card";
 import CardGrid from "components/CardGrid";
-
-const query = `*[_type == "person"] {
-  _id,
-  name,
-  image,
-  "imageAspect": image.asset->.metadata.dimensions.aspectRatio,
-}[0...50]
-`;
 
 const People = ({ people }) => {
   // console.log("people", people);
@@ -63,8 +56,8 @@ const People = ({ people }) => {
       </Section>
 
       <Section>
-        <div className="grid">
-          <div className="grid__item flow">
+        <Grid>
+          <Flow>
             <h2 className="color--red">Fortroppen</h2>
             <p>
               Vår forlansering inkluderer 30 sykler av tysk kvalitet og dette er
@@ -77,16 +70,26 @@ const People = ({ people }) => {
               en bærekraftig måte.
             </p>
             <p>
-              <a href="#">Les mer om hvordan du kan bli en av fortroppen</a>
+              <Link href="/fortroppen">
+                <a>Les mer om hvordan du kan bli en av fortroppen</a>
+              </Link>
             </p>
-          </div>
-        </div>
+          </Flow>
+        </Grid>
       </Section>
 
       <Footer />
     </>
   );
 };
+
+const query = `*[_type == "person"] {
+  _id,
+  name,
+  image,
+  "imageAspect": image.asset->.metadata.dimensions.aspectRatio,
+}[0...50]
+`;
 
 export const getStaticProps = async () => {
   const people = await sanity.fetch(query);

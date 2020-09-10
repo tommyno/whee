@@ -1,9 +1,9 @@
-import Section from "components/Section";
+import { Section } from "components/Layout";
 
 const Footer = () => {
   return (
     <Section outer="none" inner="medium" color="peach">
-      Footer hei@whee.no
+      Footer <a href="mailto:hei@whee.no">hei@whee.no</a>
     </Section>
   );
 };

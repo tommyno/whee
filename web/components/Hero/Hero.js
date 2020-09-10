@@ -1,6 +1,6 @@
-import Block from "components/Block";
+import Block from "components/Layout/Block";
 import Button from "components/Button";
-import Section from "components/Section";
+import { Section } from "components/Layout";
 
 const Hero = () => {
   return (

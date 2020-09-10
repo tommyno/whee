@@ -10,6 +10,10 @@ body {
 a {
   color: inherit;
   cursor: pointer;
+
+  &:hover {
+    color: var(--color-red);
+  }
 }
 
 // Helpers

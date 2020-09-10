@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-import Section from "components/Section";
-import Flex from "components/Flex";
+import { Section, Flex } from "components/Layout";
 import Logo from "components/Logo";
 
 import styles from "./Header.module.scss";

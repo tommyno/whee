@@ -2,7 +2,7 @@ import { NextSeo } from "next-seo";
 
 import Section from "components/Section";
 import Header from "components/Header";
-import Flow from "components/Flow";
+import { Flow } from "components/Layout";
 
 const DynamicPage = () => {
   return (
