@@ -1,4 +1,5 @@
 import Block from "components/Block";
+import Button from "components/Button";
 import Section from "components/Section";
 
 const Hero = () => {
@@ -10,9 +11,7 @@ const Hero = () => {
         månedspris med alt inkludert
       </h2>
       <Block top={8}>
-        <a href="#" className="button">
-          Sett deg på venteliste
-        </a>
+        <Button link="#">Meld interesse</Button>
       </Block>
     </Section>
   );

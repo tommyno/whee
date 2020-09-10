@@ -1,0 +1,9 @@
+// Default flow
+// https://24ways.org/2018/managing-flow-and-rhythm-with-css-custom-properties/
+.flow {
+  --flow-space: 0.8em;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space);
+}

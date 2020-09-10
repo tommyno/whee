@@ -1,4 +1,3 @@
-import React from "react";
 import { NextSeo } from "next-seo";
 
 import sanity from "settings/client";
@@ -29,7 +28,7 @@ const People = ({ people }) => {
 
       <Hero />
 
-      <Section inner="medium" color="peach">
+      <Section inner="medium" color="peach" limitedWidth>
         <p className="h2">
           Elektrisk lastesykkel med plass til last og passasjerer med
           kundestøtte, forsikring og service inkludert.{" "}

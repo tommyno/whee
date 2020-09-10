@@ -6,40 +6,10 @@ body {
   vertical-align: baseline;
 }
 
-// Wrap
-.container {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--spacing-7);
-  padding-right: var(--spacing-7);
-}
-
-.container--inner {
-  padding-left: var(--spacing-7);
-  padding-right: var(--spacing-7);
-}
-
 // Links
 a {
   color: inherit;
   cursor: pointer;
-}
-
-// Buttons
-.button {
-  border: 3px solid var(--color-red);
-  border-radius: 5px;
-  color: var(--color-red);
-  font-size: 28px;
-  padding: var(--spacing-3) var(--spacing-6);
-  text-decoration: none;
-  transition: var(--transition);
-
-  &:hover {
-    background: var(--color-red);
-    color: white;
-  }
 }
 
 // Helpers
@@ -49,14 +19,4 @@ a {
 
 .color--cream {
   color: var(--color-cream);
-}
-
-// Default flow
-// https://24ways.org/2018/managing-flow-and-rhythm-with-css-custom-properties/
-.flow {
-  --flow-space: 0.8em;
-}
-
-.flow > * + * {
-  margin-top: var(--flow-space);
 }

@@ -43,13 +43,5 @@ h2,
 .h2 {
   font-size: 42px;
   font-weight: bold;
-}
-
-.intro {
-  font-size: 42px;
-}
-
-h2,
-.h2 {
   @include fluid-type($minWidth, $maxWidth, 28px, 42px);
 }

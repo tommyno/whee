@@ -1,0 +1,14 @@
+.button {
+  border: 3px solid var(--color-red);
+  border-radius: 5px;
+  color: var(--color-red);
+  font-size: 28px;
+  padding: var(--spacing-3) var(--spacing-6);
+  text-decoration: none;
+  transition: var(--transition-quick);
+
+  &:hover {
+    background: var(--color-red);
+    color: white;
+  }
+}
