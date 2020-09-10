@@ -1,0 +1,50 @@
+.outer {
+  // Default horisontal padding
+  padding: 0 var(--page-gutter);
+
+  // Vertical margins
+  &-size-small {
+    margin: var(--spacing-5) 0;
+  }
+  &-size-medium {
+    margin: var(--spacing-10) 0;
+  }
+  &-size-large {
+    margin: var(--spacing-11) 0;
+  }
+
+  // Background colors
+  &-color-peach {
+    background-color: var(--color-peach);
+  }
+  &-color-cream {
+    background-color: var(---color-cream);
+  }
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: var(--page-width-max);
+
+  // Vertical padding
+  &-size-small {
+    padding: var(--spacing-6) 0;
+  }
+  &-size-medium {
+    padding: var(--spacing-8) 0;
+  }
+  &-size-large {
+    padding: var(--spacing-10) 0;
+  }
+
+  // Limit width
+  &-limited-width {
+    max-width: var(--page-width-limited);
+    margin: 0 auto; // Centered horisontally
+  }
+
+  // Center text
+  &-center {
+    text-align: center;
+  }
+}

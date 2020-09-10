@@ -19,6 +19,7 @@
   --spacing-8: 56px;
   --spacing-9: 64px;
   --spacing-10: 80px;
+  --spacing-11: 160px;
 
   // Animations
   --transition: 0.2s cubic-bezier(0, 0, 0.3, 0.9);
@@ -26,7 +27,8 @@
 
   // Settings
   --page-width-max: 1440px;
-  --page-gutters: 40px;
+  --page-width-limited: 960px;
+  --page-gutter: 40px;
   --grid-gutter: 20px;
 
   // Media queries

@@ -1,10 +1,9 @@
 import Block from "components/Block";
-
-import styles from "./Hero.module.scss";
+import Section from "components/Section";
 
 const Hero = () => {
   return (
-    <div className={styles.hero}>
+    <Section limitedWidth center>
       <img src="/images/example-illustration.png" alt="Nyttesykkel" />
       <h2>
         Gir deg en <span className="color--red">hverdagsmaskin</span> til fast
@@ -15,7 +14,7 @@ const Hero = () => {
           Sett deg på venteliste
         </a>
       </Block>
-    </div>
+    </Section>
   );
 };
 
