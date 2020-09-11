@@ -11,7 +11,7 @@ const Form = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input name="name" label="Navn" register={register} />
       <Input name="email" label="E-post" type="email" register={register} />
-      <Button type="submit">Sett meg på lista</Button>
+      <button type="submit">Sett meg på lista</button>
     </form>
   );
 };

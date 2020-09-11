@@ -1,14 +1,28 @@
 .button {
-  border: 3px solid var(--color-red);
-  border-radius: 5px;
-  color: var(--color-red);
-  font-size: 28px;
+  border: 2px solid var(--color-green);
+  border-radius: var(--border-radius);
+  color: var(--color-green);
+  display: inline-block;
   padding: var(--spacing-3) var(--spacing-6);
   text-decoration: none;
   transition: var(--transition-quick);
+  position: relative;
 
   &:hover {
-    background: var(--color-red);
+    background: var(--color-green);
+    color: white;
+  }
+}
+
+.button-primary {
+  composes: button;
+  background: red;
+  border: none;
+  color: white;
+  padding: var(--spacing-3) var(--spacing-7);
+
+  &:hover {
+    background: red;
     color: white;
   }
 }

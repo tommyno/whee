@@ -1,5 +1,5 @@
 import { NextSeo } from "next-seo";
-import Link from "next/link";
+import Button from "components/Button";
 
 import sanity from "settings/client";
 
@@ -69,11 +69,7 @@ const People = ({ people }) => {
               skal vi videreutvikle Whee! til å løse deres hverdagsproblemer på
               en bærekraftig måte.
             </p>
-            <p>
-              <Link href="/fortroppen">
-                <a>Les mer om hvordan du kan bli en av fortroppen</a>
-              </Link>
-            </p>
+            <Button link="/fortroppen">Bli en av fortroppen</Button>
           </Flow>
         </Grid>
       </Section>

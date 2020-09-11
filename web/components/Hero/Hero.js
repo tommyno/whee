@@ -11,7 +11,9 @@ const Hero = () => {
         månedspris med alt inkludert
       </h2>
       <Block top={8}>
-        <Button link="#">Meld interesse</Button>
+        <Button link="#" primary>
+          <span className="h2">Meld interesse</span>
+        </Button>
       </Block>
     </Section>
   );

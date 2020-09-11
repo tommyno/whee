@@ -35,7 +35,8 @@ Input.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  register: PropTypes.func.isRequired
 };
 
 export default Input;

@@ -1,17 +1,42 @@
 import PropTypes from "prop-types";
+import classNames from "classnames";
+import Link from "next/link";
 
 import styles from "./Button.module.scss";
 
-const Button = ({ link, children }) => {
+const Button = ({ type, link, primary, children }) => {
+  const buttonClass = classNames({
+    [styles.button]: true,
+    [styles[`button-primary`]]: primary
+  });
+
+  // Submit button
+  if (type === "submit") {
+    return (
+      <button type="submit" className={buttonClass}>
+        {children}
+      </button>
+    );
+  }
+
+  // Link text presented as a button
   return (
-    <a className={styles.button} href={link}>
-      {children}
-    </a>
+    <Link href={link}>
+      <a className={buttonClass}>{children}</a>
+    </Link>
   );
 };
 
+Button.defaultProps = {
+  type: "",
+  link: "",
+  primary: false
+};
+
 Button.propTypes = {
-  link: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  link: PropTypes.string,
+  primary: PropTypes.bool,
   children: PropTypes.node.isRequired
 };
 

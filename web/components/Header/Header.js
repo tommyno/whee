@@ -1,11 +1,12 @@
 import Link from "next/link";
 
 import { Section, Flex } from "components/Layout";
+
 import Logo from "components/Logo";
 
 import styles from "./Header.module.scss";
 
-const Topnav = () => {
+const Header = () => {
   return (
     <Section outer="small">
       <Flex justify="spaceBetween">
@@ -29,4 +30,4 @@ const Topnav = () => {
   );
 };
 
-export default Topnav;
+export default Header;
