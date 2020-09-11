@@ -1,8 +1,8 @@
 import { NextSeo } from "next-seo";
 
-import Section from "components/Section";
+import { Section, Flow } from "components/Layout";
 import Header from "components/Header";
-import { Flow } from "components/Layout";
+import Form from "components/Form";
 
 const DynamicPage = () => {
   return (
@@ -47,6 +47,7 @@ const DynamicPage = () => {
               svar på alt du lurer på.
             </p>
           </Flow>
+          <Form />
         </Section>
       </article>
     </>
