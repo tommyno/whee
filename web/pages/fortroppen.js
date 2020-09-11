@@ -48,7 +48,7 @@ const DynamicPage = () => {
             </p>
           </Flow>
         </Section>
-        <Section>
+        <Section limitedWidth>
           <Form />
         </Section>
       </article>
