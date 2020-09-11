@@ -2,6 +2,8 @@ import { NextSeo } from "next-seo";
 
 import Header from "components/Header";
 
+// TODO: This is a catch all page, which includes the 404 page
+
 const DynamicPage = () => {
   return (
     <>

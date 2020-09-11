@@ -47,6 +47,8 @@ const DynamicPage = () => {
               svar på alt du lurer på.
             </p>
           </Flow>
+        </Section>
+        <Section>
           <Form />
         </Section>
       </article>
