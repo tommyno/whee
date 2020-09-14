@@ -11,7 +11,7 @@ export default {
   },
   fields: [
     {
-      name: "seoTitle",
+      name: "title",
       title: "SEO tittel",
       description: "Overstyrer sidens tittel for SEO",
       type: "string",

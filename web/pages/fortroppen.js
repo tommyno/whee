@@ -1,10 +1,14 @@
 import { NextSeo } from "next-seo";
 
+import sanity from "settings/client";
+
 import { Section, Flow } from "components/Layout";
 import Header from "components/Header";
 import Form from "components/Form";
 
-const DynamicPage = () => {
+const FortroppenPage = ({ sanityData }) => {
+  console.log("sanityData", sanityData[0]);
+
   return (
     <>
       <NextSeo title="Whee!" description="Sykler og sånt" />
@@ -56,4 +60,18 @@ const DynamicPage = () => {
   );
 };
 
-export default DynamicPage;
+const query = `*[_id == "447758bb-6427-4906-b22c-ea2c8f0643cf"]{
+	title,
+  intro,
+  content,
+  headerMedia
+}`;
+
+export const getStaticProps = async () => {
+  const sanityData = await sanity.fetch(query);
+  return {
+    props: { sanityData } // will be passed to the page component as props
+  };
+};
+
+export default FortroppenPage;

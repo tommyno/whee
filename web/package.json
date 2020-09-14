@@ -21,6 +21,7 @@
     "sass": "^1.26.10"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "backpack.css": "^2.2.0",
     "eslint": "^7.8.1",
     "eslint-config-airbnb": "^18.2.0",

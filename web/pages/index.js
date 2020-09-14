@@ -10,9 +10,7 @@ import Header from "components/Header";
 import Card from "components/Card";
 import CardGrid from "components/CardGrid";
 
-const People = ({ people }) => {
-  // console.log("people", people);
-
+const People = () => {
   return (
     <>
       <NextSeo title="Whee!" description="Sykler og sånt" />
@@ -77,21 +75,6 @@ const People = ({ people }) => {
       <Footer />
     </>
   );
-};
-
-const query = `*[_type == "person"] {
-  _id,
-  name,
-  image,
-  "imageAspect": image.asset->.metadata.dimensions.aspectRatio,
-}[0...50]
-`;
-
-export const getStaticProps = async () => {
-  const people = await sanity.fetch(query);
-  return {
-    props: { people } // will be passed to the page component as props
-  };
 };
 
 export default People;

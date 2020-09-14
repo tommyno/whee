@@ -2,7 +2,7 @@ import image from "./image";
 import video from "./video";
 
 export default {
-  name: "media",
+  name: "headerMedia",
   title: "Toppbilde eller -film",
   type: "array",
   description: "Du kan kun legge til ett",
