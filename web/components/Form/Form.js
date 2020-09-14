@@ -14,8 +14,7 @@ const Form = () => {
     const url =
       "https://api.hsforms.com/submissions/v3/integration/submit/8373303/93146f03-dbf7-443e-bd0d-5cf6fbd03499";
 
-    const testdata = {
-      submittedAt: Date.now(),
+    const dataFormattedForHubspot = {
       fields: [
         {
           name: "email",
@@ -25,13 +24,9 @@ const Form = () => {
           name: "firstname",
           value: data.name
         }
-      ],
-      context: {
-        pageUri: "whee.no/fortroppen",
-        pageName: "Fortroppen"
-      }
+      ]
     };
-    const response = await postData(url, testdata);
+    const response = await postData(url, dataFormattedForHubspot);
     console.log("Response from Hubspot", response);
   };
 
@@ -45,21 +40,3 @@ const Form = () => {
 };
 
 export default Form;
-
-// {
-//   "submittedAt": "1517927174000", // This millisecond timestamp is optional. Update the value from "1517927174000" to avoid an INVALID_TIMESTAMP error.
-//   "fields": [
-//     {
-//       "name": "email",
-//       "value": "example@example.com"
-//     },
-//     {
-//       "name": "firstname",
-//       "value": "Jeff"
-//     }
-//   ],
-
-// data= {
-//   email: "test@hest.no"
-//   name: "w"
-// }
