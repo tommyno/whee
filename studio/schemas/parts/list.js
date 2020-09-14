@@ -1,4 +1,3 @@
-import title from "./title";
 import listItem from "./listItem";
 
 export default {

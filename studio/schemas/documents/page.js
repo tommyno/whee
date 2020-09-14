@@ -6,6 +6,7 @@ import headerMedia from "../parts/headerMedia";
 import image from "../parts/image";
 import video from "../parts/video";
 import list from "../parts/list";
+import richText from "../parts/richText";
 
 export default {
   name: "page",
@@ -14,14 +15,14 @@ export default {
   fields: [
     title,
     slug,
-    headerMedia,
     intro,
-    seo,
+    headerMedia,
     {
       name: "content",
       type: "array",
       title: "Innholdsseksjoner",
-      of: [video, image, list],
+      of: [richText, video, image, list],
     },
+    seo,
   ],
 };

@@ -7,12 +7,15 @@ export default {
   },
   fields: [
     {
+      name: "altText",
+      title: "Alternativ text",
+      description: "Beskrivelse av bilde. Brukes for blinde og svaksynte",
+      type: "string",
+    },
+    {
       name: "caption",
       title: "Bildetekst",
       type: "string",
-      options: {
-        isHighlighted: true,
-      },
     },
   ],
 };
