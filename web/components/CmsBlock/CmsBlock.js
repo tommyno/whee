@@ -6,6 +6,7 @@ import Image from "components/Image";
 import Video from "components/Video";
 import Card from "components/Card";
 import CardGrid from "components/CardGrid";
+import TwoRows from "components/TwoRows";
 
 // Format content from Sanity CMS
 const CmsBlock = ({ data }) => {
@@ -40,6 +41,15 @@ const CmsBlock = ({ data }) => {
     );
   }
 
+  // Two rows
+  if (block === "twoRows") {
+    return (
+      <Section inner="none">
+        <TwoRows data={data} />
+      </Section>
+    );
+  }
+
   // List
   if (block === "list") {
     return (
@@ -63,7 +73,7 @@ CmsBlock.propTypes = {
     richText: PropTypes.array,
     altText: PropTypes.string,
     videoUrl: PropTypes.string,
-    alternating: PropTypes.string,
+    alternating: PropTypes.bool,
     listItem: PropTypes.array
   }).isRequired
 };

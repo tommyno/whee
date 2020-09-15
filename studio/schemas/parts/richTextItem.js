@@ -25,7 +25,6 @@ export default {
             name: "internalLink",
             type: "object",
             title: "Intern lenke",
-            icon: InternalLink,
             fields: [
               {
                 name: "reference",
@@ -39,7 +38,6 @@ export default {
             name: "link",
             type: "object",
             title: "Ekstern lenke",
-            icon: ExternalLink,
             fields: [
               {
                 name: "href",

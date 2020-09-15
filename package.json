@@ -1,0 +1,7 @@
+{
+  "name": "whee.no",
+  "description": "Sanity + Next.js frontend for Whee!",
+  "scripts": {
+    "start": "(cd studio && npm start) & (cd web && npm run dev)"
+  }
+}

@@ -4,6 +4,10 @@ Web + Sanity Studio
 
 https://whee.com
 
+## Development
+
+Start both frontend and Sanity studio with: `npm start`
+
 ## Sanity
 
 Studio:<br />

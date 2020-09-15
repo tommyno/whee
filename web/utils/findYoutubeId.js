@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 
 // Return a youtube id from an url
 const findYoutubeId = (url = "") => {
-  console.log("url", url);
   if (url.includes("youtube.com") || url.includes("youtu.be")) {
     const regex = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
     const result = url.match(regex) || [];
