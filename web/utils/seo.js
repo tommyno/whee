@@ -39,4 +39,5 @@ Seo.propTypes = {
     })
   }).isRequired
 };
+
 export default Seo;

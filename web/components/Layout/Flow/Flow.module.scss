@@ -1,9 +1,13 @@
 // Default flow
 // https://24ways.org/2018/managing-flow-and-rhythm-with-css-custom-properties/
-.flow {
-  --flow-space: 0.8em;
-}
+
+$flowSpace: 0.8em;
 
 .flow > * + * {
-  margin-top: var(--flow-space);
+  margin-top: $flowSpace;
+}
+
+// Needed for Sanity CMS block content which is wrappen in an extra div
+.flowBlockContent > * > * + * {
+  margin-top: $flowSpace;
 }

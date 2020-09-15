@@ -1,5 +1,4 @@
 {
-  "parser": "babel-eslint",
   "env": {
     "browser": true
   },
@@ -16,6 +15,7 @@
   "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
   "plugins": ["prettier", "import"],
   "rules": {
+    "no-underscore-dangle": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-props-no-spreading": 0,
     "react/jsx-one-expression-per-line": 0,
