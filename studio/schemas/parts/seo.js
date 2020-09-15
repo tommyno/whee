@@ -20,7 +20,7 @@ export default {
       name: "description",
       title: "SEO ingress ",
       type: "text",
-      description: "Vises på Google resultater og ved deling. Maks 160 tegn",
+      description: "Overstyrer sidens ingress. Vises på Google resultater og ved deling. Maks 160 tegn",
     },
     {
       name: "image",
