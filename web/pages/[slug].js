@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import sanity from "settings/client";
 
 import Seo from "utils/seo";
@@ -9,7 +11,7 @@ import HeaderMedia from "components/HeaderMedia";
 
 const DynamicPage = ({ page }) => {
   const { title, intro, content, headerMedia = [] } = page;
-  console.log("page", page);
+
   return (
     <>
       <Seo page={page} />
@@ -60,6 +62,15 @@ export const getStaticProps = async ({ params }) => {
       page
     }
   };
+};
+
+DynamicPage.propTypes = {
+  page: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    intro: PropTypes.string,
+    content: PropTypes.array,
+    headerMedia: PropTypes.array
+  }).isRequired
 };
 
 export default DynamicPage;

@@ -1,30 +1,27 @@
 import PropTypes from "prop-types";
+
 import { Grid } from "components/Layout";
+import Image from "components/Image";
 
-import styles from "./Card.module.scss";
-
-const Card = ({ image, title, description }) => {
+const Card = ({ data }) => {
+  const { image, title, text } = data;
   return (
     <Grid>
-      {image && <img src={image} alt="" className={styles.image} />}
+      {image && <Image imageObject={image} />}
       <div>
         {title && <h3 className="h2 color--red">{title}</h3>}
-        {description && <p>{description}</p>}
+        {text && <p>{text}</p>}
       </div>
     </Grid>
   );
 };
 
-Card.defaultProps = {
-  image: null,
-  title: null,
-  description: null
-};
-
 Card.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    image: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default Card;

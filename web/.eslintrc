@@ -1,6 +1,14 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "es2020": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "settings": {
     "react": {
@@ -12,13 +20,20 @@
       }
     }
   },
-  "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
   "plugins": ["prettier", "import"],
   "rules": {
     "no-underscore-dangle": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-props-no-spreading": 0,
     "react/jsx-one-expression-per-line": 0,
+    "react/forbid-prop-types": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "jsx-a11y/label-has-associated-control": 0,
     "prettier/prettier": "error"

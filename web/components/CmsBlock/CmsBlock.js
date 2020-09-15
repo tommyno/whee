@@ -4,11 +4,14 @@ import BlockContent from "@sanity/block-content-to-react";
 import { Section, Flow } from "components/Layout";
 import Image from "components/Image";
 import Video from "components/Video";
+import Card from "components/Card";
+import CardGrid from "components/CardGrid";
 
 // Format content from Sanity CMS
 const CmsBlock = ({ data }) => {
-  const block = data._type;
+  const { _type: block = "" } = data;
 
+  // Rich text
   if (block === "richText") {
     return (
       <Section inner="none" limitedWidth>
@@ -19,6 +22,7 @@ const CmsBlock = ({ data }) => {
     );
   }
 
+  // Image
   if (block === "image") {
     return (
       <Section inner="none">
@@ -27,10 +31,24 @@ const CmsBlock = ({ data }) => {
     );
   }
 
+  // Video
   if (block === "video") {
     return (
       <Section inner="none">
         <Video url={data.videoUrl} />
+      </Section>
+    );
+  }
+
+  // List
+  if (block === "list") {
+    return (
+      <Section inner="none">
+        <CardGrid reverse={data.alternating}>
+          {data.listItem.map((item) => (
+            <Card data={item} key={item._key} />
+          ))}
+        </CardGrid>
       </Section>
     );
   }
@@ -42,7 +60,11 @@ const CmsBlock = ({ data }) => {
 CmsBlock.propTypes = {
   data: PropTypes.shape({
     _type: PropTypes.string.isRequired,
-    altText: PropTypes.string
+    richText: PropTypes.array,
+    altText: PropTypes.string,
+    videoUrl: PropTypes.string,
+    alternating: PropTypes.string,
+    listItem: PropTypes.array
   }).isRequired
 };
 

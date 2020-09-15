@@ -13,4 +13,14 @@ export default {
     },
     listItem,
   ],
+  preview: {
+    select: {
+      title: "title",
+    },
+    prepare() {
+      return {
+        title: "Liste med bilder",
+      };
+    },
+  },
 };
