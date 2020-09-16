@@ -27,8 +27,12 @@
 
   // Settings
   --page-width-max: 1440px;
-  --page-width-limited: 960px;
+  --page-width-limited: 900px;
   --page-gutter: 40px;
   --grid-gutter: 20px;
   --border-radius: 5px;
+
+  @media (max-width: 600px) {
+    --page-gutter: 16px;
+  }
 }
