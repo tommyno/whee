@@ -1,6 +1,3 @@
-import InternalLink from "react-icons/lib/md/insert-link";
-import ExternalLink from "react-icons/lib/md/launch";
-
 export default {
   name: "richText",
   title: "Brødtekst",
@@ -21,19 +18,6 @@ export default {
           { title: "Emphasis", value: "em" },
         ],
         annotations: [
-          {
-            name: "internalLink",
-            type: "object",
-            title: "Intern lenke",
-            fields: [
-              {
-                name: "reference",
-                type: "reference",
-                title: "Reference",
-                to: [{ type: "page" }],
-              },
-            ],
-          },
           {
             name: "link",
             type: "object",
