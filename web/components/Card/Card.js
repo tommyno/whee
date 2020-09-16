@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Grid } from "components/Layout";
 import Image from "components/Image";
 
-const Card = ({ data }) => {
+const Card = ({ data = {} }) => {
   const { image, title, text } = data;
   return (
     <Grid>

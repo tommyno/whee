@@ -18,11 +18,11 @@ const Header = () => {
           </Link>
         </div>
         <nav>
-          <Link href="/fortroppen">
-            <a className={styles.navListItem}>Hvordan virker det</a>
+          <Link href="/hvem-er-whee">
+            <a className={styles.navListItem}>Sykkelen</a>
           </Link>
-          <Link href="/fortroppen">
-            <a className={styles.navListItem}>Meld interesse</a>
+          <Link href="/hvem-er-whee">
+            <a className={styles.navListItem}>Tjenesten</a>
           </Link>
         </nav>
       </Flex>

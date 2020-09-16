@@ -9,7 +9,6 @@ import styles from "./TwoRows.module.scss";
 const TwoRows = ({ data }) => {
   const { box, richText: richTextLeft } = data;
   const { bgColor = "yellow", richText: richTextRight } = box;
-  console.log("two rows data", data);
 
   const boxClass = classNames({
     [styles.box]: true,

@@ -16,6 +16,11 @@ a {
   }
 }
 
+// SVG
+svg {
+  max-width: 100%;
+}
+
 // Helpers
 .color--red {
   color: var(--color-red);

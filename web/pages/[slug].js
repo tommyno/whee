@@ -4,7 +4,7 @@ import sanity from "settings/client";
 
 import Seo from "utils/seo";
 
-import { Section } from "components/Layout";
+import { Section, Block } from "components/Layout";
 import Header from "components/Header";
 import CmsBlock from "components/CmsBlock";
 import HeaderMedia from "components/HeaderMedia";
@@ -20,7 +20,7 @@ const DynamicPage = ({ page }) => {
 
       <article>
         <Section limitedWidth>
-          {title && <h1>{title}</h1>}
+          <Block bottom={4}>{title && <h1>{title}</h1>}</Block>
 
           {intro && <p className="h3">{intro}</p>}
         </Section>

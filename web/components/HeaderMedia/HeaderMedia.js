@@ -10,7 +10,7 @@ const HeaderMedia = ({ data }) => {
 
   if (block === "video") {
     return (
-      <Section inner="none" limitedWidth>
+      <Section inner="none">
         <Video url={data[0].videoUrl} />
       </Section>
     );
