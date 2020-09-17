@@ -7,8 +7,8 @@ import { Grid, Flow } from "components/Layout";
 import styles from "./TwoRows.module.scss";
 
 const TwoRows = ({ data }) => {
-  const { box, richText: richTextLeft } = data;
-  const { bgColor = "yellow", richText: richTextRight } = box;
+  const { box = {}, richText: richTextLeft } = data;
+  const { bgColor = "", richText: richTextRight } = box;
 
   const boxClass = classNames({
     [styles.box]: true,
@@ -17,31 +17,25 @@ const TwoRows = ({ data }) => {
 
   return (
     <Grid>
-      <div className={styles.box}>
+      <article className={styles.box}>
         <Flow blockContent>
           <BlockContent blocks={richTextLeft} />
         </Flow>
-      </div>
-      <div className={boxClass}>
+      </article>
+      <article className={boxClass}>
         <Flow blockContent className={boxClass}>
           <BlockContent blocks={richTextRight} />
         </Flow>
-      </div>
+      </article>
     </Grid>
   );
 };
 
-TwoRows.defaultProps = {
-  type: "",
-  link: "",
-  primary: false
-};
-
 TwoRows.propTypes = {
-  type: PropTypes.string,
-  link: PropTypes.string,
-  primary: PropTypes.bool,
-  children: PropTypes.node.isRequired
+  data: PropTypes.shape({
+    box: PropTypes.object,
+    richText: PropTypes.object
+  }).isRequired
 };
 
 export default TwoRows;

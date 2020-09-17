@@ -1,7 +1,7 @@
 export default {
   name: "href",
   title: "Lenke",
-  description: "Bruk formatet: /hvem-er-whee for internlenker. Bruk fullstendig url for eksternlenker, feks: https://hoioslo.no",
+  description: "Bruk formatet: /fortroppen for internlenker. Bruk fullstendig url for eksternlenker, feks: https://sykkel.no/hjul",
   type: "url",
   validation: (Rule) =>
     Rule.uri({

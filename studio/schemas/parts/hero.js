@@ -6,7 +6,7 @@ export default {
   name: "hero",
   title: "Hero",
   type: "object",
-  fields: [intro, image, button],
+  fields: [image, intro, button],
   preview: {
     select: {
       intro: "intro",

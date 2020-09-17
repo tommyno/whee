@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 
 import postData from "utils/postData";
 
-import Input from "./Input";
 import Button from "components/Button";
+import Input from "./Input";
 
 const Form = () => {
   const { register, handleSubmit, watch, errors } = useForm();
@@ -34,7 +34,9 @@ const Form = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input name="name" label="Navn" register={register} />
       <Input name="email" label="E-post" type="email" register={register} />
-      <Button type="submit">Sett meg på lista</Button>
+      <Button type="submit" primary>
+        Sett meg på lista
+      </Button>
     </form>
   );
 };

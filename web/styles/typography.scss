@@ -1,9 +1,5 @@
 @import "utils/fluidtype";
 
-// Fluid typography
-$minWidth: 320px;
-$maxWidth: 1440px;
-
 @font-face {
   font-family: "Walsheim";
   font-style: normal;
@@ -19,6 +15,10 @@ $maxWidth: 1440px;
   src: url("/fonts/GT-Walsheim-Pro-Medium.woff2") format("woff2"),
     url("/fonts/GT-Walsheim-Pro-Medium.woff") format("woff");
 }
+
+// Fluid typography
+$minWidth: 320px;
+$maxWidth: 1440px;
 
 body {
   font-family: "Walsheim", sans-serif;
@@ -48,4 +48,5 @@ h2,
 
 .text-button {
   @include fluid-type($minWidth, 1000px, 20px, 26px);
+  font-weight: bold;
 }

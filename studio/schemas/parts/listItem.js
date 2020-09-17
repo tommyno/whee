@@ -5,7 +5,7 @@ import image from "./image";
 export default {
   name: "listItem",
   type: "array",
-  title: "Listen",
+  title: "Legg til på listen",
   of: [
     {
       type: "object",

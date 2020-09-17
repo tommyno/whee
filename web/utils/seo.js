@@ -20,7 +20,7 @@ const Seo = ({ page }) => {
   const images = defaultImage;
   return (
     <NextSeo
-      title={title}
+      title={`${title} | Whee!`}
       description={description}
       openGraph={{
         images

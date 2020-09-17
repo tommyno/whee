@@ -1,7 +1,7 @@
 // Default flow
 // https://24ways.org/2018/managing-flow-and-rhythm-with-css-custom-properties/
 
-$flowSpace: 0.8em;
+$flowSpace: 1em;
 
 .flow > * + * {
   margin-top: $flowSpace;

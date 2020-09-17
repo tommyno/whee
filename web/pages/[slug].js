@@ -19,7 +19,7 @@ const DynamicPage = ({ page, slug }) => {
       <article>
         <Section limitedWidth>
           <Block bottom={4}>{title && <h1>{title}</h1>}</Block>
-          {intro && <p className="h3">{intro}</p>}
+          {intro && <p className="h2">{intro}</p>}
         </Section>
 
         {!!headerMedia.length && <HeaderMedia data={headerMedia} />}

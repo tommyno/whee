@@ -2,7 +2,7 @@ import richTextItem from "./richTextItem";
 
 export default {
   name: "richText",
-  title: "Brødtekst",
+  title: "Tekst",
   type: "object",
   fields: [richTextItem],
 };
