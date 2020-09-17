@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import BlockContent from "@sanity/block-content-to-react";
 
 import { Section, Flow } from "components/Layout";
+import PortableText from "components/PortableText";
 import Image from "components/Image";
 import Video from "components/Video";
 import Card from "components/Card";
@@ -18,7 +18,7 @@ const CmsBlock = ({ data }) => {
     return (
       <Section inner="none" limitedWidth>
         <Flow blockContent>
-          <BlockContent blocks={data.richText} />
+          <PortableText blocks={data.richText} />
         </Flow>
       </Section>
     );

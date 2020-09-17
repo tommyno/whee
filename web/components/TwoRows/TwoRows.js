@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import BlockContent from "@sanity/block-content-to-react";
 
 import { Grid, Flow } from "components/Layout";
+import PortableText from "components/PortableText";
 
 import styles from "./TwoRows.module.scss";
 
@@ -19,12 +19,12 @@ const TwoRows = ({ data }) => {
     <Grid>
       <article className={styles.box}>
         <Flow blockContent>
-          <BlockContent blocks={richTextLeft} />
+          <PortableText blocks={richTextLeft} />
         </Flow>
       </article>
       <article className={boxClass}>
         <Flow blockContent className={boxClass}>
-          <BlockContent blocks={richTextRight} />
+          <PortableText blocks={richTextRight} />
         </Flow>
       </article>
     </Grid>
@@ -34,7 +34,7 @@ const TwoRows = ({ data }) => {
 TwoRows.propTypes = {
   data: PropTypes.shape({
     box: PropTypes.object,
-    richText: PropTypes.object
+    richText: PropTypes.array
   }).isRequired
 };
 
