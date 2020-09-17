@@ -13,19 +13,28 @@ const serializers = {
       if (href[0] === "/") {
         return (
           <Link href={href}>
-            <a>{children}</a>
+            <a className="link">{children}</a>
           </Link>
         );
       }
 
       // Email adress
       if (href.includes("mailto:")) {
-        return <a href={href}>{children}</a>;
+        return (
+          <a href={href} className="link">
+            {children}
+          </a>
+        );
       }
 
       // External
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+        >
           {children}
         </a>
       );
