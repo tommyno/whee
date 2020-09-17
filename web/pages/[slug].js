@@ -7,8 +7,9 @@ import Seo from "utils/seo";
 import { Section, Block } from "components/Layout";
 import CmsBlock from "components/CmsBlock";
 import HeaderMedia from "components/HeaderMedia";
+import Form from "components/Form";
 
-const DynamicPage = ({ page }) => {
+const DynamicPage = ({ page, slug }) => {
   const { title, intro, content = [], headerMedia = [] } = page;
 
   return (
@@ -26,6 +27,13 @@ const DynamicPage = ({ page }) => {
         {content.map((item) => (
           <CmsBlock data={item} key={item._key} />
         ))}
+
+        {/* Show form for "Fortroppen" page */}
+        {slug === "fortroppen" && (
+          <Section limitedWidth>
+            <Form />
+          </Section>
+        )}
       </article>
     </>
   );
@@ -53,10 +61,12 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const page = await sanity.fetch(query, { slug: params.slug });
+  const { slug } = params;
+  const page = await sanity.fetch(query, { slug });
   return {
     props: {
-      page
+      page,
+      slug
     }
   };
 };
@@ -67,7 +77,8 @@ DynamicPage.propTypes = {
     intro: PropTypes.string,
     content: PropTypes.array,
     headerMedia: PropTypes.array
-  }).isRequired
+  }).isRequired,
+  slug: PropTypes.string.isRequired
 };
 
 export default DynamicPage;
