@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import Button from "components/Button";
 import Image from "components/Image";
-import { Section, Flow } from "components/Layout";
+import { Section, Flow, Block } from "components/Layout";
 
 const Hero = ({ data = {} }) => {
   const { image = {}, intro = "", button = {} } = data;
@@ -10,12 +10,17 @@ const Hero = ({ data = {} }) => {
     <Section limitedWidth center>
       <Flow>
         <Image imageObject={image} />
-        {intro && <h2>{intro}</h2>}
+
+        {intro && <p className="h2">{intro}</p>}
 
         {button.href && (
-          <Button link={button.href} primary={button.primary}>
-            <span className="h2">{button.text}</span>
-          </Button>
+          <div>
+            <Block top={5}>
+              <Button link={button.href} primary={button.primary}>
+                <span className="text-button">{button.text}</span>
+              </Button>
+            </Block>
+          </div>
         )}
       </Flow>
     </Section>

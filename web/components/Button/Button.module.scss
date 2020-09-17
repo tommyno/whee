@@ -1,28 +1,26 @@
 .button {
-  border: 2px solid var(--color-green);
+  border: 3px solid var(--color-red);
   border-radius: var(--border-radius);
-  color: var(--color-green);
+  background-color: var(--color-peach-light);
+  color: var(--color-red);
   display: inline-block;
-  padding: var(--spacing-3) var(--spacing-6);
+  padding: var(--spacing-3) var(--spacing-7);
   text-decoration: none;
   transition: var(--transition-quick);
-  position: relative;
+  font-weight: bold;
+  cursor: pointer;
 
   &:hover {
-    background: var(--color-green);
-    color: white;
+    background-color: var(--color-cream);
   }
-}
 
-.button-primary {
-  composes: button;
-  background: red;
-  border: none;
-  color: white;
-  padding: var(--spacing-3) var(--spacing-7);
+  &-primary {
+    background-color: var(--color-red);
+    color: var(--color-cream);
 
-  &:hover {
-    background: red;
-    color: white;
+    &:hover {
+      background-color: var(--color-red-light);
+      border-color: var(--color-red-light);
+    }
   }
 }
