@@ -7,6 +7,7 @@ import Video from "components/Video";
 import Card from "components/Card";
 import CardGrid from "components/CardGrid";
 import TwoRows from "components/TwoRows";
+import Hero from "components/Hero";
 
 // Format content from Sanity CMS
 const CmsBlock = ({ data }) => {
@@ -46,6 +47,15 @@ const CmsBlock = ({ data }) => {
     return (
       <Section inner="none">
         <TwoRows data={data} />
+      </Section>
+    );
+  }
+
+  // Two rows
+  if (block === "hero") {
+    return (
+      <Section inner="none">
+        <Hero data={data} />
       </Section>
     );
   }
