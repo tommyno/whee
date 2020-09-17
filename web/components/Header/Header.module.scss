@@ -1,8 +1,25 @@
 .logoWrap {
   width: 136px;
+
+  &:hover {
+    animation: spin 800ms ease-in-out;
+
+    svg path {
+      transition: var(--transition-quick);
+    }
+    svg path {
+      fill: var(--color-red);
+    }
+  }
 }
 
 .navListItem {
   display: inline-block;
   padding-left: var(--spacing-6);
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(1080deg);
+  }
 }
