@@ -50,6 +50,10 @@ $mediumBreakpoint: 767px;
     margin: 0 auto; // Centered horisontally
   }
 
+  &-no-limit {
+    max-width: none;
+  }
+
   // Center text
   &-center {
     text-align: center;

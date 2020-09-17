@@ -5,26 +5,23 @@ import sanity from "settings/client";
 import Seo from "utils/seo";
 
 import { Section, Block } from "components/Layout";
-import Header from "components/Header";
 import CmsBlock from "components/CmsBlock";
 import HeaderMedia from "components/HeaderMedia";
 
 const DynamicPage = ({ page }) => {
-  const { title, intro, content, headerMedia = [] } = page;
+  const { title, intro, content = [], headerMedia = [] } = page;
 
   return (
     <>
       <Seo page={page} />
 
-      <Header />
-
       <article>
         <Section limitedWidth>
           <Block bottom={4}>{title && <h1>{title}</h1>}</Block>
-
           {intro && <p className="h3">{intro}</p>}
         </Section>
-        {headerMedia.length && <HeaderMedia data={headerMedia} />}
+
+        {!!headerMedia.length && <HeaderMedia data={headerMedia} />}
 
         {content.map((item) => (
           <CmsBlock data={item} key={item._key} />

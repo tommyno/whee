@@ -17,9 +17,11 @@ const TwoRows = ({ data }) => {
 
   return (
     <Grid>
-      <Flow blockContent>
-        <BlockContent blocks={richTextLeft} />
-      </Flow>
+      <div className={styles.box}>
+        <Flow blockContent>
+          <BlockContent blocks={richTextLeft} />
+        </Flow>
+      </div>
       <div className={boxClass}>
         <Flow blockContent className={boxClass}>
           <BlockContent blocks={richTextRight} />

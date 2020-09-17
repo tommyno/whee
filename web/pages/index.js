@@ -1,12 +1,8 @@
 import { NextSeo } from "next-seo";
-import Button from "components/Button";
-
-import sanity from "settings/client";
 
 import { Section, Grid, Flow } from "components/Layout";
-import Footer from "components/Footer";
+import Button from "components/Button";
 import Hero from "components/Hero";
-import Header from "components/Header";
 import Card from "components/Card";
 import CardGrid from "components/CardGrid";
 
@@ -14,8 +10,6 @@ const People = () => {
   return (
     <>
       <NextSeo title="Whee!" description="Sykler og sånt" />
-
-      <Header />
 
       <Hero />
 
@@ -56,7 +50,7 @@ const People = () => {
       <Section>
         <Grid>
           <Flow>
-            <h2 className="color--red">Fortroppen</h2>
+            <h2>Fortroppen</h2>
             <p>
               Vår forlansering inkluderer 30 sykler av tysk kvalitet og dette er
               din sjanse til å bli en av de første.
@@ -71,8 +65,6 @@ const People = () => {
           </Flow>
         </Grid>
       </Section>
-
-      <Footer />
     </>
   );
 };

@@ -9,7 +9,7 @@ const Card = ({ data = {} }) => {
     <Grid>
       {image && <Image imageObject={image} />}
       <div>
-        {title && <h3 className="h2 color--red">{title}</h3>}
+        {title && <h3 className="h2">{title}</h3>}
         {text && <p>{text}</p>}
       </div>
     </Grid>
