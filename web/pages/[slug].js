@@ -8,6 +8,8 @@ import { Section, Block } from "components/Layout";
 import CmsBlock from "components/CmsBlock";
 import HeaderMedia from "components/HeaderMedia";
 import Form from "components/Form";
+import Footer from "components/Footer";
+import Header from "components/Header";
 
 const DynamicPage = ({ page, slug }) => {
   const { title, intro, content = [], headerMedia = [] } = page;
@@ -15,6 +17,7 @@ const DynamicPage = ({ page, slug }) => {
   return (
     <>
       <Seo page={page} />
+      <Header />
 
       <article>
         <Section limitedWidth>
@@ -35,6 +38,7 @@ const DynamicPage = ({ page, slug }) => {
           </Section>
         )}
       </article>
+      <Footer />
     </>
   );
 };

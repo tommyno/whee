@@ -1,9 +1,6 @@
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 
-import Footer from "components/Footer";
-import Header from "components/Header";
-
 import "../styles/main.scss";
 
 // eslint-disable-next-line react/prop-types
@@ -43,9 +40,8 @@ function MyApp({ Component, pageProps }) {
           site_name: "Whee!"
         }}
       />
-      <Header />
+
       <Component {...pageProps} />
-      <Footer />
     </>
   );
 }

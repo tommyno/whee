@@ -27,6 +27,10 @@ $mediumBreakpoint: 767px;
   &-color-cream {
     background-color: var(---color-cream);
   }
+  &-color-red {
+    background-color: var(--color-red);
+    color: white;
+  }
 }
 
 .inner {

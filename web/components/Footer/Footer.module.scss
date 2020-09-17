@@ -1,0 +1,17 @@
+.footer {
+  position: relative;
+
+  &-frontpage {
+    margin-top: -330px;
+
+    @media (max-width: 767px) {
+      margin-top: 0;
+    }
+  }
+}
+
+.footerImage {
+  display: block;
+  mix-blend-mode: multiply;
+  margin: 0 auto -70px;
+}
