@@ -1,3 +1,5 @@
+import link from "./link";
+
 export default {
   name: "richText",
   title: "Brødtekst",
@@ -22,18 +24,7 @@ export default {
             name: "link",
             type: "object",
             title: "Ekstern lenke",
-            fields: [
-              {
-                name: "href",
-                type: "url",
-                title: "URL",
-                validation: (Rule) =>
-                  Rule.uri({
-                    scheme: ["http", "https", "mailto", "tel"],
-                    allowRelative: true,
-                  }),
-              },
-            ],
+            fields: [link],
           },
         ],
       },
