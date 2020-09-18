@@ -1,14 +1,19 @@
 .logoWrap {
-  width: 136px;
+  width: 150px;
   will-change: transform;
 
   svg path {
     transition: var(--transition);
   }
 
-  &:hover {
+  &-animated {
     animation: spin 800ms ease-in-out;
+    svg path {
+      fill: var(--color-red);
+    }
+  }
 
+  &:hover {
     svg path {
       fill: var(--color-red);
     }
