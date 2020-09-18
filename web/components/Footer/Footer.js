@@ -74,34 +74,33 @@ const Footer = ({ frontpage }) => {
             <p>
               <a href="tel:22120068">22 12 00 68</a>
             </p>
-            <p>
-              <div className={styles.some}>
-                <a
-                  href="https://www.instagram.com/wheebike/"
-                  title="Whee! på Instagram"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src="/images/instagram.png" alt="Instagram ikon" />
-                </a>
-                <a
-                  href="https://www.facebook.com/wheebike/"
-                  title="Whee! på Facebook"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src="/images/facebook.png" alt="Facebook ikon" />
-                </a>
-                <a
-                  href="https://www.youtube.com/c/wheebike"
-                  title="Whee! på YouTube"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src="/images/youtube.png" alt="Youtube ikon" />
-                </a>
-              </div>
-            </p>
+
+            <div className={styles.some}>
+              <a
+                href="https://www.instagram.com/wheebike/"
+                title="Whee! på Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/instagram.png" alt="Instagram ikon" />
+              </a>
+              <a
+                href="https://www.facebook.com/wheebike/"
+                title="Whee! på Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/facebook.png" alt="Facebook ikon" />
+              </a>
+              <a
+                href="https://www.youtube.com/c/wheebike"
+                title="Whee! på YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/youtube.png" alt="Youtube ikon" />
+              </a>
+            </div>
           </Flow>
         </Grid>
       </Section>

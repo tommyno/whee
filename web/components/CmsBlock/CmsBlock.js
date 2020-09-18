@@ -73,6 +73,27 @@ const CmsBlock = ({ data }) => {
     );
   }
 
+  // FAQ
+  if (block === "faq") {
+    const { faq = [], text = "" } = data;
+
+    return (
+      <Section inner="none" limitedWidth>
+        <Flow>
+          {text && <h2>{text}</h2>}
+          {faq.map((item) => {
+            return (
+              <article key={item._key}>
+                <h3>{item.title}</h3>
+                <PortableText blocks={item.richText.richText} />
+              </article>
+            );
+          })}
+        </Flow>
+      </Section>
+    );
+  }
+
   console.error("No presentation configured for block type:", block);
   return null;
 };

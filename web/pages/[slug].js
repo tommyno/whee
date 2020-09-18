@@ -67,7 +67,10 @@ const queryAllPages = `*[_type == "page" && slug.current != '']
 const query = `*[_type == "page" && slug.current == $slug]{
 	title,
   intro,
-  content,
+  content[]{
+    ...,
+    "faq": title, faq[]->{_id, title, richText, "category": category[]->{title}}
+  },
   headerMedia,
   seo
 }[0]`;

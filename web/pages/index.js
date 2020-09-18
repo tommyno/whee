@@ -23,7 +23,13 @@ const Frontpage = ({ page }) => {
 };
 
 // Get data for this particular page based on slug
-const query = `*[_type == "frontpage"][0]`;
+const query = `*[_type == "frontpage"][0]{
+  content[]{
+    ...,
+    "faq": title, faq[]->{_id, title, richText, "category": category[]->{title}}
+  },
+  seo
+}`;
 
 export const getStaticProps = async () => {
   const page = await sanity.fetch(query);
