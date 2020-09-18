@@ -34,17 +34,17 @@ const Footer = ({ frontpage }) => {
             <Flow>
               <p>
                 <Link href="/sykkelen">
-                  <a>Sykkelen</a>
+                  <a className="link-underline">Sykkelen</a>
                 </Link>
               </p>
               <p>
                 <Link href="/tjenesten">
-                  <a>Tjenesten</a>
+                  <a className="link-underline">Tjenesten</a>
                 </Link>
               </p>
               <p>
                 <Link href="/fortroppen">
-                  <a>Sett meg på venteliste</a>
+                  <a className="link-underline">Sett meg på venteliste</a>
                 </Link>
               </p>
             </Flow>
@@ -54,12 +54,12 @@ const Footer = ({ frontpage }) => {
             <Flow>
               <p>
                 <Link href="/hvem-er-whee">
-                  <a>Hvem er Whee!?</a>
+                  <a className="link-underline">Hvem er Whee!?</a>
                 </Link>
               </p>
               <p>
                 <Link href="/personvern-og-cookies">
-                  <a>Personvern og cookies</a>
+                  <a className="link-underline">Personvern og cookies</a>
                 </Link>
               </p>
             </Flow>
@@ -67,12 +67,39 @@ const Footer = ({ frontpage }) => {
 
           <Flow>
             <p>
-              <a href="mailto:hei@whee.no">hei@whee.no</a>
+              <a href="mailto:hei@whee.no" className="link-underline">
+                hei@whee.no
+              </a>
             </p>
             <p>
-              <a href="tel:22222222">22 22 22 22</a>
+              <a href="tel:22120068">22 12 00 68</a>
             </p>
-            <p>[Insta], [Youtube], [Facebook]</p>
+            <p>
+              <a
+                href="https://www.instagram.com/wheebike/"
+                title="Whee! på Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/instagram.png" alt="Instagram ikon" />
+              </a>
+              <a
+                href="https://www.facebook.com/wheebike/"
+                title="Whee! på Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/facebook.png" alt="Facebook ikon" />
+              </a>
+              <a
+                href="https://www.youtube.com/c/wheebike"
+                title="Whee! på YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/youtube.png" alt="Youtube ikon" />
+              </a>
+            </p>
           </Flow>
         </Grid>
       </Section>

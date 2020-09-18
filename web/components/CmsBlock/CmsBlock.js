@@ -63,7 +63,7 @@ const CmsBlock = ({ data }) => {
   // List
   if (block === "list") {
     return (
-      <Section inner="none">
+      <Section inner="none" limitedWidth>
         <CardGrid reverse={data.alternating}>
           {data.listItem.map((item) => (
             <Card data={item} key={item._key} />

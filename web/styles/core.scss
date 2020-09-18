@@ -28,6 +28,14 @@ a {
   }
 }
 
+.link-underline {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 // SVG
 svg {
   max-width: 100%;
