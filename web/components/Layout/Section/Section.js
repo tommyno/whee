@@ -33,7 +33,7 @@ const Section = ({
 };
 
 Section.defaultProps = {
-  outer: "medium", // "small", "medium", "large"
+  outer: "medium", // "xsmall", "small", "medium", "large"
   inner: "", // "small", "medium", "large"
   color: "", // "cream", "peach", "red"
   limitedWidth: false,

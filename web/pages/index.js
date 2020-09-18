@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import sanity from "settings/client";
 
 import Seo from "utils/seo";
@@ -32,4 +34,9 @@ export const getStaticProps = async () => {
   };
 };
 
+Frontpage.propTypes = {
+  page: PropTypes.shape({
+    content: PropTypes.array
+  }).isRequired
+};
 export default Frontpage;

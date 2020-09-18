@@ -6,6 +6,9 @@ $mediumBreakpoint: 767px;
   padding: 0 var(--page-gutter);
 
   // Vertical margins
+  &-size-xsmall {
+    margin: var(--spacing-3) 0;
+  }
   &-size-small {
     margin: var(--spacing-5) 0;
   }

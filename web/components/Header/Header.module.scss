@@ -1,3 +1,11 @@
+.header {
+  padding: 1px 0; // Needed to give space for section margins
+  position: sticky;
+  top: 0;
+  background: var(--color-cream);
+  // box-shadow: 0 -10px 15px var(--color-midnight);
+}
+
 .logoWrap {
   width: 150px;
   will-change: transform;

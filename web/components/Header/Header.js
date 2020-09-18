@@ -27,25 +27,29 @@ const Header = () => {
   };
 
   return (
-    <Section outer="small" noLimit>
-      <Flex justify="spaceBetween">
-        <div className={logoClass} onMouseEnter={() => startSpin()}>
-          <Link href="/">
-            <a>
-              <Logo />
-            </a>
-          </Link>
-        </div>
-        <nav>
-          <Link href="/sykkelen">
-            <a className={styles.navListItem}>Sykkelen</a>
-          </Link>
-          <Link href="/tjenesten">
-            <a className={styles.navListItem}>Tjenesten</a>
-          </Link>
-        </nav>
-      </Flex>
-    </Section>
+    <>
+      <header className={styles.header}>
+        <Section outer="xsmall" noLimit>
+          <Flex justify="spaceBetween">
+            <div className={logoClass} onMouseEnter={() => startSpin()}>
+              <Link href="/">
+                <a>
+                  <Logo />
+                </a>
+              </Link>
+            </div>
+            <nav>
+              <Link href="/sykkelen">
+                <a className={styles.navListItem}>Sykkelen</a>
+              </Link>
+              <Link href="/tjenesten">
+                <a className={styles.navListItem}>Tjenesten</a>
+              </Link>
+            </nav>
+          </Flex>
+        </Section>
+      </header>
+    </>
   );
 };
 
