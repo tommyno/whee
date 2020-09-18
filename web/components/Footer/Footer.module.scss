@@ -15,3 +15,11 @@
   mix-blend-mode: multiply;
   margin: 0 auto -70px;
 }
+
+.some a {
+  margin-right: var(--spacing-4);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
