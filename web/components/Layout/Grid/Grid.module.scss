@@ -12,4 +12,11 @@
 .gridItem {
   flex: 1;
   padding: calc(var(--grid-gutter) * 1) 0 0 calc(var(--grid-gutter) * 1);
+
+  &-verticalCenter {
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+    }
+  }
 }

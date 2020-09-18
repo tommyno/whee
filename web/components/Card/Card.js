@@ -6,7 +6,7 @@ import Image from "components/Image";
 const Card = ({ data = {} }) => {
   const { image, title, text } = data;
   return (
-    <Grid>
+    <Grid verticalCenter>
       {image && <Image imageObject={image} />}
       <div>
         {title && <h3 className="h2">{title}</h3>}
