@@ -35,7 +35,7 @@ const Section = ({
 Section.defaultProps = {
   outer: "medium", // "small", "medium", "large"
   inner: "", // "small", "medium", "large"
-  color: "", // "cream", "peach"
+  color: "", // "cream", "peach", "red"
   limitedWidth: false,
   noLimit: false,
   center: false

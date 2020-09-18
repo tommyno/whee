@@ -21,11 +21,27 @@ const DynamicPage = ({ page, slug }) => {
 
       <article>
         <Section limitedWidth>
-          <Block bottom={4}>{title && <h1>{title}</h1>}</Block>
-          {intro && <p className="h2">{intro}</p>}
+          <Block bottom={4}>
+            {title && (
+              <h1 data-animate-in data-animation-order="1">
+                {title}
+              </h1>
+            )}
+          </Block>
+          {intro && (
+            <p className="h2" data-animate-in data-animation-order="2">
+              {intro}
+            </p>
+          )}
         </Section>
 
-        {!!headerMedia.length && <HeaderMedia data={headerMedia} />}
+        {!!headerMedia.length && (
+          <HeaderMedia
+            data={headerMedia}
+            data-animate-in
+            data-animation-order="3"
+          />
+        )}
 
         {content.map((item) => (
           <CmsBlock data={item} key={item._key} />

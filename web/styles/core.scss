@@ -36,3 +36,48 @@ svg {
 .color--red {
   color: var(--color-red);
 }
+
+// Animations
+/* Animations */
+@keyframes animate-in-from-bottom {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation helpers */
+
+[data-animate-in] {
+  animation: animate-in-from-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+}
+
+[data-animation-order="1"] {
+  animation-delay: 0.15s;
+}
+[data-animation-order="2"] {
+  animation-delay: 0.35s;
+}
+[data-animation-order="3"] {
+  animation-delay: 0.55s;
+}
+[data-animation-order="4"] {
+  animation-delay: 0.25s;
+}
+[data-animation-order="5"] {
+  animation-delay: 0.3s;
+}
+[data-animation-order="6"] {
+  animation-delay: 0.35s;
+}
+[data-animation-order="7"] {
+  animation-delay: 0.4s;
+}
+[data-animation-order="8"] {
+  animation-delay: 0.45s;
+}

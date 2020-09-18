@@ -3,11 +3,11 @@ import imageUrlFor from "utils/imageUrlFor";
 
 import styles from "./Image.module.scss";
 
-const Image = ({ imageObject }) => {
+const Image = ({ imageObject, ...props }) => {
   const { caption = "", altText = "" } = imageObject;
 
   return (
-    <div className={styles.imageWrap}>
+    <div className={styles.imageWrap} {...props}>
       {/* TODO: add .fit("max") to disable upscaling of images */}
       <img src={imageUrlFor(imageObject).width(1440).url()} alt={altText} />
       {caption && (

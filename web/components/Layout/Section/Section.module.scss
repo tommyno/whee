@@ -18,6 +18,10 @@ $mediumBreakpoint: 767px;
   }
   &-size-large {
     margin: var(--spacing-11) 0;
+
+    @media (max-width: $mediumBreakpoint) {
+      margin: var(--spacing-8) 0;
+    }
   }
 
   // Background colors
