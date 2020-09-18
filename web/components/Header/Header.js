@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 import Link from "next/link";
-import classNames from "classnames";
 
 import { Section, Flex } from "components/Layout";
 
@@ -9,29 +7,12 @@ import Logo from "components/Logo";
 import styles from "./Header.module.scss";
 
 const Header = () => {
-  const [spinLogo, setSpinLogo] = useState(false);
-
-  const logoClass = classNames({
-    [styles.logoWrap]: true,
-    [styles[`logoWrap-animated`]]: spinLogo
-  });
-
-  const startSpin = () => {
-    if (spinLogo) {
-      return;
-    }
-    setSpinLogo(true);
-    setTimeout(() => {
-      setSpinLogo(false);
-    }, 1000);
-  };
-
   return (
     <>
       <header className={styles.header}>
         <Section outer="xsmall" noLimit>
           <Flex justify="spaceBetween">
-            <div className={logoClass} onMouseEnter={() => startSpin()}>
+            <div className={styles.logoWrap}>
               <Link href="/">
                 <a>
                   <Logo />

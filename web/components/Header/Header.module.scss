@@ -3,6 +3,7 @@
   position: sticky;
   top: 0;
   background: var(--color-cream);
+  z-index: 1;
   // box-shadow: 0 -10px 15px var(--color-midnight);
 }
 
@@ -12,13 +13,6 @@
 
   svg path {
     transition: var(--transition);
-  }
-
-  &-animated {
-    animation: spin 800ms ease-in-out;
-    svg path {
-      fill: var(--color-red);
-    }
   }
 
   &:hover {
