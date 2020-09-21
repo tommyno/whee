@@ -56,7 +56,7 @@ const Form = () => {
           Nå står du på venteliste og vil motta en e-post med kønummer og mer
           informasjon.
         </p>
-        <p>[Hyggelig bilde her]</p>
+        <img src="/images/thank-you-image.png" alt="Takk for din påmelding!" />
       </Flow>
     );
   }
