@@ -119,7 +119,7 @@ const MobileMenu = () => {
                   </Link>
                 </div>
                 <Block top={6}>
-                  <Button link="/fortroppen" menu>
+                  <Button link="/forhandsbestill" menu>
                     <span className="text-button">Forhåndsbestill nå!</span>
                   </Button>
                 </Block>

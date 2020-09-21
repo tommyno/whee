@@ -43,7 +43,7 @@ const Footer = ({ frontpage }) => {
                 </Link>
               </p>
               <p>
-                <Link href="/fortroppen">
+                <Link href="/forhandsbestill">
                   <a className="link-underline">Forhåndsbestill nå</a>
                 </Link>
               </p>
