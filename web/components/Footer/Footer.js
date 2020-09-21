@@ -2,6 +2,7 @@ import Link from "next/link";
 import classNames from "classnames";
 
 import { Section, Grid, Flow } from "components/Layout";
+import Button from "components/Button";
 
 import styles from "./Footer.module.scss";
 
@@ -43,9 +44,9 @@ const Footer = ({ frontpage }) => {
                 </Link>
               </p>
               <p>
-                <Link href="/forhandsbestill">
-                  <a className="link-underline">Forhåndsbestill nå</a>
-                </Link>
+                <Button link="/forhandsbestill" menu>
+                  Forhåndsbestill nå
+                </Button>
               </p>
             </Flow>
           </nav>
