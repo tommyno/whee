@@ -21,7 +21,7 @@ const Hero = ({ data = {} }) => {
 
       {button.href && (
         <div>
-          <Block top={5}>
+          <Block top={6}>
             <Button link={button.href} primary={button.primary}>
               <span className="text-button">{button.text}</span>
             </Button>
