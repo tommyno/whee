@@ -36,6 +36,13 @@ const DynamicPage = ({ page, slug }) => {
           )}
         </Section>
 
+        {/* Show form for "Fortroppen" page */}
+        {slug === "fortroppen" && (
+          <Section limitedWidth>
+            <Form />
+          </Section>
+        )}
+
         {!!headerMedia.length && (
           <HeaderMedia
             data={headerMedia}
@@ -47,13 +54,6 @@ const DynamicPage = ({ page, slug }) => {
         {content.map((item) => (
           <CmsBlock data={item} key={item._key} />
         ))}
-
-        {/* Show form for "Fortroppen" page */}
-        {slug === "fortroppen" && (
-          <Section limitedWidth>
-            <Form />
-          </Section>
-        )}
       </article>
 
       {slug !== "straksklar" && <Footer />}
