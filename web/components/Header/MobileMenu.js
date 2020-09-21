@@ -96,8 +96,8 @@ const MobileMenu = () => {
       {/* Show open mobile menu */}
       {isMobileMenuOpen && (
         <>
-          <CloseButton />
           <div className={styles.headerMobile}>
+            <CloseButton />
             <nav className={styles.mobileFlex}>
               <div className={styles.logoWrapMobile}>
                 <Link href="/">
