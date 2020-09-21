@@ -33,6 +33,7 @@ h1,
 .text-large {
   @include fluid-type($minWidth, $maxWidth, 36px, 75px);
   font-weight: bold;
+  line-height: 1.2;
 }
 
 h2,

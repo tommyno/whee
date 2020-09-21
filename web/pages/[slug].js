@@ -22,7 +22,7 @@ const DynamicPage = ({ page, slug }) => {
 
       <article>
         <Section limitedWidth>
-          <Block bottom={4}>
+          <Block bottom={7}>
             {title && (
               <h1 data-animate-in data-animation-order="1">
                 {title}
