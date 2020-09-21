@@ -10,9 +10,9 @@ const Seo = ({ page }) => {
 
   const defaultImage = [
     {
-      url: "/images/example-illustration.png", // TODO: Replace this with real image
-      width: 956,
-      height: 680,
+      url: "/images/some-default-image.png",
+      width: 2000,
+      height: 1739,
       alt: "Whee!"
     }
   ];
