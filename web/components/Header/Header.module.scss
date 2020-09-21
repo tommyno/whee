@@ -30,6 +30,7 @@
 .navListItem {
   display: inline-block;
   padding-left: var(--spacing-6);
+  font-weight: bold;
 }
 
 // Mobile menu
@@ -73,6 +74,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-weight: bold;
 }
 
 .some a {
@@ -93,4 +95,5 @@
 .menuButtonText {
   margin-right: 12px;
   display: inline-block;
+  font-weight: bold;
 }
