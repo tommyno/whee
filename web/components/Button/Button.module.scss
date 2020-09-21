@@ -9,7 +9,8 @@
   transition: var(--transition-quick);
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:disabled {
     background-color: var(--color-cream);
     text-decoration: none;
   }
@@ -18,7 +19,8 @@
     background-color: var(--color-red);
     color: var(--color-cream);
 
-    &:hover {
+    &:hover,
+    &:disabled {
       background-color: var(--color-red-light);
       border-color: var(--color-red-light);
     }

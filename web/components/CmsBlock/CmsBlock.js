@@ -54,7 +54,7 @@ const CmsBlock = ({ data }) => {
   // Two rows
   if (block === "hero") {
     return (
-      <Section inner="none">
+      <Section inner="none" limitedWidth center>
         <Hero data={data} />
       </Section>
     );

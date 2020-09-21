@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import styles from "./Button.module.scss";
 
-const Button = ({ type, link, primary, children }) => {
+const Button = ({ type, link, primary, disabled, children }) => {
   const buttonClass = classNames({
     [styles.button]: true,
     [styles[`button-primary`]]: primary
@@ -13,7 +13,7 @@ const Button = ({ type, link, primary, children }) => {
   // Submit button
   if (type === "submit") {
     return (
-      <button type="submit" className={buttonClass}>
+      <button type="submit" className={buttonClass} disabled={disabled}>
         {children}
       </button>
     );
@@ -30,13 +30,15 @@ const Button = ({ type, link, primary, children }) => {
 Button.defaultProps = {
   type: "",
   link: "",
-  primary: false
+  primary: false,
+  disabled: false
 };
 
 Button.propTypes = {
   type: PropTypes.string,
   link: PropTypes.string,
   primary: PropTypes.bool,
+  disabled: PropTypes.bool,
   children: PropTypes.node.isRequired
 };
 

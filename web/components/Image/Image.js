@@ -1,21 +1,21 @@
 import PropTypes from "prop-types";
 import imageUrlFor from "utils/imageUrlFor";
 
-import styles from "./Image.module.scss";
+import { Block } from "components/Layout";
 
 const Image = ({ imageObject, ...props }) => {
   const { caption = "", altText = "" } = imageObject;
 
   return (
-    <div className={styles.imageWrap} {...props}>
+    <figure {...props}>
       {/* TODO: add .fit("max") to disable upscaling of images */}
       <img src={imageUrlFor(imageObject).width(1440).url()} alt={altText} />
       {caption && (
-        <div className={styles.caption}>
-          <p>{caption}</p>
-        </div>
+        <Block top={3}>
+          <figcaption className="text-caption">{caption}</figcaption>
+        </Block>
       )}
-    </div>
+    </figure>
   );
 };
 

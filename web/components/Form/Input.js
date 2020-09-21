@@ -1,12 +1,31 @@
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import styles from "./Input.module.scss";
 
-const Input = ({ name, type, placeholder, label, disabled, register }) => {
+const Input = ({
+  name,
+  type,
+  placeholder,
+  label,
+  disabled,
+  register,
+  isError
+}) => {
+  const inputClass = classNames({
+    [styles.input]: true,
+    [styles[`input-error`]]: isError
+  });
+
+  const labelClass = classNames({
+    [styles.label]: true,
+    [styles[`label-error`]]: isError
+  });
+
   return (
     <div className={styles.inputWrap}>
       {label && (
-        <label htmlFor={name} className={styles.label}>
+        <label htmlFor={name} className={labelClass}>
           {label}
         </label>
       )}
@@ -17,7 +36,7 @@ const Input = ({ name, type, placeholder, label, disabled, register }) => {
         id={name}
         disabled={disabled}
         ref={register}
-        className={styles.input}
+        className={inputClass}
       />
     </div>
   );
@@ -27,7 +46,8 @@ Input.defaultProps = {
   type: "text",
   placeholder: "",
   label: "",
-  disabled: false
+  disabled: false,
+  isError: false
 };
 
 Input.propTypes = {
@@ -36,6 +56,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
+  isError: PropTypes.bool,
   register: PropTypes.func.isRequired
 };
 
