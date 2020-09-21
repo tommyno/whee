@@ -3,7 +3,7 @@ $mediumBreakpoint: 767px;
 
 .outer {
   // Default horisontal padding
-  padding: 0 var(--page-gutter);
+  padding: 1px var(--page-gutter); // 1px = fix collapsing margins
 
   // Vertical margins
   &-size-none {
@@ -46,7 +46,6 @@ $mediumBreakpoint: 767px;
 .inner {
   margin: 0 auto;
   max-width: var(--page-width-max);
-  overflow: auto; // Fix collapsing margins?
 
   // Vertical padding
   &-size-small {
