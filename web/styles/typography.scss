@@ -60,3 +60,8 @@ h3,
 .text-caption {
   @include fluid-type($minWidth, 1000px, 16px, 20px);
 }
+
+.highlight {
+  color: var(--color-red);
+  font-weight: bold;
+}

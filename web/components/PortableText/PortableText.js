@@ -38,6 +38,10 @@ const serializers = {
           {children}
         </a>
       );
+    },
+    highlight: ({ children }) => {
+      // External
+      return <span className="highlight">{children}</span>;
     }
   }
 };
