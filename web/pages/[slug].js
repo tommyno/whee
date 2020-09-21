@@ -37,7 +37,7 @@ const DynamicPage = ({ page, slug }) => {
         </Section>
 
         {/* Show form for "Fortroppen" page */}
-        {slug === "fortroppen" && (
+        {slug === "forhandsbestill" && (
           <Section limitedWidth>
             <Form />
           </Section>
