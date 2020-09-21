@@ -5,6 +5,10 @@
   background: var(--color-cream);
   z-index: 1;
   // box-shadow: 0 -10px 15px var(--color-midnight);
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .logoWrap {
@@ -32,6 +36,9 @@
 .headerMobileWrap {
   padding: var(--page-gutter);
   position: relative;
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .headerMobile {

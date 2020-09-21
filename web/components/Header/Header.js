@@ -35,7 +35,7 @@ const DesktopMenu = () => {
 const Header = () => {
   return (
     <>
-      {/* <DesktopMenu /> */}
+      <DesktopMenu />
       <MobileMenu />
     </>
   );
