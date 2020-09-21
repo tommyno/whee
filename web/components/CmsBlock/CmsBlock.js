@@ -73,6 +73,15 @@ const CmsBlock = ({ data }) => {
     );
   }
 
+  // Divider
+  if (block === "divider") {
+    return (
+      <Section inner="none" outer="large" limitedWidth>
+        <hr />
+      </Section>
+    );
+  }
+
   // FAQ
   if (block === "faq") {
     const { faq = [], text = "" } = data;

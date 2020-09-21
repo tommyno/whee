@@ -46,6 +46,12 @@ svg {
   color: var(--color-red);
 }
 
+// Divider
+hr {
+  height: 18px;
+  background: var(--color-green);
+}
+
 // Animations
 /* Animations */
 @keyframes animate-in-from-bottom {

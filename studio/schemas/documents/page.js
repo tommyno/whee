@@ -10,6 +10,7 @@ import richText from "../parts/richText";
 import twoRows from "../parts/twoRows";
 import hero from "../parts/hero";
 import faq from "../parts/faq";
+import divider from "../parts/divider";
 
 export default {
   name: "page",
@@ -24,7 +25,7 @@ export default {
       name: "content",
       type: "array",
       title: "Innholdsseksjoner",
-      of: [richText, video, image, list, twoRows, hero, faq],
+      of: [richText, video, image, list, twoRows, hero, faq, divider],
     },
     seo,
   ],
