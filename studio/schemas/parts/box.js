@@ -11,7 +11,7 @@ export default {
       title: "Bakgrunnsfarge på boks",
       type: "string",
       options: {
-        list: ["peach", "yellow", "green"],
+        list: ["ingen", "peach", "yellow", "green"],
       },
     },
   ],

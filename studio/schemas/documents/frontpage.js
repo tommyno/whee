@@ -8,6 +8,7 @@ import twoRows from "../parts/twoRows";
 import hero from "../parts/hero";
 import faq from "../parts/faq";
 import divider from "../parts/divider";
+import box from "../parts/box";
 
 export default {
   name: "frontpage",
@@ -19,7 +20,7 @@ export default {
       name: "content",
       type: "array",
       title: "Innholdsseksjoner",
-      of: [richText, video, image, list, twoRows, hero, faq, divider],
+      of: [richText, video, image, list, twoRows, hero, faq, divider, box],
     },
     seo,
   ],

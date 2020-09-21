@@ -1,0 +1,19 @@
+.box {
+  padding: var(--spacing-6) var(--spacing-7);
+}
+
+.boxBgColor-yellow {
+  background: var(--color-yellow);
+}
+
+.boxBgColor-peach {
+  background: var(--color-peach);
+}
+
+.boxBgColor-green {
+  background: var(--color-green);
+  color: white;
+  a {
+    color: white;
+  }
+}

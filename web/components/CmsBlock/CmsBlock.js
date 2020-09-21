@@ -8,6 +8,7 @@ import Card from "components/Card";
 import CardGrid from "components/CardGrid";
 import TwoRows from "components/TwoRows";
 import Hero from "components/Hero";
+import Box from "components/Box";
 
 // Format content from Sanity CMS
 const CmsBlock = ({ data }) => {
@@ -51,7 +52,16 @@ const CmsBlock = ({ data }) => {
     );
   }
 
-  // Two rows
+  // Box
+  if (block === "box") {
+    return (
+      <Section inner="none" limitedWidth center>
+        <Box data={data} />
+      </Section>
+    );
+  }
+
+  // Hero
   if (block === "hero") {
     return (
       <Section inner="none" limitedWidth center>
