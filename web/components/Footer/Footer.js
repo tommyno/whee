@@ -44,7 +44,7 @@ const Footer = ({ frontpage }) => {
               </p>
               <p>
                 <Link href="/fortroppen">
-                  <a className="link-underline">Sett meg på venteliste</a>
+                  <a className="link-underline">Forhåndsbestill nå</a>
                 </Link>
               </p>
             </Flow>
