@@ -1,10 +1,26 @@
 import Head from "next/head";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
+
+import * as gtag from "utils/gtag";
 
 import "../styles/main.scss";
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
+  // Google Analytics tracking
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <Head>
