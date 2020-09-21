@@ -17,7 +17,8 @@ const DynamicPage = ({ page, slug }) => {
   return (
     <>
       <Seo page={page} />
-      <Header />
+
+      {slug !== "straksklar" && <Header />}
 
       <article>
         <Section limitedWidth>
@@ -54,7 +55,8 @@ const DynamicPage = ({ page, slug }) => {
           </Section>
         )}
       </article>
-      <Footer />
+
+      {slug !== "straksklar" && <Footer />}
     </>
   );
 };
