@@ -3,13 +3,16 @@ import imageUrlFor from "utils/imageUrlFor";
 
 import { Block } from "components/Layout";
 
-const Image = ({ imageObject, ...props }) => {
+const Image = ({ imageObject, maxImageWidth, ...props }) => {
   const { caption = "", altText = "" } = imageObject;
 
   return (
     <figure {...props}>
       {/* TODO: add .fit("max") to disable upscaling of images */}
-      <img src={imageUrlFor(imageObject).width(1440).url()} alt={altText} />
+      <img
+        src={imageUrlFor(imageObject).width(maxImageWidth).fit("max").url()}
+        alt={altText}
+      />
       {caption && (
         <Block top={3}>
           <figcaption className="text-caption">{caption}</figcaption>
@@ -19,11 +22,16 @@ const Image = ({ imageObject, ...props }) => {
   );
 };
 
+Image.defaultProps = {
+  maxImageWidth: "1340"
+};
+
 Image.propTypes = {
   imageObject: PropTypes.shape({
     caption: PropTypes.string,
     altText: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  maxImageWidth: PropTypes.string
 };
 
 export default Image;

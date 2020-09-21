@@ -7,7 +7,7 @@ const Card = ({ data = {} }) => {
   const { image, title, text } = data;
   return (
     <Grid verticalCenter>
-      {image && <Image imageObject={image} />}
+      {image && <Image imageObject={image} maxImageWidth="670" />}
       <div>
         {title && <h3 className="h2">{title}</h3>}
         {text && (

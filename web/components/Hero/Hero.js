@@ -9,7 +9,7 @@ const Hero = ({ data = {} }) => {
   const { image = {}, intro = "", button = {}, richText = {} } = data;
   return (
     <Flow>
-      <Image imageObject={image} />
+      <Image imageObject={image} maxImageWidth="800" />
 
       {intro && <p className="h2">{intro}</p>}
 
