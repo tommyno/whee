@@ -2,9 +2,10 @@
   padding: 1px 0; // Needed to give space for section margins
   // position: sticky;
   // top: 0;
+  // box-shadow: 0 -10px 15px var(--color-midnight);
   background: var(--color-cream);
   z-index: 1;
-  // box-shadow: 0 -10px 15px var(--color-midnight);
+  line-height: 0.7; // Trying to align bottom of links and logo
 
   @media (max-width: 767px) {
     display: none;

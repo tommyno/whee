@@ -10,7 +10,7 @@ const DesktopMenu = () => {
   return (
     <header className={styles.header}>
       <Section outer="xsmall" noLimit>
-        <Flex justify="spaceBetween">
+        <Flex justify="spaceBetween" align="end">
           <div className={styles.logoWrap}>
             <Link href="/">
               <a>
