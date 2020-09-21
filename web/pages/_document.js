@@ -3,6 +3,7 @@ import { GA_TRACKING_ID } from "utils/gtag";
 
 class MyDocument extends Document {
   render() {
+    // eslint-disable-next-line no-return-assign
     return (
       <Html lang="no">
         <Head>
@@ -24,6 +25,7 @@ class MyDocument extends Document {
           `
             }}
           />
+          <script src="/scripts/bilkollektivet.js" />
         </Head>
         <body>
           <Main />
