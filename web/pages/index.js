@@ -7,13 +7,19 @@ import Seo from "utils/seo";
 import Footer from "components/Footer";
 import Header from "components/Header";
 import CmsBlock from "components/CmsBlock";
+import Hero from "components/Hero";
+import { Section } from "components/Layout";
 
 const Frontpage = ({ page }) => {
-  const { content = [] } = page;
+  const { frontpageHero = {}, content = [] } = page;
+
   return (
     <>
       <Seo page={page} />
       <Header />
+      <Section inner="none" outer="xsmall" limitedWidth center>
+        <Hero data={frontpageHero} />
+      </Section>
       {content.map((item) => (
         <CmsBlock data={item} key={item._key} />
       ))}
@@ -24,6 +30,7 @@ const Frontpage = ({ page }) => {
 
 // Get data for this particular page based on slug
 const query = `*[_type == "frontpage"][0]{
+  frontpageHero,
   content[]{
     ...,
     "faq": title, faq[]->{_id, title, richText, "category": category[]->{title}}
@@ -42,7 +49,8 @@ export const getStaticProps = async () => {
 
 Frontpage.propTypes = {
   page: PropTypes.shape({
-    content: PropTypes.array
+    content: PropTypes.array,
+    frontpageHero: PropTypes.object
   }).isRequired
 };
 export default Frontpage;
