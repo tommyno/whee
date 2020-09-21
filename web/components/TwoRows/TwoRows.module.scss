@@ -1,5 +1,17 @@
-.box {
-  padding: var(--spacing-6) var(--spacing-7);
+.boxLeft {
+  padding: var(--spacing-6) var(--spacing-8);
+
+  @media (max-width: 767px) {
+    padding: 0;
+    margin-bottom: var(--spacing-6);
+  }
+}
+
+.boxRight {
+  padding: var(--spacing-6) var(--spacing-8) var(--spacing-7) var(--spacing-8);
+  @media (max-width: 767px) {
+    padding: var(--spacing-4) var(--spacing-6) var(--spacing-6) var(--spacing-6);
+  }
 }
 
 .boxBgColor-yellow {

@@ -11,13 +11,13 @@ const TwoRows = ({ data }) => {
   const { bgColor = "", richText: richTextRight } = box;
 
   const boxClass = classNames({
-    [styles.box]: true,
+    [styles.boxRight]: true,
     [styles[`boxBgColor-${bgColor}`]]: bgColor
   });
 
   return (
     <Grid>
-      <article className={styles.box}>
+      <article className={styles.boxLeft}>
         <Flow blockContent>
           <PortableText blocks={richTextLeft} />
         </Flow>
