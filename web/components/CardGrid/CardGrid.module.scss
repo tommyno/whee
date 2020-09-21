@@ -2,6 +2,8 @@
   margin-bottom: var(--spacing-8);
 }
 
-.reverse > *:nth-child(even) {
-  flex-flow: row-reverse;
+@media (min-width: 768px) {
+  .reverse > *:nth-child(even) {
+    flex-flow: row-reverse;
+  }
 }
