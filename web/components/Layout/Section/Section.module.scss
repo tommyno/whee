@@ -46,6 +46,7 @@ $mediumBreakpoint: 767px;
 .inner {
   margin: 0 auto;
   max-width: var(--page-width-max);
+  overflow: auto; // Fix collapsing margins?
 
   // Vertical padding
   &-size-small {
