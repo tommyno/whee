@@ -22,11 +22,13 @@ const TwoRows = ({ data }) => {
           <PortableText blocks={richTextLeft} />
         </Flow>
       </article>
-      <article className={boxClass}>
-        <Flow blockContent className={boxClass}>
-          <PortableText blocks={richTextRight} />
-        </Flow>
-      </article>
+      {!!richTextRight && (
+        <article className={boxClass}>
+          <Flow blockContent className={boxClass}>
+            <PortableText blocks={richTextRight} />
+          </Flow>
+        </article>
+      )}
     </Grid>
   );
 };
