@@ -1,5 +1,9 @@
 .footer {
   position: relative;
+
+  @media (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .footerImage {

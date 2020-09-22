@@ -39,16 +39,6 @@ const Footer = ({ frontpage }) => {
             <nav>
               <Flow>
                 <p>
-                  <Link href="/sykkelen">
-                    <a className="link-underline">Sykkelen</a>
-                  </Link>
-                </p>
-                <p>
-                  <Link href="/tjenesten">
-                    <a className="link-underline">Tjenesten</a>
-                  </Link>
-                </p>
-                <p>
                   <Button link="/forhandsbestill" menu>
                     Forhåndsbestill nå
                   </Button>
@@ -58,6 +48,16 @@ const Footer = ({ frontpage }) => {
 
             <nav>
               <Flow>
+                <p>
+                  <Link href="/sykkelen">
+                    <a className="link-underline">Sykkelen</a>
+                  </Link>
+                </p>
+                <p>
+                  <Link href="/tjenesten">
+                    <a className="link-underline">Tjenesten</a>
+                  </Link>
+                </p>
                 <p>
                   <Link href="/hvem-er-whee">
                     <a className="link-underline">Hvem er Whee!?</a>

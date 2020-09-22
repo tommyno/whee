@@ -59,6 +59,9 @@ $mediumBreakpoint: 767px;
   }
   &-size-footer {
     padding: var(--spacing-11) 0 var(--spacing-9);
+    @media (max-width: $mediumBreakpoint) {
+      padding: var(--spacing-10) 0 var(--spacing-8);
+    }
   }
 
   // Limit width
