@@ -4,16 +4,22 @@
 
 .boxBgColor-yellow {
   background: var(--color-yellow);
+  a {
+    color: var(--color-midnight);
+  }
 }
 
 .boxBgColor-peach {
   background: var(--color-peach);
+  a {
+    color: var(--color-midnight);
+  }
 }
 
 .boxBgColor-green {
   background: var(--color-green);
-  color: white;
+  color: var(--color-cream);
   a {
-    color: white;
+    color: var(--color-cream);
   }
 }
