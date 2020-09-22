@@ -30,6 +30,7 @@ function MyApp({ Component, pageProps }) {
           name="google-site-verification"
           content="M7fEOP5BBe6sat3elSdQ6tLiODS_OQTbCz4pC2EN8x4"
         />
+        <meta property="fb:app_id" content="103027534890783" />
 
         <link
           rel="apple-touch-icon"
