@@ -57,6 +57,9 @@ $mediumBreakpoint: 767px;
   &-size-large {
     padding: var(--spacing-10) 0;
   }
+  &-size-footer {
+    padding: var(--spacing-11) 0 var(--spacing-9);
+  }
 
   // Limit width
   &-limited-width {

@@ -14,29 +14,27 @@ const Footer = ({ frontpage }) => {
 
   return (
     <>
-      {/* {frontpage && (
+      {/* Footer image for frontpage */}
+      {frontpage && (
         <img
           src="/images/footer-tall.png"
           alt=""
-          className={styles.footerImage}
-        />
-      )}
-
-      {!frontpage && (
-        <img
-          src="/images/footer-slim.png"
-          alt=""
-          className={styles.footerImage}
-        />
-        )} */}
-      <footer className={footerClass}>
-        <img
-          src="/images/footer-slim.png"
-          alt=""
-          className={styles.footerImage}
+          className={styles.footerImageFrontpage}
           loading="lazy"
         />
-        <Section outer="none" inner="large" color="red">
+      )}
+      <footer className={footerClass}>
+        {/* Footer image for other pages */}
+        {!frontpage && (
+          <img
+            src="/images/footer-slim.png"
+            alt=""
+            className={styles.footerImage}
+            loading="lazy"
+          />
+        )}
+
+        <Section outer="none" inner="footer" color="red">
           <Grid>
             <nav>
               <Flow>

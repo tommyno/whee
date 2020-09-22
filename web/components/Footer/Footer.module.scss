@@ -1,13 +1,5 @@
 .footer {
   position: relative;
-
-  // &-frontpage {
-  //   margin-top: -330px;
-
-  //   @media (max-width: 767px) {
-  //     margin-top: 0;
-  //   }
-  // }
 }
 
 .footerImage {
@@ -16,6 +8,31 @@
 
   @media (min-width: 1400px) {
     margin-bottom: -100px;
+  }
+}
+
+.footerImageFrontpage {
+  display: block;
+  margin: 0 auto -7vw;
+  z-index: 1;
+  position: relative;
+  bottom: -30px;
+  left: 5%;
+  margin-top: -40vw;
+  pointer-events: none;
+  width: 90%;
+  max-width: var(--page-width-max);
+
+  @media (min-width: 1350px) {
+    margin-top: -500px;
+    margin-bottom: 0;
+    bottom: -120px;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: -20vw;
+    left: 0;
+    width: 100%;
   }
 }
 
