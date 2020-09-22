@@ -34,6 +34,7 @@ const Footer = ({ frontpage }) => {
           src="/images/footer-slim.png"
           alt=""
           className={styles.footerImage}
+          loading="lazy"
         />
         <Section outer="none" inner="large" color="red">
           <Grid>

@@ -12,6 +12,7 @@ const Image = ({ imageObject, maxImageWidth, ...props }) => {
       <img
         src={imageUrlFor(imageObject).width(maxImageWidth).fit("max").url()}
         alt={altText}
+        loading="lazy"
       />
       {caption && (
         <Block top={3}>
