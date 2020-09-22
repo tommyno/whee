@@ -12,13 +12,13 @@ const MobileMenu = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleClose = () => {
-    console.log("Lukk meny");
     setIsMobileMenuOpen(false);
+    document.body.style.overflow = "unset";
   };
 
   const handleOpen = () => {
-    console.log("Åpne meny");
     setIsMobileMenuOpen(true);
+    document.body.style.overflow = "hidden";
   };
 
   const CloseButton = () => {
