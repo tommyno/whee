@@ -17,8 +17,8 @@ const Frontpage = ({ page }) => {
     <>
       <Seo page={page} />
       <Header />
-      <Section inner="none" outer="xsmall" limitedWidth center>
-        <Hero data={frontpageHero} />
+      <Section inner="none" outer="none" center>
+        <Hero data={frontpageHero} frontpage />
       </Section>
       {content.map((item) => (
         <CmsBlock data={item} key={item._key} />

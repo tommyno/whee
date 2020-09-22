@@ -5,11 +5,13 @@ import Image from "components/Image";
 import PortableText from "components/PortableText";
 import { Flow, Block } from "components/Layout";
 
-const Hero = ({ data = {} }) => {
+const Hero = ({ data = {}, frontpage }) => {
   const { image = {}, intro = "", button = {}, richText = {} } = data;
+  const imageWidth = frontpage ? "1000" : "800";
+
   return (
     <Flow>
-      <Image imageObject={image} maxImageWidth="800" />
+      <Image imageObject={image} maxImageWidth={imageWidth} />
 
       {intro && <p className="h2">{intro}</p>}
 
@@ -30,12 +32,17 @@ const Hero = ({ data = {} }) => {
   );
 };
 
+Hero.defaultProps = {
+  frontpage: false
+};
+
 Hero.propTypes = {
   data: PropTypes.shape({
     image: PropTypes.object,
     intro: PropTypes.string,
     button: PropTypes.object
-  }).isRequired
+  }).isRequired,
+  frontpage: PropTypes.bool
 };
 
 export default Hero;
