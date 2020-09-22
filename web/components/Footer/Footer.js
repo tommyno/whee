@@ -99,7 +99,7 @@ const Footer = ({ frontpage }) => {
                   <img src="/images/facebook.png" alt="Facebook ikon" />
                 </a>
                 <a
-                  href="https://www.youtube.com/c/wheebike"
+                  href="https://www.youtube.com/channel/UCK1aM7Xid0V_Jr0c3rZ_LLg"
                   title="Whee! på YouTube"
                   target="_blank"
                   rel="noopener noreferrer"
