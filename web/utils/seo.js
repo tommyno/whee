@@ -10,7 +10,7 @@ const Seo = ({ page }) => {
 
   const defaultImage = [
     {
-      url: "/images/some-default-image.jpg",
+      url: "https://whee.no/images/some-default-image.jpg",
       width: 2000,
       height: 1739,
       alt: "Whee!"
