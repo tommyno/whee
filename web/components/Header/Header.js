@@ -13,7 +13,7 @@ const DesktopMenu = () => {
         <Flex justify="spaceBetween" align="end">
           <div className={styles.logoWrap}>
             <Link href="/">
-              <a>
+              <a title="Til forsiden">
                 <Logo />
               </a>
             </Link>
