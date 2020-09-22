@@ -10,7 +10,11 @@ const Image = ({ imageObject, maxImageWidth, ...props }) => {
     <figure {...props}>
       {/* TODO: add .fit("max") to disable upscaling of images */}
       <img
-        src={imageUrlFor(imageObject).width(maxImageWidth).fit("max").url()}
+        src={imageUrlFor(imageObject)
+          .width(maxImageWidth)
+          .fit("max")
+          .auto("format")
+          .url()}
         alt={altText}
         loading="lazy"
       />
