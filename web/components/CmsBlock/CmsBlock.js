@@ -28,7 +28,7 @@ const CmsBlock = ({ data }) => {
   // Image
   if (block === "image") {
     return (
-      <Section inner="none">
+      <Section inner="none" center>
         <Image imageObject={data} />
       </Section>
     );

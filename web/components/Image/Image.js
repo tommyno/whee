@@ -4,14 +4,17 @@ import imageUrlFor from "utils/imageUrlFor";
 import { Block } from "components/Layout";
 
 const Image = ({ imageObject, maxImageWidth, ...props }) => {
-  const { caption = "", altText = "" } = imageObject;
+  const { caption = "", altText = "", size = "" } = imageObject;
+
+  // Change default image size if set
+  const imageWidth = size === "medium" ? "800" : maxImageWidth;
 
   return (
     <figure {...props}>
       {/* TODO: add .fit("max") to disable upscaling of images */}
       <img
         src={imageUrlFor(imageObject)
-          .width(maxImageWidth)
+          .width(imageWidth)
           .fit("max")
           .auto("format")
           .url()}
@@ -34,7 +37,8 @@ Image.defaultProps = {
 Image.propTypes = {
   imageObject: PropTypes.shape({
     caption: PropTypes.string,
-    altText: PropTypes.string
+    altText: PropTypes.string,
+    size: PropTypes.string
   }).isRequired,
   maxImageWidth: PropTypes.string
 };

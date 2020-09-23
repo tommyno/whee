@@ -17,5 +17,14 @@ export default {
       title: "Bildetekst",
       type: "string",
     },
+    {
+      name: "size",
+      type: "string",
+      title: "Størrelse",
+      description: "Standard er utfallende bredde (large)",
+      options: {
+        list: ["large", "medium"],
+      },
+    },
   ],
 };
