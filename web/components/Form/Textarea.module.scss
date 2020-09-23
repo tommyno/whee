@@ -11,14 +11,11 @@
   }
 }
 
-.input {
+.textarea {
   border-radius: var(--border-radius);
   border: 2px solid var(--color-midnight);
   width: 36ch;
   max-width: 100%;
+  line-height: 1.45;
   padding: var(--spacing-2) var(--spacing-3);
-
-  &-error {
-    border-color: var(--color-red);
-  }
 }

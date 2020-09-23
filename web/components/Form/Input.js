@@ -26,7 +26,7 @@ const Input = ({
     <div className={styles.inputWrap}>
       {label && (
         <label htmlFor={name} className={labelClass}>
-          <span className="text-caption">{label}</span>
+          <span className="text-label">{label}</span>
         </label>
       )}
       <input

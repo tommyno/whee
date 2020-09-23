@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 
 import postData from "utils/postData";
 
-import Button from "components/Button";
 import { Flow, Block } from "components/Layout";
+import Button from "components/Button";
 import Input from "./Input";
+import Textarea from "./Textarea";
 
 const Form = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -25,12 +26,16 @@ const Form = () => {
     const dataFormattedForHubspot = {
       fields: [
         {
+          name: "firstname",
+          value: data.name
+        },
+        {
           name: "email",
           value: data.email
         },
         {
-          name: "firstname",
-          value: data.name
+          name: "message",
+          value: data.message
         }
       ]
       // skipValidation: true
@@ -77,6 +82,13 @@ const Form = () => {
         type="email"
         register={register({ required: true, pattern: /\S+@\S+\.\S+/ })}
         isError={!!errors.email}
+      />
+
+      <Textarea
+        name="message"
+        label="Valgfri beskjed"
+        placeholder="Er det noe du lurer på eller vil fortelle oss?"
+        register={register()}
       />
 
       {isError && (

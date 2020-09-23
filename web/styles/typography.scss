@@ -62,6 +62,10 @@ h3,
   @include fluid-type($minWidth, 1000px, 16px, 20px);
 }
 
+.text-label {
+  @include fluid-type($minWidth, 1000px, 16px, 20px);
+}
+
 .highlight {
   color: var(--color-red);
   font-weight: bold;
