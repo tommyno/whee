@@ -1,11 +1,12 @@
 .header {
   padding: 1px 0; // Needed to give space for section margins
-  // position: sticky;
-  // top: 0;
-  // box-shadow: 0 -10px 15px var(--color-midnight);
   background: var(--color-cream);
-  z-index: 1;
   line-height: 0.7; // Trying to align bottom of links and logo
+
+  // Sticky
+  position: sticky;
+  top: 0;
+  z-index: 9;
 
   @media (max-width: 767px) {
     display: none;
@@ -36,8 +37,14 @@
 // Mobile menu
 
 .headerMobileWrap {
-  padding: var(--page-gutter);
-  position: relative;
+  padding: 16px var(--page-gutter);
+  background: var(--color-cream);
+
+  // Sticky
+  position: sticky;
+  top: 0;
+  z-index: 9;
+
   @media (min-width: 768px) {
     display: none;
   }
@@ -66,7 +73,7 @@
 
 .logoWrapMobileBar {
   display: inline-block;
-  width: 120px;
+  width: 80px;
 }
 
 .mobileFlex {
@@ -96,4 +103,48 @@
   margin-right: 12px;
   display: inline-block;
   font-weight: bold;
+}
+
+.headerShadow {
+  height: 10px;
+  position: sticky;
+  top: 65px;
+  box-shadow: 0 -10px 15px var(--color-midnight);
+  background: var(--color-cream);
+  z-index: 7;
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.headerBox {
+  height: 10px;
+  position: relative;
+  background: var(--color-cream);
+  z-index: 8;
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.headerShadowMobile {
+  height: 10px;
+  position: sticky;
+  top: 50px;
+  box-shadow: 0 -10px 15px var(--color-midnight);
+  background: var(--color-cream);
+  z-index: 7;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.headerBoxMobile {
+  height: 10px;
+  position: relative;
+  background: var(--color-cream);
+  z-index: 8;
+  @media (min-width: 768px) {
+    display: none;
+  }
 }

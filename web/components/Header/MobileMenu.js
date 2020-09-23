@@ -78,112 +78,116 @@ const MobileMenu = () => {
   };
 
   return (
-    <header className={styles.headerMobileWrap}>
-      {/* Show normal meny header */}
-      {!isMobileMenuOpen && (
-        <Flex justify="spaceBetween">
-          <div className={styles.logoWrapMobileBar}>
-            <Link href="/">
-              <a>
-                <Logo />
-              </a>
-            </Link>
-          </div>
-          <OpenButton />
-        </Flex>
-      )}
+    <>
+      <header className={styles.headerMobileWrap}>
+        {/* Show normal meny header */}
+        {!isMobileMenuOpen && (
+          <Flex justify="spaceBetween">
+            <div className={styles.logoWrapMobileBar}>
+              <Link href="/">
+                <a>
+                  <Logo />
+                </a>
+              </Link>
+            </div>
+            <OpenButton />
+          </Flex>
+        )}
 
-      {/* Show open mobile menu */}
-      {isMobileMenuOpen && (
-        <>
-          <div className={styles.headerMobile}>
-            <CloseButton />
-            <nav className={styles.mobileFlex}>
-              <div className={styles.logoWrapMobile}>
-                <Link href="/">
-                  <a title="Til forsiden">
-                    <Logo color="#fffcf4" />
-                  </a>
-                </Link>
-              </div>
-
-              <div>
-                <div>
-                  <Link href="/sykkelen">
-                    <a className={styles.navListItemMobile}>Sykkelen</a>
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/tjenesten">
-                    <a className={styles.navListItemMobile}>Tjenesten</a>
-                  </Link>
-                </div>
-                <Block top={6}>
-                  <Button link="/forhandsbestill" menu>
-                    <span className="text-button">Forhåndsbestill nå!</span>
-                  </Button>
-                </Block>
-              </div>
-
-              <div>
-                <div>
-                  <Link href="/hvem-er-whee">
-                    <a className={styles.navListItemMobile}>Hvem er Whee!?</a>
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/personvern-og-cookies">
-                    <a className={styles.navListItemMobile}>
-                      Personvern og cookies
+        {/* Show open mobile menu */}
+        {isMobileMenuOpen && (
+          <>
+            <div className={styles.headerMobile}>
+              <CloseButton />
+              <nav className={styles.mobileFlex}>
+                <div className={styles.logoWrapMobile}>
+                  <Link href="/">
+                    <a title="Til forsiden">
+                      <Logo color="#fffcf4" />
                     </a>
                   </Link>
                 </div>
-              </div>
 
-              <div>
-                <p>
-                  <a href="mailto:hei@whee.no" className="link-underline">
-                    hei@whee.no
-                  </a>
-                </p>
-                <p>
-                  <a href="tel:22120068">22 12 00 68</a>
-                </p>
-
-                <Block top={6}>
-                  <div className={styles.some}>
-                    <a
-                      href="https://www.instagram.com/wheebike/"
-                      title="Whee! på Instagram"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img src="/images/instagram.png" alt="Instagram ikon" />
-                    </a>
-                    <a
-                      href="https://www.facebook.com/wheebike/"
-                      title="Whee! på Facebook"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img src="/images/facebook.png" alt="Facebook ikon" />
-                    </a>
-                    <a
-                      href="https://www.youtube.com/c/wheebike"
-                      title="Whee! på YouTube"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img src="/images/youtube.png" alt="Youtube ikon" />
-                    </a>
+                <div>
+                  <div>
+                    <Link href="/sykkelen">
+                      <a className={styles.navListItemMobile}>Sykkelen</a>
+                    </Link>
                   </div>
-                </Block>
-              </div>
-            </nav>
-          </div>
-        </>
-      )}
-    </header>
+                  <div>
+                    <Link href="/tjenesten">
+                      <a className={styles.navListItemMobile}>Tjenesten</a>
+                    </Link>
+                  </div>
+                  <Block top={6}>
+                    <Button link="/forhandsbestill" menu>
+                      <span className="text-button">Forhåndsbestill nå!</span>
+                    </Button>
+                  </Block>
+                </div>
+
+                <div>
+                  <div>
+                    <Link href="/hvem-er-whee">
+                      <a className={styles.navListItemMobile}>Hvem er Whee!?</a>
+                    </Link>
+                  </div>
+                  <div>
+                    <Link href="/personvern-og-cookies">
+                      <a className={styles.navListItemMobile}>
+                        Personvern og cookies
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+
+                <div>
+                  <p>
+                    <a href="mailto:hei@whee.no" className="link-underline">
+                      hei@whee.no
+                    </a>
+                  </p>
+                  <p>
+                    <a href="tel:22120068">22 12 00 68</a>
+                  </p>
+
+                  <Block top={6}>
+                    <div className={styles.some}>
+                      <a
+                        href="https://www.instagram.com/wheebike/"
+                        title="Whee! på Instagram"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src="/images/instagram.png" alt="Instagram ikon" />
+                      </a>
+                      <a
+                        href="https://www.facebook.com/wheebike/"
+                        title="Whee! på Facebook"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src="/images/facebook.png" alt="Facebook ikon" />
+                      </a>
+                      <a
+                        href="https://www.youtube.com/c/wheebike"
+                        title="Whee! på YouTube"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src="/images/youtube.png" alt="Youtube ikon" />
+                      </a>
+                    </div>
+                  </Block>
+                </div>
+              </nav>
+            </div>
+          </>
+        )}
+      </header>
+      <div className={styles.headerShadowMobile} />
+      <div className={styles.headerBoxMobile} />
+    </>
   );
 };
 
