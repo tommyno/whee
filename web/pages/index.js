@@ -15,7 +15,7 @@ const Frontpage = ({ page }) => {
 
   return (
     <>
-      <Seo page={page} />
+      <Seo page={page} isFrontpage />
       <Header />
       <Section inner="none" outer="none" center>
         <Hero data={frontpageHero} frontpage />

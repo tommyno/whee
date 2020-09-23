@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
 import { NextSeo } from "next-seo";
 
-const Seo = ({ page }) => {
+const Seo = ({ page, isFrontpage }) => {
   const title = page?.seo?.title || page?.title || "Whee!";
+  const wheeTitle = isFrontpage ? "" : " | Whee!";
+
   const description =
     page?.seo?.description ||
     page?.intro ||
-    "En hverdagsmaskin til fast månedspris med alt inkludert";
+    "En hverdagsmaskin med det du trenger til fast månedspris";
 
   const defaultImage = [
     {
@@ -20,13 +22,17 @@ const Seo = ({ page }) => {
   const images = defaultImage;
   return (
     <NextSeo
-      title={`${title} | Whee!`}
+      title={`${title}${wheeTitle}`}
       description={description}
       openGraph={{
         images
       }}
     />
   );
+};
+
+Seo.defaultProps = {
+  isFrontpage: false
 };
 
 Seo.propTypes = {
@@ -37,7 +43,8 @@ Seo.propTypes = {
       title: PropTypes.string,
       description: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  isFrontpage: PropTypes.bool
 };
 
 export default Seo;
