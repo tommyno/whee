@@ -16,9 +16,11 @@ const CmsBlock = ({ data }) => {
 
   // Rich text
   if (block === "richText") {
+    // Sanity wraps large content in a div, but not single content. Logic needed to target flow content.
+    const isWrappedInDiv = data.richText.length > 1;
     return (
       <Section inner="none" limitedWidth>
-        <Flow blockContent>
+        <Flow blockContent={isWrappedInDiv}>
           <PortableText blocks={data.richText} />
         </Flow>
       </Section>
