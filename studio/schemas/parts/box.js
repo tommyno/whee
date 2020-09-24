@@ -29,7 +29,6 @@ export default {
             .map((span) => span.text)
             .join("")
         : "No title";
-      console.log(blocks, block, blockTitle);
       return {
         title: `[${color}] ${blockTitle}`,
         subtitle: "Farget boks",
