@@ -1,10 +1,14 @@
 # Whee!
 
-Web + Sanity Studio
+Whee! is a subscription-based service for electric cargo bikes.
+
+## Explore
 
 https://whee.com
 
 ## Development
+
+This is a monorepo for website + Sanity Studio. Built with next.js, react and css modules.
 
 Start both frontend and Sanity studio with: `npm start`
 
