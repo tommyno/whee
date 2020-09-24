@@ -88,7 +88,7 @@ const Footer = ({ frontpage }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="/images/instagram.png" alt="Instagram ikon" />
+                  <img src="/images/instagram.svg" alt="Instagram ikon" />
                 </a>
                 <a
                   href="https://www.facebook.com/wheebike/"
@@ -96,7 +96,7 @@ const Footer = ({ frontpage }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="/images/facebook.png" alt="Facebook ikon" />
+                  <img src="/images/facebook.svg" alt="Facebook ikon" />
                 </a>
                 <a
                   href="https://www.youtube.com/channel/UCK1aM7Xid0V_Jr0c3rZ_LLg"
@@ -104,7 +104,7 @@ const Footer = ({ frontpage }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="/images/youtube.png" alt="Youtube ikon" />
+                  <img src="/images/youtube.svg" alt="Youtube ikon" />
                 </a>
               </div>
             </Flow>
