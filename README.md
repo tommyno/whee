@@ -22,5 +22,5 @@ https://manage.sanity.io/
 
 ## Vercel
 
-Hosting <br />
+Hosting:<br />
 https://vercel.com/

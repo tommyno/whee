@@ -12,9 +12,10 @@ export default {
       intro: "intro",
     },
     prepare(selection) {
-      const { intro } = selection;
+      const { intro = "" } = selection;
       return {
-        title: `Hero: ${intro}`,
+        title: intro,
+        subtitle: "Hero",
       };
     },
   },

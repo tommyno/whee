@@ -15,11 +15,13 @@ export default {
   ],
   preview: {
     select: {
-      title: "title",
+      blocks: "listItem",
     },
-    prepare() {
+    prepare({ blocks }) {
+      const titles = blocks.map((block) => block.title).join(", ") || "";
       return {
-        title: "Liste med bilder",
+        title: titles,
+        subtitle: "Liste med bilder",
       };
     },
   },

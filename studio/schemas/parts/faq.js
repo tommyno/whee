@@ -22,4 +22,16 @@ export default {
       ],
     },
   ],
+  preview: {
+    select: {
+      title: "text",
+    },
+    prepare(selection) {
+      const { title = "" } = selection;
+      return {
+        title: title,
+        subtitle: "Spørsmål og svar",
+      };
+    },
+  },
 };
