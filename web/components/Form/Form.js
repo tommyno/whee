@@ -56,11 +56,11 @@ const Form = () => {
     return (
       <Flow>
         <h2>Tusen takk for din forhåndsbestilling!</h2>
-        <p>Snart kan du suse avgårde på din egen Whee!</p>
         <p>
-          Nå står du på ventelisten. Om noen få dager vil du motta en e-post med
-          ditt kønummer og mer informasjon fra oss. Ha en fin dag så lenge!
+          Du står nå på ventelisten, og vil om få dager motta en e-post med
+          kønummer og mer informasjon fra oss.
         </p>
+        <p>Snart kan du suse avgårde på din egen Whee!</p>
         <img src="/images/thank-you-image.png" alt="Takk for din påmelding!" />
       </Flow>
     );
