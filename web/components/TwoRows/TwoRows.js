@@ -1,19 +1,15 @@
 import PropTypes from "prop-types";
-import classNames from "classnames";
+
+import isEmpty from "utils/isEmptyObject";
 
 import { Grid, Flow } from "components/Layout";
 import PortableText from "components/PortableText";
+import Box from "components/Box";
 
 import styles from "./TwoRows.module.scss";
 
 const TwoRows = ({ data }) => {
   const { box = {}, richText: richTextLeft } = data;
-  const { bgColor = "", richText: richTextRight } = box;
-
-  const boxClass = classNames({
-    [styles.boxRight]: true,
-    [styles[`boxBgColor-${bgColor}`]]: bgColor
-  });
 
   return (
     <Grid>
@@ -22,13 +18,7 @@ const TwoRows = ({ data }) => {
           <PortableText blocks={richTextLeft} />
         </Flow>
       </article>
-      {!!richTextRight && (
-        <article className={boxClass}>
-          <Flow blockContent className={boxClass}>
-            <PortableText blocks={richTextRight} />
-          </Flow>
-        </article>
-      )}
+      {!isEmpty(box) && <Box data={box} />}
     </Grid>
   );
 };
