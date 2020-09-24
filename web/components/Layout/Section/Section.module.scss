@@ -9,12 +9,15 @@ $mediumBreakpoint: 767px;
   &-size-none {
     margin: 0;
   }
+
   &-size-xsmall {
     margin: var(--spacing-3) 0;
   }
+
   &-size-small {
     margin: var(--spacing-5) 0;
   }
+
   &-size-medium {
     margin: var(--spacing-10) 0;
 
@@ -22,6 +25,15 @@ $mediumBreakpoint: 767px;
       margin: var(--spacing-7) 0;
     }
   }
+
+  &-size-firstSection {
+    margin: var(--spacing-7) 0;
+
+    @media (max-width: $mediumBreakpoint) {
+      margin: var(--spacing-2) 0 var(--spacing-7);
+    }
+  }
+
   &-size-large {
     margin: var(--spacing-10) 0;
 
@@ -34,9 +46,11 @@ $mediumBreakpoint: 767px;
   &-color-peach {
     background-color: var(--color-peach);
   }
+
   &-color-cream {
     background-color: var(---color-cream);
   }
+
   &-color-red {
     background-color: var(--color-red);
     color: var(--color-cream);
@@ -51,12 +65,15 @@ $mediumBreakpoint: 767px;
   &-size-small {
     padding: var(--spacing-6) 0;
   }
+
   &-size-medium {
     padding: var(--spacing-8) 0;
   }
+
   &-size-large {
     padding: var(--spacing-10) 0;
   }
+
   &-size-footer {
     padding: var(--spacing-11) 0 var(--spacing-9);
     @media (max-width: $mediumBreakpoint) {
