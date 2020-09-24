@@ -4,7 +4,7 @@ Whee! is a subscription-based service for electric cargo bikes.
 
 ## Explore
 
-https://whee.com
+https://whee.no
 
 ## Development
 
