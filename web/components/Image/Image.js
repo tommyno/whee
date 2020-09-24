@@ -3,6 +3,8 @@ import imageUrlFor from "utils/imageUrlFor";
 
 import { Block } from "components/Layout";
 
+import styles from "./Image.module.scss";
+
 const Image = ({ imageObject, maxImageWidth, ...props }) => {
   const { caption = "", altText = "", size = "" } = imageObject;
 
@@ -23,7 +25,9 @@ const Image = ({ imageObject, maxImageWidth, ...props }) => {
       />
       {caption && (
         <Block top={3}>
-          <figcaption className="text-caption">{caption}</figcaption>
+          <figcaption className={styles.figcaption}>
+            <span className="text-caption">{caption}</span>
+          </figcaption>
         </Block>
       )}
     </figure>

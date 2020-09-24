@@ -60,7 +60,6 @@ h3,
 
 .text-caption {
   @include fluid-type($minWidth, 1000px, 16px, 20px);
-  text-align: left;
 }
 
 .text-label {
