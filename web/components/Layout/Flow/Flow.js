@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import styles from "./Flow.module.scss";
 
-const Button = ({ blockContent, children }) => {
+const Flow = ({ blockContent, children }) => {
   // If used on a Sanity block content
   if (blockContent) {
     return <div className={styles.flowBlockContent}>{children}</div>;
@@ -11,13 +11,13 @@ const Button = ({ blockContent, children }) => {
   return <div className={styles.flow}>{children}</div>;
 };
 
-Button.defaultProps = {
+Flow.defaultProps = {
   blockContent: false
 };
 
-Button.propTypes = {
+Flow.propTypes = {
   children: PropTypes.node.isRequired,
   blockContent: PropTypes.bool
 };
 
-export default Button;
+export default Flow;
