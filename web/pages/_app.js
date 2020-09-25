@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 
-import trackPageView from "utils/analytics";
+import * as gtag from "utils/gtag";
 
 import "../styles/main.scss";
 
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url) => {
-      trackPageView(url);
+      gtag.pageview(url);
     };
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
