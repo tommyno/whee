@@ -104,7 +104,7 @@ const CmsBlock = ({ data }) => {
           {text && <h2>{text}</h2>}
           {faq.map((item) => {
             return (
-              <article key={item._key}>
+              <article key={item._id}>
                 <h3>{item.title}</h3>
                 <PortableText blocks={item.richText.richText} />
               </article>
