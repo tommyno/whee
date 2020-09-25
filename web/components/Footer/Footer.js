@@ -20,7 +20,6 @@ const Footer = ({ frontpage }) => {
           src="/images/footer-tall.png"
           alt=""
           className={styles.footerImageFrontpage}
-          loading="lazy"
         />
       )}
       <footer className={footerClass}>
@@ -30,7 +29,6 @@ const Footer = ({ frontpage }) => {
             src="/images/footer-slim.png"
             alt=""
             className={styles.footerImage}
-            loading="lazy"
           />
         )}
 
