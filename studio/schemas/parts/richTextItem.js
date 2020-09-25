@@ -35,7 +35,7 @@ export default {
           {
             name: "link",
             type: "object",
-            title: "Ekstern lenke",
+            title: "Lenke",
             fields: [link],
           },
         ],
