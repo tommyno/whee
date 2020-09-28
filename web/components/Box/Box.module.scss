@@ -9,6 +9,12 @@
   background: var(--color-yellow);
   a {
     color: var(--color-midnight);
+    text-decoration-color: var(--color-red);
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--color-midnight);
+    }
   }
 }
 
@@ -16,6 +22,11 @@
   background: var(--color-peach);
   a {
     color: var(--color-midnight);
+    text-decoration-color: var(--color-red);
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--color-midnight);
+    }
   }
 }
 
