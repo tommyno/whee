@@ -1,11 +1,13 @@
 import richTextItem from "./richTextItem";
 import box from "./box";
+import image from "./image";
+import button from "./button";
 
 export default {
   name: "twoRows",
   title: "To rader (tekst og farget boks)",
   type: "object",
-  fields: [richTextItem, box],
+  fields: [richTextItem, image, button, box],
   preview: {
     select: {
       blocks: "richText",

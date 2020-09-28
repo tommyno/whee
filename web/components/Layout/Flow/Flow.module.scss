@@ -7,7 +7,7 @@ $flowSpace: 1em;
   margin-top: $flowSpace;
 }
 
-// Needed for Sanity CMS block content which is wrappen in an extra div
+// Needed for Sanity CMS block content which is wrapped in an extra div
 .flowBlockContent > * > * + * {
   margin-top: $flowSpace;
 }
