@@ -3,9 +3,11 @@
   margin-bottom: var(--spacing-9);
 }
 
-// Remove some of default spacing between list item image and text
-.cardGrid > div > div:last-child {
-  padding-top: var(--spacing-4);
+@media (max-width: 767px) {
+  // Remove some of default spacing between list item image and text
+  .cardGrid > div > div:last-child {
+    padding-top: var(--spacing-4);
+  }
 }
 
 @media (min-width: 768px) {
