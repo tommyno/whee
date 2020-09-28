@@ -1,6 +1,7 @@
 import sanityClient from "@sanity/client";
 
-const isProduction = process.env.NEXT_PUBLIC_IS_LOCALHOST;
+// eslint-disable-next-line no-unneeded-ternary
+const isProduction = process.env.NEXT_PUBLIC_IS_LOCALHOST ? false : true;
 
 export default sanityClient({
   projectId: "38sqgmq0",
