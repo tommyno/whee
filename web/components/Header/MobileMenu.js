@@ -109,6 +109,12 @@ const MobileMenu = () => {
                 </div>
 
                 <div>
+                  <Button link="/forhandsbestill" menu>
+                    <span className="text-button">Forhåndsbestill nå!</span>
+                  </Button>
+                </div>
+
+                <div>
                   <div>
                     <Link href="/sykkelen">
                       <a className={styles.navListItemMobile}>Sykkelen</a>
@@ -119,14 +125,7 @@ const MobileMenu = () => {
                       <a className={styles.navListItemMobile}>Tjenesten</a>
                     </Link>
                   </div>
-                  <Block top={6}>
-                    <Button link="/forhandsbestill" menu>
-                      <span className="text-button">Forhåndsbestill nå!</span>
-                    </Button>
-                  </Block>
-                </div>
 
-                <div>
                   <div>
                     <Link href="/hvem-er-whee">
                       <a className={styles.navListItemMobile}>Hvem er Whee!?</a>
@@ -151,7 +150,7 @@ const MobileMenu = () => {
                     <a href="tel:22120068">22 12 00 68</a>
                   </p>
 
-                  <Block top={6}>
+                  <Block top={5}>
                     <div className={styles.some}>
                       <a
                         href="https://www.instagram.com/wheebike/"
