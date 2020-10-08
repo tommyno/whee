@@ -10,7 +10,8 @@ const Input = ({
   label,
   disabled,
   register,
-  isError
+  isError,
+  ...rest
 }) => {
   const inputClass = classNames({
     [styles.input]: true,
@@ -37,6 +38,7 @@ const Input = ({
         disabled={disabled}
         ref={register}
         className={inputClass}
+        {...rest}
       />
     </div>
   );
