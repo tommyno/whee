@@ -6,6 +6,7 @@ import postData from "utils/postData";
 import { Flow, Block } from "components/Layout";
 import Button from "components/Button";
 import Input from "./Input";
+import InputHoneypot from "./InputHoneypot";
 import Textarea from "./Textarea";
 
 const Form = () => {
@@ -18,29 +19,9 @@ const Form = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     setIsError(false);
-    // Hubspot form api: https://legacydocs.hubspot.com/docs/methods/forms/submit_form
-    const url =
-      "https://api.hsforms.com/submissions/v3/integration/submit/8373303/93146f03-dbf7-443e-bd0d-5cf6fbd03499";
 
-    // Format data for Hubspot
-    const dataFormattedForHubspot = {
-      fields: [
-        {
-          name: "firstname",
-          value: data.name
-        },
-        {
-          name: "email",
-          value: data.email
-        },
-        {
-          name: "message",
-          value: data.message
-        }
-      ]
-      // skipValidation: true
-    };
-    const response = await postData(url, dataFormattedForHubspot);
+    const url = "/api/form/signup";
+    const response = await postData(url, data);
     if (response) {
       // Show thank you message
       setIsFormSubmitted(true);
@@ -69,6 +50,8 @@ const Form = () => {
   // Show signup form
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <InputHoneypot register={register} />
+
       <Input
         name="name"
         label="Navn"
