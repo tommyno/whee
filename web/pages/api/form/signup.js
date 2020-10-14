@@ -37,8 +37,8 @@ export default async (req, res) => {
     }
 
     // Something went wrong
-    throw new Error("Something went wrong");
+    throw new Error(`${response.status}: ${response.statusText}`);
   } catch (error) {
-    res.status(500).end();
+    res.status(500).json({ message: error.message });
   }
 };

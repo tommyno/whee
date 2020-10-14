@@ -9,12 +9,17 @@ async function postData(url = "", data = {}) {
       body: JSON.stringify(data)
     });
 
+    // All good
     if (response.ok) {
       return await response.json();
     }
-    throw new Error("Something wrong, response:", response);
+
+    // Something went wrong
+    const { message } = await response.json();
+
+    throw new Error(message);
   } catch (error) {
-    console.error("Something wrong, catch error:", error);
+    console.error("Error!", error.message);
     return null;
   }
 }
