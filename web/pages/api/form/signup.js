@@ -9,15 +9,12 @@ export default async (req, res) => {
     }
 
     // Format data for Airtable
-    const localeDateStamp = new Date().toLocaleString("no", {
-      timeZone: "Europe/Stockholm"
-    });
     const bodyData = JSON.stringify({
       fields: {
         Navn: name,
         Epost: email,
         "Beskjed fra skjema": message,
-        "Registrert dato": localeDateStamp
+        "Registrert dato": new Date()
       }
     });
 
