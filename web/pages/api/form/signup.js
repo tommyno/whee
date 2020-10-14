@@ -32,12 +32,13 @@ export default async (req, res) => {
       body: bodyData
     });
 
-    if (response.ok) {
-      res.status(200).json({ message: "Success! User created" });
+    // Handle errors
+    if (!response.ok) {
+      throw new Error(`${response.status}: ${response.statusText}`);
     }
 
-    // Something went wrong
-    throw new Error(`${response.status}: ${response.statusText}`);
+    // All good
+    res.status(200).json({ message: "Success! User created" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
