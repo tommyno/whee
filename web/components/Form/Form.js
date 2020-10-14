@@ -77,8 +77,7 @@ const Form = () => {
       {isError && (
         <Block top={5}>
           <p>
-            Auda, her gikk noe galt. Har du brukt en gyldig e-post? Prøv igjen,
-            eller gi oss et vink på{" "}
+            Auda, her gikk noe galt. Prøv igjen, gi oss et vink på{" "}
             <a href="mailto:hei@whee.no" className="link">
               hei@whee.no
             </a>{" "}
