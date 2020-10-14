@@ -8,10 +8,16 @@ export default async (req, res) => {
       throw new Error("Die spambot, die");
     }
 
+    // Split name into first and last
+    const fullName = name.split(" ");
+    const firstName = fullName[0];
+    const lastName = fullName[fullName.length - 1];
+
     // Format data for Airtable
     const bodyData = JSON.stringify({
       fields: {
-        Navn: name,
+        Fornavn: firstName,
+        Etternavn: lastName,
         Epost: email,
         "Beskjed fra skjema": message,
         "Registrert dato": new Date()
