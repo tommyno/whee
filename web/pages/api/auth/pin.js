@@ -51,7 +51,7 @@ export default async (req, res) => {
         maxAge: 1000 * 60 * 60 * 24 * 30, // expire in 30 days,
         secure: !process.env.IS_LOCALHOST, // Disable for localhost dev
         httpOnly: true,
-        SameSite: "Strict",
+        SameSite: "strict",
         path: "/"
       });
 

@@ -11,7 +11,7 @@ async function postData(url = "", data = {}) {
 
     // All good
     if (response.ok) {
-      return await response.json();
+      return "ok";
     }
 
     // Something went wrong
