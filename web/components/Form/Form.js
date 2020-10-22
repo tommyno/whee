@@ -55,16 +55,22 @@ const Form = () => {
       <Input
         name="name"
         label="Navn"
-        register={register({ required: true })}
-        isError={!!errors.name}
+        register={register({ required: "Skriv ditt fulle navn" })}
+        error={errors.name}
       />
 
       <Input
         name="email"
         label="E-post"
         type="email"
-        register={register({ required: true, pattern: /\S+@\S+\.\S+/ })}
-        isError={!!errors.email}
+        register={register({
+          required: "Skriv en gyldig e-post adresse",
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "Fyll inn en gyldig e-post adresse"
+          }
+        })}
+        error={errors.email}
       />
 
       <Textarea

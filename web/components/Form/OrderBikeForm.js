@@ -67,7 +67,7 @@ const OrderBikeForm = ({ initialValues }) => {
           required: "Skriv en gyldig e-post adresse",
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "Fyll inn en gyldig e-post adresse"
+            message: "Skriv inn en gyldig e-post adresse"
           }
         })}
         error={errors.email}
