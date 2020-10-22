@@ -52,7 +52,13 @@ const OrderPage = () => {
           </Section>
 
           <Section limitedWidth>
-            <OrderBikeForm />
+            <OrderBikeForm
+              initialValues={{
+                firstName,
+                lastName,
+                email
+              }}
+            />
           </Section>
         </article>
       )}

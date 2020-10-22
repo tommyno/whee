@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 
 import postData from "utils/postData";
@@ -9,7 +10,7 @@ import Input from "./Input";
 import InputHoneypot from "./InputHoneypot";
 import Textarea from "./Textarea";
 
-const Form = () => {
+const OrderBikeForm = ({ initialValues }) => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -50,6 +51,7 @@ const Form = () => {
       <Input
         name="name"
         label="Navn"
+        defaultValue={`${initialValues?.firstName} ${initialValues?.lastName}`}
         register={register({
           required: "Skriv ditt fulle navn"
         })}
@@ -60,6 +62,7 @@ const Form = () => {
         name="email"
         label="E-post"
         type="email"
+        defaultValue={initialValues?.email}
         register={register({
           required: "Skriv en gyldig e-post adresse",
           pattern: {
@@ -145,4 +148,12 @@ const Form = () => {
   );
 };
 
-export default Form;
+OrderBikeForm.defaultProps = {
+  initialValues: {}
+};
+
+OrderBikeForm.propTypes = {
+  initialValues: PropTypes.object
+};
+
+export default OrderBikeForm;

@@ -67,7 +67,7 @@ Input.propTypes = {
   widthCharacters: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
-  error: PropTypes.object,
+  error: PropTypes.any,
   register: PropTypes.func.isRequired
 };
 
