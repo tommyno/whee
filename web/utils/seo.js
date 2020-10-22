@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { NextSeo } from "next-seo";
 
-const Seo = ({ page, isFrontpage }) => {
+const Seo = ({ page, isFrontpage, ...rest }) => {
   const title = page?.seo?.title || page?.title || "Whee!";
   const wheeTitle = isFrontpage ? "" : " | Whee!";
 
@@ -27,6 +27,7 @@ const Seo = ({ page, isFrontpage }) => {
       openGraph={{
         images
       }}
+      {...rest}
     />
   );
 };

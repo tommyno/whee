@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import Block from "components/Layout/Block";
+
 import styles from "./Input.module.scss";
 
 const Input = ({
@@ -8,24 +10,24 @@ const Input = ({
   type,
   placeholder,
   label,
+  widthCharacters,
   disabled,
   register,
-  isError
+  error,
+  ...rest
 }) => {
   const inputClass = classNames({
     [styles.input]: true,
-    [styles[`input-error`]]: isError
+    [styles[`input-error`]]: error
   });
 
-  const labelClass = classNames({
-    [styles.label]: true,
-    [styles[`label-error`]]: isError
-  });
+  // Add custom width if set (+3 = padding)
+  const customWidth = widthCharacters ? parseInt(widthCharacters, 10) + 2 : "";
 
   return (
     <div className={styles.inputWrap}>
       {label && (
-        <label htmlFor={name} className={labelClass}>
+        <label htmlFor={name} className={styles.label}>
           <span className="text-label">{label}</span>
         </label>
       )}
@@ -37,7 +39,14 @@ const Input = ({
         disabled={disabled}
         ref={register}
         className={inputClass}
+        style={customWidth ? { width: `${customWidth}ch` } : {}}
+        {...rest}
       />
+      {error?.message && (
+        <Block top={2}>
+          <div className="text-label color--red">↑ {error.message}</div>
+        </Block>
+      )}
     </div>
   );
 };
@@ -46,17 +55,19 @@ Input.defaultProps = {
   type: "text",
   placeholder: "",
   label: "",
+  widthCharacters: "",
   disabled: false,
-  isError: false
+  error: false
 };
 
 Input.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   placeholder: PropTypes.string,
+  widthCharacters: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
-  isError: PropTypes.bool,
+  error: PropTypes.object,
   register: PropTypes.func.isRequired
 };
 
