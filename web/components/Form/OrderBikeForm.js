@@ -38,7 +38,10 @@ const OrderBikeForm = ({ initialValues }) => {
     return (
       <Flow>
         <h2>Tusen takk for din bestilling!</h2>
-        <p>Snart vil du få tilsendt en digital kontrakt på e-post.</p>
+        <p>
+          Snart vil du få tilsendt en digital kontrakt på e-post. Denne må
+          signeres innen 3 dager for at sykkelen skal bli din.
+        </p>
       </Flow>
     );
   }
@@ -66,7 +69,7 @@ const OrderBikeForm = ({ initialValues }) => {
         register={register({
           required: "Skriv en gyldig e-post adresse",
           pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            value: /^\S+@\S+\.\S+$/,
             message: "Skriv inn en gyldig e-post adresse"
           }
         })}
@@ -76,7 +79,7 @@ const OrderBikeForm = ({ initialValues }) => {
       <Input
         name="mobile"
         label="Mobilnummer"
-        widthCharacters="8"
+        widthCharacters="12"
         maxLength="8"
         register={register({
           required: "Skriv ditt mobilnummer, 8 siffer",
@@ -105,7 +108,7 @@ const OrderBikeForm = ({ initialValues }) => {
         name="zipcode"
         label="Postnummer"
         maxLength="4"
-        widthCharacters="4"
+        widthCharacters="12"
         register={register({
           required: "Skriv ditt postnummer, 4 siffer",
           pattern: {
@@ -130,7 +133,7 @@ const OrderBikeForm = ({ initialValues }) => {
       {isError && (
         <Block top={5}>
           <p>
-            Auda, her gikk noe galt. Prøv igjen, gi oss et vink på{" "}
+            Auda, her gikk noe galt. Prøv igjen, eller gi oss et vink på{" "}
             <a href="mailto:hei@whee.no" className="link">
               hei@whee.no
             </a>{" "}

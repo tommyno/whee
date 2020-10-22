@@ -66,8 +66,8 @@ const Form = () => {
         register={register({
           required: "Skriv en gyldig e-post adresse",
           pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "Fyll inn en gyldig e-post adresse"
+            value: /^\S+@\S+\.\S+$/,
+            message: "Skriv inn en gyldig e-post adresse"
           }
         })}
         error={errors.email}
@@ -83,7 +83,7 @@ const Form = () => {
       {isError && (
         <Block top={5}>
           <p>
-            Auda, her gikk noe galt. Prøv igjen, gi oss et vink på{" "}
+            Auda, her gikk noe galt. Prøv igjen, eller gi oss et vink på{" "}
             <a href="mailto:hei@whee.no" className="link">
               hei@whee.no
             </a>{" "}
