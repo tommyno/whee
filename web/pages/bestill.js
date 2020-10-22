@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useRouter } from "next/router";
 
 import Seo from "utils/seo";
 
@@ -8,11 +7,7 @@ import OrderBikeForm from "components/Form/OrderBikeForm";
 import Footer from "components/Footer";
 import Header from "components/Header";
 
-const OrderPage = () => {
-  const {
-    query: { firstName = "", lastName = "", email = "" }
-  } = useRouter();
-
+const OrderPage = ({ firstName, lastName, email }) => {
   return (
     <>
       <Seo page={{ title: "Bestill sykkel" }} noindex nofollow />
@@ -66,6 +61,33 @@ const OrderPage = () => {
       <Footer />
     </>
   );
+};
+
+export async function getServerSideProps({ query }) {
+  const { id = "" } = query;
+
+  // Fetch customer data
+  const url = `${process.env.NEXT_PUBLIC_SERVER}/api/user/order/${id}`;
+  const response = await fetch(url);
+  const result = await response.json();
+
+  return {
+    props: {
+      ...result
+    }
+  };
+}
+
+OrderPage.defaultProps = {
+  firstName: "",
+  lastName: "",
+  email: ""
+};
+
+OrderPage.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  email: PropTypes.string
 };
 
 export default OrderPage;

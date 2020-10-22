@@ -23,7 +23,7 @@ const Unsubscribe = ({ updated }) => {
                 syklist rykker frem.
               </h2>
               <p>
-                Dersom du mener du gjorde dette ved en feil, gi oss et vink på{" "}
+                Dersom du gjorde dette ved en feil, gi oss et vink på{" "}
                 <a href="mailto:hei@whee.no" className="link">
                   hei@whee.no
                 </a>{" "}
@@ -61,7 +61,7 @@ export async function getServerSideProps({ query }) {
   const url = `${process.env.NEXT_PUBLIC_SERVER}/api/user/unsubscribe/${id}`;
   const response = await fetch(url);
 
-  // Customer is found and dupdated
+  // Customer is found and updated
   if (response.ok) {
     updated = true;
   }
