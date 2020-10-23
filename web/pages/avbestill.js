@@ -27,7 +27,7 @@ const Unsubscribe = ({ updated }) => {
                 <a href="mailto:hei@whee.no" className="link">
                   hei@whee.no
                 </a>{" "}
-                så snart som mulig, så hjelper vi deg.
+                så snart som mulig, så hjelper vi deg tilbake på listen.
               </p>
             </Flow>
           )}

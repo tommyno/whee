@@ -23,7 +23,7 @@ const OrderPage = ({ page = {}, user = {} }) => {
 
       {/* Simple check to hide this page for others than direct link from email */}
       {!firstName && (
-        <Section limitedWidth>
+        <Section outer="firstSection" limitedWidth>
           <Block bottom={7}>
             <Flow>
               <h1>Beklager!</h1>
@@ -41,7 +41,7 @@ const OrderPage = ({ page = {}, user = {} }) => {
 
       {firstName && (
         <article>
-          <Section limitedWidth outer="firstSection">
+          <Section outer="firstSection" limitedWidth>
             <Block bottom={7}>
               <h1 data-animate-in data-animation-order="1">
                 Hei {firstName}!
