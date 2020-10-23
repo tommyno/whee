@@ -58,7 +58,7 @@ export async function getServerSideProps({ query }) {
   let updated = false;
 
   // Update customer status to inactive
-  const url = `${process.env.NEXT_PUBLIC_SERVER}/api/user/unsubscribe/${id}`;
+  const url = `${process.env.BASEURL}/api/user/unsubscribe/${id}`;
   const response = await fetch(url);
 
   // Customer is found and updated
