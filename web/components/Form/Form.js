@@ -11,13 +11,11 @@ import Textarea from "./Textarea";
 
 const Form = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
-    setIsSubmitting(true);
     setIsError(false);
 
     const url = "/api/form/signup";
@@ -27,7 +25,6 @@ const Form = () => {
       setIsFormSubmitted(true);
     } else {
       // Show error and enable form
-      setIsSubmitting(false);
       setIsError(true);
     }
   };
@@ -93,7 +90,7 @@ const Form = () => {
       )}
 
       <Block top={6}>
-        <Button type="submit" primary disabled={isSubmitting}>
+        <Button type="submit" primary disabled={formState.isSubmitting}>
           Sett meg på venteliste
         </Button>
       </Block>

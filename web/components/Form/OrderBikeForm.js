@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 
 import postData from "utils/postData";
+import isEmptyObject from "utils/isEmptyObject";
+import sleep from "utils/sleep";
 
 import { Flow, Block } from "components/Layout";
 import Button from "components/Button";
@@ -12,13 +14,24 @@ import Textarea from "./Textarea";
 
 const OrderBikeForm = ({ initialValues }) => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isErrorShake, setIsErrorShake] = useState(false);
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, formState } = useForm();
+
+  // Trigger shake-animation on submit button if errors
+  useEffect(() => {
+    const toggleErrorShake = async () => {
+      if (!isEmptyObject(errors)) {
+        setIsErrorShake(false);
+        await sleep(5); // Needed for re-animations
+        setIsErrorShake(true);
+      }
+    };
+    toggleErrorShake();
+  }, [errors]);
 
   const onSubmit = async (data) => {
-    setIsSubmitting(true);
     setIsError(false);
 
     const url = "/api/form/order";
@@ -28,7 +41,6 @@ const OrderBikeForm = ({ initialValues }) => {
       setIsFormSubmitted(true);
     } else {
       // Show error and enable form
-      setIsSubmitting(false);
       setIsError(true);
     }
   };
@@ -143,7 +155,12 @@ const OrderBikeForm = ({ initialValues }) => {
       )}
 
       <Block top={6}>
-        <Button type="submit" primary disabled={isSubmitting}>
+        <Button
+          type="submit"
+          primary
+          disabled={formState.isSubmitting}
+          isErrorShake={isErrorShake}
+        >
           Bestill sykkel
         </Button>
       </Block>
