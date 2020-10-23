@@ -54,7 +54,8 @@ const OrderBikeForm = ({ initialValues }) => {
       confetti({
         particleCount: 220,
         spread: 100,
-        origin: { y: 0.7 },
+        angle: 270,
+        origin: { y: -0.2 },
         colors: [
           "#fffcf4",
           "#373737",
