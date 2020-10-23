@@ -17,6 +17,7 @@ const OrderBikeForm = ({ initialValues }) => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isErrorShake, setIsErrorShake] = useState(false);
+  const [isConfettiFired, setIsConfettiFired] = useState(false);
 
   const { register, handleSubmit, errors, formState } = useForm();
 
@@ -48,21 +49,24 @@ const OrderBikeForm = ({ initialValues }) => {
 
   // Show if form has been submitted successfully
   if (isFormSubmitted) {
-    console.log("isSubmitted2");
-    confetti({
-      particleCount: 220,
-      spread: 100,
-      origin: { y: 0.7 },
-      colors: [
-        "#fffcf4",
-        "#373737",
-        "#f45338",
-        "#f6755f",
-        "#ffeee5",
-        "#62a578",
-        "#ffd74b"
-      ]
-    });
+    // Fire confetti only once
+    if (!isConfettiFired) {
+      confetti({
+        particleCount: 220,
+        spread: 100,
+        origin: { y: 0.7 },
+        colors: [
+          "#fffcf4",
+          "#373737",
+          "#f45338",
+          "#f6755f",
+          "#ffeee5",
+          "#62a578",
+          "#ffd74b"
+        ]
+      });
+      setIsConfettiFired(true);
+    }
 
     return (
       <Flow>
