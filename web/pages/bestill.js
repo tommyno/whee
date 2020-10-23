@@ -1,16 +1,23 @@
 import PropTypes from "prop-types";
 
+import sanity from "settings/client";
+
 import Seo from "utils/seo";
 
+import CmsBlock from "components/CmsBlock";
+import HeaderMedia from "components/HeaderMedia";
 import { Section, Block, Flow } from "components/Layout";
 import OrderBikeForm from "components/Form/OrderBikeForm";
 import Footer from "components/Footer";
 import Header from "components/Header";
 
-const OrderPage = ({ firstName, lastName, email }) => {
+const OrderPage = ({ page = {}, user = {} }) => {
+  const { firstName = "", lastName = "", email = "" } = user;
+  const { intro = "", content = [], headerMedia = [] } = page;
+
   return (
     <>
-      <Seo page={{ title: "Bestill sykkel" }} noindex nofollow />
+      <Seo page={page} noindex nofollow />
 
       <Header />
 
@@ -21,11 +28,11 @@ const OrderPage = ({ firstName, lastName, email }) => {
             <Flow>
               <h1>Beklager!</h1>
               <p>
-                Denne siden er kun tilgjengelig for de med gyldig kø-nummer.
+                Denne siden er kun tilgjengelig for de med et gyldig kø-nummer.
               </p>
               <p>
-                Husk å bruke direktelenken fra e-posten dersom du har fått
-                tilsendt dette.
+                Bruk direktelenken fra e-posten dersom du har fått tilsendt
+                dette.
               </p>
             </Flow>
           </Block>
@@ -41,10 +48,24 @@ const OrderPage = ({ firstName, lastName, email }) => {
               </h1>
             </Block>
 
-            <p className="h2" data-animate-in data-animation-order="2">
-              Nå har du endelig mulighet til å bestille din Whee!-sykkel.
-            </p>
+            {intro && (
+              <p className="h2" data-animate-in data-animation-order="2">
+                {intro}
+              </p>
+            )}
           </Section>
+
+          {!!headerMedia.length && (
+            <HeaderMedia
+              data={headerMedia}
+              data-animate-in
+              data-animation-order="3"
+            />
+          )}
+
+          {content.map((item) => (
+            <CmsBlock data={item} key={item._key} />
+          ))}
 
           <Section limitedWidth>
             <OrderBikeForm
@@ -63,31 +84,51 @@ const OrderPage = ({ firstName, lastName, email }) => {
   );
 };
 
+// Get data for this particular page based on slug
+const sanityQuery = `*[_type == "page" && slug.current == "bestill"]{
+	title,
+  intro,
+  content[]{
+    ...,
+    "faq": title, faq[]->{_id, title, richText, "category": category[]->{title}}
+  },
+  headerMedia,
+  seo
+}[0]`;
+
 export async function getServerSideProps({ query }) {
   const { id = "" } = query;
 
   // Fetch customer data
-  const url = `${process.env.NEXT_PUBLIC_SERVER}/api/user/order/${id}`;
+  const url = `${process.env.BASEURL}/api/user/order/${id}`;
   const response = await fetch(url);
-  const result = await response.json();
+  let result = {};
+  if (response.ok) {
+    result = await response.json();
+  }
+  const page = await sanity.fetch(sanityQuery);
 
   return {
     props: {
-      ...result
+      page,
+      user: {
+        ...result
+      }
     }
   };
 }
 
 OrderPage.defaultProps = {
-  firstName: "",
-  lastName: "",
-  email: ""
+  user: {}
 };
 
 OrderPage.propTypes = {
-  firstName: PropTypes.string,
-  lastName: PropTypes.string,
-  email: PropTypes.string
+  user: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    email: PropTypes.string
+  }),
+  page: PropTypes.object.isRequired
 };
 
 export default OrderPage;
