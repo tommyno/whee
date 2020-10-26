@@ -17,7 +17,7 @@ const OrderPage = ({ page = {}, user = {} }) => {
 
   return (
     <>
-      <Seo page={page} noindex nofollow />
+      <Seo page={page} />
 
       <Header />
 

@@ -27,6 +27,8 @@ const Seo = ({ page, isFrontpage, ...rest }) => {
       openGraph={{
         images
       }}
+      noindex={page?.seo?.hidden}
+      nofollow={page?.seo?.hidden}
       {...rest}
     />
   );
@@ -42,7 +44,8 @@ Seo.propTypes = {
     title: PropTypes.string,
     seo: PropTypes.shape({
       title: PropTypes.string,
-      description: PropTypes.string
+      description: PropTypes.string,
+      hidden: PropTypes.bool
     })
   }).isRequired,
   isFrontpage: PropTypes.bool
