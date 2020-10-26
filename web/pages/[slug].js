@@ -29,7 +29,6 @@ const DynamicPage = ({ page, slug }) => {
             // angle: 270,
             origin: { y: 0.5 },
             colors: [
-              "#fffcf4",
               "#373737",
               "#f45338",
               "#f6755f",
