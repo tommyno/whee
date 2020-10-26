@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
-import confetti from "canvas-confetti";
+import { useRouter } from "next/router";
 
 import postData from "utils/postData";
 import isEmptyObject from "utils/isEmptyObject";
 import sleep from "utils/sleep";
 
-import { Flow, Block } from "components/Layout";
+import { Block } from "components/Layout";
 import Button from "components/Button";
 import Input from "./Input";
 import InputHoneypot from "./InputHoneypot";
 import Textarea from "./Textarea";
 
 const OrderBikeForm = ({ initialValues }) => {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isErrorShake, setIsErrorShake] = useState(false);
-  const [isConfettiFired, setIsConfettiFired] = useState(false);
+
+  const router = useRouter();
 
   const { register, handleSubmit, errors, formState } = useForm();
 
@@ -39,48 +39,14 @@ const OrderBikeForm = ({ initialValues }) => {
     const url = "/api/form/order";
     const response = await postData(url, data);
     if (response) {
-      // Show thank you message
-      setIsFormSubmitted(true);
+      // Redirect to thank you page
+      router.push("/bestilt");
     } else {
       // Show error and enable form
       setIsError(true);
     }
   };
 
-  // Show if form has been submitted successfully
-  if (isFormSubmitted) {
-    // Fire confetti only once
-    if (!isConfettiFired) {
-      confetti({
-        particleCount: 220,
-        spread: 100,
-        angle: 270,
-        origin: { y: -0.2 },
-        colors: [
-          "#fffcf4",
-          "#373737",
-          "#f45338",
-          "#f6755f",
-          "#ffeee5",
-          "#62a578",
-          "#ffd74b"
-        ]
-      });
-      setIsConfettiFired(true);
-    }
-
-    return (
-      <Flow>
-        <h2>Tusen takk for din bestilling!</h2>
-        <p>
-          Snart vil du få tilsendt en digital kontrakt på e-post. Husk at denne
-          må signeres innen fristen.
-        </p>
-      </Flow>
-    );
-  }
-
-  // Show signup form
   return (
     <>
       <Block bottom={4}>
@@ -185,6 +151,7 @@ const OrderBikeForm = ({ initialValues }) => {
             type="submit"
             primary
             disabled={formState.isSubmitting}
+            isSubmitting={formState.isSubmitting}
             isErrorShake={isErrorShake}
           >
             Bestill sykkel
