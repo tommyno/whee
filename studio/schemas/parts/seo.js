@@ -27,5 +27,11 @@ export default {
       title: "SEO bilde",
       type: "image",
     },
+    {
+      name: "hidden",
+      title: "Skjul siden fra søkemotorer",
+      description: "Siden vil skjules fra søk på Google og lignende",
+      type: "boolean",
+    },
   ],
 };

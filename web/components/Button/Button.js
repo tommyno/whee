@@ -2,13 +2,24 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import Link from "next/link";
 
+import Spinner from "../Spinner";
 import styles from "./Button.module.scss";
 
-const Button = ({ type, link, primary, menu, disabled, children }) => {
+const Button = ({
+  type,
+  link,
+  primary,
+  menu,
+  disabled,
+  isSubmitting,
+  isErrorShake,
+  children
+}) => {
   const buttonClass = classNames({
     [styles.button]: true,
     [styles[`button-primary`]]: primary,
-    [styles[`button-menu`]]: menu
+    [styles[`button-menu`]]: menu,
+    [styles[`error-shake`]]: isErrorShake
   });
 
   // Submit button
@@ -16,6 +27,7 @@ const Button = ({ type, link, primary, menu, disabled, children }) => {
     return (
       <button type="submit" className={buttonClass} disabled={disabled}>
         {children}
+        {isSubmitting && <Spinner />}
       </button>
     );
   }
@@ -32,6 +44,8 @@ Button.defaultProps = {
   type: "",
   link: "",
   primary: false,
+  isSubmitting: false,
+  isErrorShake: false,
   menu: false,
   disabled: false
 };
@@ -41,6 +55,8 @@ Button.propTypes = {
   link: PropTypes.string,
   primary: PropTypes.bool,
   disabled: PropTypes.bool,
+  isSubmitting: PropTypes.bool,
+  isErrorShake: PropTypes.bool,
   menu: PropTypes.bool,
   children: PropTypes.node.isRequired
 };

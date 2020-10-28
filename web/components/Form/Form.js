@@ -11,13 +11,11 @@ import Textarea from "./Textarea";
 
 const Form = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
-    setIsSubmitting(true);
     setIsError(false);
 
     const url = "/api/form/signup";
@@ -27,7 +25,6 @@ const Form = () => {
       setIsFormSubmitted(true);
     } else {
       // Show error and enable form
-      setIsSubmitting(false);
       setIsError(true);
     }
   };
@@ -55,16 +52,22 @@ const Form = () => {
       <Input
         name="name"
         label="Navn"
-        register={register({ required: true })}
-        isError={!!errors.name}
+        register={register({ required: "Skriv ditt fulle navn" })}
+        error={errors.name}
       />
 
       <Input
         name="email"
         label="E-post"
         type="email"
-        register={register({ required: true, pattern: /\S+@\S+\.\S+/ })}
-        isError={!!errors.email}
+        register={register({
+          required: "Skriv en gyldig e-post adresse",
+          pattern: {
+            value: /^\S+@\S+\.\S+$/,
+            message: "Skriv inn en gyldig e-post adresse"
+          }
+        })}
+        error={errors.email}
       />
 
       <Textarea
@@ -77,7 +80,7 @@ const Form = () => {
       {isError && (
         <Block top={5}>
           <p>
-            Auda, her gikk noe galt. Prøv igjen, gi oss et vink på{" "}
+            Auda, her gikk noe galt. Prøv igjen, eller gi oss et vink på{" "}
             <a href="mailto:hei@whee.no" className="link">
               hei@whee.no
             </a>{" "}
@@ -87,7 +90,7 @@ const Form = () => {
       )}
 
       <Block top={6}>
-        <Button type="submit" primary disabled={isSubmitting}>
+        <Button type="submit" primary disabled={formState.isSubmitting}>
           Sett meg på venteliste
         </Button>
       </Block>

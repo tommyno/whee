@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 
 import sanity from "settings/client";
@@ -13,6 +14,34 @@ import Header from "components/Header";
 
 const DynamicPage = ({ page, slug }) => {
   const { title, intro, content = [], headerMedia = [] } = page;
+
+  // Explode confetti if thank-you page
+  useEffect(() => {
+    if (slug === "bestilt") {
+      const showConfetti = async () => {
+        // Dynamically import library
+        const confetti = (await import("canvas-confetti")).default;
+        setTimeout(() => {
+          confetti({
+            disableForReducedMotion: true,
+            particleCount: 220,
+            spread: 100,
+            // angle: 270,
+            origin: { y: 0.5 },
+            colors: [
+              "#373737",
+              "#f45338",
+              "#f6755f",
+              "#ffeee5",
+              "#62a578",
+              "#ffd74b"
+            ]
+          });
+        }, 1000);
+      };
+      showConfetti();
+    }
+  }, [slug]);
 
   return (
     <>
@@ -62,7 +91,8 @@ const DynamicPage = ({ page, slug }) => {
 };
 
 // Find all pages - needed to build everything static
-const queryAllPages = `*[_type == "page" && slug.current != ''] 
+// Exclude "bestill" page - since this should be SSR (this is a next.js bug)
+const queryAllPages = `*[_type == "page" && slug.current != '' && slug.current != "bestill"] 
 {'slug': slug.current}`;
 
 // Get data for this particular page based on slug
