@@ -11,7 +11,7 @@ const OrderPage = () => {
 
       <Header />
 
-      <Section limitedWidth>
+      <Section limitedWidth outer="firstSection">
         <Block bottom={7}>
           <Flow>
             <h1>Beklager!</h1>
