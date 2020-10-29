@@ -1,3 +1,4 @@
+// Send a pin (one time password) by sms
 import jwt from "jsonwebtoken";
 
 const PIN_EXPIRY = 60 * 5; // 5 minutes

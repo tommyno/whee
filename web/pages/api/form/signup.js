@@ -1,3 +1,4 @@
+// Form for "interesseliste"
 export default async (req, res) => {
   try {
     // Get form data

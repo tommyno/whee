@@ -1,3 +1,4 @@
+// Get user by id
 export default async (req, res) => {
   try {
     const {

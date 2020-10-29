@@ -1,3 +1,4 @@
+// Form for "bestilling"
 export default async (req, res) => {
   try {
     // Get form data

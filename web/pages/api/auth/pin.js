@@ -1,3 +1,4 @@
+// Verify a users sms token (one time password)
 import jwt from "jsonwebtoken";
 import Cookies from "cookies";
 
