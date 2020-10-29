@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import Cookies from "cookies";
 
 export default async (req, res) => {
   try {
@@ -18,11 +19,12 @@ export default async (req, res) => {
     try {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
     } catch (error) {
-      throw new Error(error);
+      console.error("jwt token error:", error);
+      throw new Error("Engangskoden er utløpt eller ugyldig.");
     }
 
     if (!decoded) {
-      throw new Error("JWT token er ugyldig");
+      throw new Error("Engangskoden er utløpt eller ugyldig.");
     }
 
     // Extract verified number from decoded jwt
@@ -37,7 +39,7 @@ export default async (req, res) => {
     // TODO: Add handlers for different Nexmo status codes...
     // Nexmo status codes: https://help.nexmo.com/hc/en-us/articles/360025561931-Verify-Response-Codes
     if (nexmoResult.status === "0") {
-      // Create a JWT token with users mobile number
+      // Create a JWT token with mobile number
       const authToken = jwt.sign(
         {
           data: { number }
@@ -46,13 +48,16 @@ export default async (req, res) => {
         { expiresIn: "30 days" }
       );
 
-      // Create a cookie
-      res.cookie("authToken", authToken, {
+      // Create a cookies object
+      const cookies = new Cookies(req, res);
+      // Set the cookie to a value
+      cookies.set("authToken", authToken, {
         maxAge: 1000 * 60 * 60 * 24 * 30, // expire in 30 days,
         secure: !process.env.IS_LOCALHOST, // Disable for localhost dev
         httpOnly: true,
-        SameSite: "strict",
-        path: "/"
+        SameSite: true, // = "strict"
+        path: "/",
+        overwrite: true
       });
 
       // Return cookie
@@ -60,12 +65,13 @@ export default async (req, res) => {
         message: "Suksess! Du har nå fått en cookie. Nam!"
       });
     } else {
-      throw new Error("Pinkoden stemmer ikke, eller er utgått");
+      console.error(nexmoResult);
+      throw new Error("Engangskoden er ugyldig. Prøv igjen.");
     }
 
     // Return error to user
   } catch (error) {
     console.error("Error:", error.message);
-    res.status(500).send({ errorMessage: error.message });
+    res.status(400).send({ message: error.message });
   }
 };
