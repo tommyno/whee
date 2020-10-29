@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 
 import postData from "utils/postData";
-import isEmptyObject from "utils/isEmptyObject";
-import sleep from "utils/sleep";
 
 import { Block } from "components/Layout";
 import Button from "components/Button";
@@ -15,23 +13,10 @@ import Textarea from "./Textarea";
 
 const OrderBikeForm = ({ initialValues }) => {
   const [isError, setIsError] = useState(false);
-  const [isErrorShake, setIsErrorShake] = useState(false);
 
   const router = useRouter();
 
   const { register, handleSubmit, errors, formState } = useForm();
-
-  // Trigger shake-animation on submit button if errors
-  useEffect(() => {
-    const toggleErrorShake = async () => {
-      if (!isEmptyObject(errors)) {
-        setIsErrorShake(false);
-        await sleep(5); // Needed for re-animations
-        setIsErrorShake(true);
-      }
-    };
-    toggleErrorShake();
-  }, [errors]);
 
   const onSubmit = async (data) => {
     setIsError(false);
@@ -152,7 +137,7 @@ const OrderBikeForm = ({ initialValues }) => {
             primary
             disabled={formState.isSubmitting}
             isSubmitting={formState.isSubmitting}
-            isErrorShake={isErrorShake}
+            errors={errors}
           >
             Bestill sykkel
           </Button>

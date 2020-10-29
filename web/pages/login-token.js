@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import isEmptyObject from "utils/isEmptyObject";
-import sleep from "utils/sleep";
 import { Section, Block } from "components/Layout";
 import Footer from "components/Footer";
 import Header from "components/Header";
@@ -11,22 +9,9 @@ import Input from "components/Form/Input";
 import InputHoneypot from "components/Form/InputHoneypot";
 
 const Login = () => {
-  const [isErrorShake, setIsErrorShake] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
 
   const { register, handleSubmit, errors, formState } = useForm();
-
-  // Trigger shake-animation on submit button if errors
-  useEffect(() => {
-    const toggleErrorShake = async () => {
-      if (!isEmptyObject(errors)) {
-        setIsErrorShake(false);
-        await sleep(5); // Needed for re-animations
-        setIsErrorShake(true);
-      }
-    };
-    toggleErrorShake();
-  }, [errors]);
 
   const onSubmit = async (data) => {
     setErrorMessage(false);
@@ -98,7 +83,7 @@ const Login = () => {
                   primary
                   disabled={formState.isSubmitting}
                   isSubmitting={formState.isSubmitting}
-                  isErrorShake={isErrorShake}
+                  errors={errors}
                 >
                   Send meg en engangskode
                 </Button>

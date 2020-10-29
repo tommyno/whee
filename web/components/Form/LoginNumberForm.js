@@ -1,30 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 
-import isEmptyObject from "utils/isEmptyObject";
-import sleep from "utils/sleep";
 import { Block } from "components/Layout";
 import Button from "components/Button";
 import Input from "components/Form/Input";
 
 const LoginNumberForm = ({ passChildData }) => {
-  const [isErrorShake, setIsErrorShake] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
 
   const { register, handleSubmit, errors, formState } = useForm();
-
-  // Trigger shake-animation on submit button if errors
-  useEffect(() => {
-    const toggleErrorShake = async () => {
-      if (!isEmptyObject(errors)) {
-        setIsErrorShake(false);
-        await sleep(5); // Needed for re-animations
-        setIsErrorShake(true);
-      }
-    };
-    toggleErrorShake();
-  }, [errors]);
 
   const onSubmit = async (data) => {
     setErrorMessage(false);
@@ -87,7 +72,7 @@ const LoginNumberForm = ({ passChildData }) => {
             primary
             disabled={formState.isSubmitting}
             isSubmitting={formState.isSubmitting}
-            isErrorShake={isErrorShake}
+            errors={errors}
           >
             Send meg en engangskode
           </Button>
