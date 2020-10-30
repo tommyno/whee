@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
+import Router from "next/router";
 
 import Seo from "utils/seo";
 
 import { Section, Block, Flow } from "components/Layout";
 import Footer from "components/Footer";
 import Header from "components/Header";
-import { Router } from "next/router";
+import Button from "components/Button";
 
 const MyPage = ({ user }) => {
   const {
@@ -19,11 +20,19 @@ const MyPage = ({ user }) => {
     status
   } = user;
 
+  // Format date
   const formattedDate = new Date(created).toLocaleDateString("no", {
     year: "numeric",
     month: "long",
     day: "numeric"
   });
+
+  const handleLogout = async () => {
+    const response = await fetch("/api/auth/logout");
+    if (response.ok) {
+      Router.replace("/");
+    }
+  };
 
   return (
     <>
@@ -55,6 +64,11 @@ const MyPage = ({ user }) => {
             <h2 className="h3">Kunde siden</h2>
             <p>{formattedDate}</p>
           </Flow>
+          <Block top={7}>
+            <Button type="button" onClick={handleLogout}>
+              Logg ut
+            </Button>
+          </Block>
         </Block>
       </Section>
 

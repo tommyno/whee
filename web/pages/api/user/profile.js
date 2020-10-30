@@ -66,6 +66,6 @@ export default async (req, res) => {
       status
     });
   } catch (error) {
-    res.status(401).json({ message: error.message });
+    res.status(401).json({ message: error });
   }
 };

@@ -17,7 +17,9 @@ const Button = ({
   disabled,
   isSubmitting,
   errors,
-  children
+  onClick,
+  children,
+  ...rest
 }) => {
   const [isErrorShake, setIsErrorShake] = useState(false);
   // Trigger shake-animation on submit button if errors
@@ -42,9 +44,23 @@ const Button = ({
   // Submit button
   if (type === "submit") {
     return (
-      <button type="submit" className={buttonClass} disabled={disabled}>
+      <button
+        type="submit"
+        className={buttonClass}
+        disabled={disabled}
+        {...rest}
+      >
         {children}
         {isSubmitting && <Spinner />}
+      </button>
+    );
+  }
+
+  // Button
+  if (type === "button") {
+    return (
+      <button type="button" className={buttonClass} onClick={onClick} {...rest}>
+        {children}
       </button>
     );
   }
@@ -52,7 +68,9 @@ const Button = ({
   // Link text presented as a button
   return (
     <Link href={link}>
-      <a className={buttonClass}>{children}</a>
+      <a className={buttonClass} {...rest}>
+        {children}
+      </a>
     </Link>
   );
 };
@@ -64,6 +82,7 @@ Button.defaultProps = {
   isSubmitting: false,
   errors: {},
   menu: false,
+  onClick: () => {},
   disabled: false
 };
 
@@ -75,6 +94,7 @@ Button.propTypes = {
   isSubmitting: PropTypes.bool,
   errors: PropTypes.object,
   menu: PropTypes.bool,
+  onClick: PropTypes.func,
   children: PropTypes.node.isRequired
 };
 
