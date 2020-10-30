@@ -13,6 +13,7 @@ const Input = ({
   widthCharacters,
   disabled,
   register,
+  hidden,
   error,
   ...rest
 }) => {
@@ -22,10 +23,10 @@ const Input = ({
   });
 
   // Add custom width if set (+3 = padding)
-  const customWidth = widthCharacters ? parseInt(widthCharacters, 10) + 2 : "";
+  const customWidth = widthCharacters ? parseInt(widthCharacters, 10) + 3 : "";
 
   return (
-    <div className={styles.inputWrap}>
+    <div className={styles.inputWrap} style={hidden ? { display: "none" } : {}}>
       {label && (
         <label htmlFor={name} className={styles.label}>
           <span className="text-label">{label}</span>
@@ -57,6 +58,7 @@ Input.defaultProps = {
   label: "",
   widthCharacters: "",
   disabled: false,
+  hidden: false,
   error: false
 };
 
@@ -67,6 +69,7 @@ Input.propTypes = {
   widthCharacters: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
+  hidden: PropTypes.bool,
   error: PropTypes.any,
   register: PropTypes.func.isRequired
 };

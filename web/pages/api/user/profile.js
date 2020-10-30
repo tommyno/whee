@@ -49,7 +49,7 @@ export default async (req, res) => {
       Mobil: mobile = "",
       Epost: email = "",
       Adresse: adress = "",
-      Postnummer: zip = "",
+      Postnummer: zipcode = "",
       "Registrert dato": created = "",
       Status: status = ""
     } = result?.records[0]?.fields;
@@ -61,7 +61,7 @@ export default async (req, res) => {
       email,
       mobile,
       adress,
-      zip,
+      zipcode,
       created,
       status
     });

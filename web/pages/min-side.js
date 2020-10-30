@@ -15,7 +15,7 @@ const MyPage = ({ user }) => {
     email,
     mobile,
     adress,
-    zip,
+    zipcode,
     created,
     status
   } = user;
@@ -54,7 +54,7 @@ const MyPage = ({ user }) => {
               <br />
               {adress}
               <br />
-              {zip}
+              {zipcode}
               <br />
             </p>
 

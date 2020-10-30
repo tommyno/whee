@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
@@ -10,13 +10,40 @@ import Button from "components/Button";
 import Input from "./Input";
 import InputHoneypot from "./InputHoneypot";
 import Textarea from "./Textarea";
+import styles from "./Input.module.scss";
 
 const OrderBikeForm = ({ initialValues }) => {
   const [isError, setIsError] = useState(false);
+  const [city, setCity] = useState("");
 
   const router = useRouter();
 
-  const { register, handleSubmit, errors, formState } = useForm();
+  const { register, handleSubmit, errors, formState, watch } = useForm();
+
+  // Fetch poststed when postnummer is filled
+  const zipcode = watch("zipcode", "");
+  useEffect(() => {
+    const getCity = async () => {
+      const url = `https://ws.geonorge.no/adresser/v1/sok?postnummer=${zipcode}&treffPerSide=1&filtrer=adresser.poststed`;
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        const { poststed } = result?.adresser[0];
+        const normalizedZip =
+          poststed.charAt(0) + poststed.slice(1).toLowerCase();
+        setCity(normalizedZip);
+      } catch (error) {
+        setCity("");
+        console.log(error);
+      }
+      return null;
+    };
+    if (zipcode?.length === 4) {
+      getCity();
+    } else {
+      setCity("");
+    }
+  }, [zipcode]);
 
   const onSubmit = async (data) => {
     setIsError(false);
@@ -93,24 +120,36 @@ const OrderBikeForm = ({ initialValues }) => {
           error={errors.adress}
         />
 
-        <Input
-          name="zipcode"
-          label="Postnummer"
-          maxLength="4"
-          widthCharacters="12"
-          register={register({
-            required: "Skriv ditt postnummer, 4 siffer",
-            pattern: {
-              value: /^[0-9]*$/,
-              message: "Skriv ditt postnummer, 4 siffer"
-            },
-            minLength: {
-              value: 4,
-              message: "Skriv ditt postnummer, 4 siffer"
-            }
-          })}
-          error={errors.zipcode}
-        />
+        <div className={styles.zipWrap}>
+          <Input
+            name="zipcode"
+            label="Postnummer"
+            maxLength="4"
+            widthCharacters="4"
+            register={register({
+              required: "Skriv ditt postnummer, 4 siffer",
+              pattern: {
+                value: /^[0-9]*$/,
+                message: "Skriv ditt postnummer, 4 siffer"
+              },
+              minLength: {
+                value: 4,
+                message: "Skriv ditt postnummer, 4 siffer"
+              }
+            })}
+            error={errors.zipcode}
+          />
+
+          {city && <div className={styles.city}>{city}</div>}
+
+          <Input
+            name="city"
+            label="Sted"
+            register={register()}
+            defaultValue={city}
+            hidden
+          />
+        </div>
 
         <Textarea
           name="message"

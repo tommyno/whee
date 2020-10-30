@@ -8,6 +8,7 @@ export default async (req, res) => {
       mobile,
       adress,
       zipcode,
+      city,
       message,
       honningkrukke
     } = req.body;
@@ -31,6 +32,7 @@ export default async (req, res) => {
         Mobil: mobile,
         Adresse: adress,
         Postnummer: zipcode,
+        Sted: city,
         Status: "Bestilt",
         "Beskjed fra skjema": message,
         "Registrert dato": new Date()

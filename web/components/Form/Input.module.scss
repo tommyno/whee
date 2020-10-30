@@ -22,3 +22,13 @@
     border-color: var(--color-red);
   }
 }
+
+.zipWrap {
+  > * {
+    display: inline-block;
+  }
+}
+
+.city {
+  display: inline-block;
+}
