@@ -46,11 +46,25 @@ export default async (req, res) => {
     const {
       Fornavn: firstName = "",
       Etternavn: lastName = "",
-      Epost: email = ""
+      Mobil: mobile = "",
+      Epost: email = "",
+      Adresse: adress = "",
+      Postnummer: zip = "",
+      "Registrert dato": created = "",
+      Status: status = ""
     } = result?.records[0]?.fields;
 
     // All good
-    res.status(200).json({ firstName, lastName, email });
+    res.status(200).json({
+      firstName,
+      lastName,
+      email,
+      mobile,
+      adress,
+      zip,
+      created,
+      status
+    });
   } catch (error) {
     res.status(401).json({ message: error.message });
   }

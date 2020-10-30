@@ -8,7 +8,22 @@ import Header from "components/Header";
 import { Router } from "next/router";
 
 const MyPage = ({ user }) => {
-  const { firstName } = user;
+  const {
+    firstName,
+    lastName,
+    email,
+    mobile,
+    adress,
+    zip,
+    created,
+    status
+  } = user;
+
+  const formattedDate = new Date(created).toLocaleDateString("no", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
 
   return (
     <>
@@ -20,7 +35,25 @@ const MyPage = ({ user }) => {
         <Block bottom={7}>
           <Flow>
             <h1>Velkommen {firstName}</h1>
-            <p>Innhold kommer her</p>
+            <h2 className="h3">Personalia</h2>
+            <p>
+              {firstName} {lastName}
+              <br />
+              {mobile}
+              <br />
+              {email}
+              <br />
+              {adress}
+              <br />
+              {zip}
+              <br />
+            </p>
+
+            <h2 className="h3">Status på sykkel</h2>
+            <p>{status}</p>
+
+            <h2 className="h3">Kunde siden</h2>
+            <p>{formattedDate}</p>
           </Flow>
         </Block>
       </Section>
