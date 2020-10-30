@@ -13,12 +13,14 @@ const MobileMenu = () => {
 
   const handleClose = () => {
     setIsMobileMenuOpen(false);
-    document.body.style.overflow = "unset";
+    // Need a better solution for this
+    // document.body.style.overflow = "unset";
   };
 
   const handleOpen = () => {
     setIsMobileMenuOpen(true);
-    document.body.style.overflow = "hidden";
+    // Need a better solution for this
+    // document.body.style.overflow = "hidden";
   };
 
   const CloseButton = () => {
