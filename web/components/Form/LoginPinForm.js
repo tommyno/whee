@@ -55,6 +55,7 @@ const LoginPinForm = ({ loginToken }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           name="pin"
+          type="tel"
           label="Din engangskode"
           widthCharacters="12"
           maxLength="6"

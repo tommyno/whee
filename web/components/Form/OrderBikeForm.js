@@ -94,6 +94,7 @@ const OrderBikeForm = ({ initialValues }) => {
 
         <Input
           name="mobile"
+          type="tel"
           label="Mobilnummer"
           widthCharacters="12"
           maxLength="8"
@@ -123,6 +124,7 @@ const OrderBikeForm = ({ initialValues }) => {
         <div className={styles.zipWrap}>
           <Input
             name="zipcode"
+            type="tel"
             label="Postnummer"
             maxLength="4"
             widthCharacters="4"
