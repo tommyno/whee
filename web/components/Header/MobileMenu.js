@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
 import Link from "next/link";
 
@@ -119,23 +121,41 @@ const MobileMenu = () => {
                 <div>
                   <div>
                     <Link href="/sykkelen">
-                      <a className={styles.navListItemMobile}>Sykkelen</a>
+                      <a
+                        className={styles.navListItemMobile}
+                        onClick={handleClose}
+                      >
+                        Sykkelen
+                      </a>
                     </Link>
                   </div>
                   <div>
                     <Link href="/tjenesten">
-                      <a className={styles.navListItemMobile}>Tjenesten</a>
+                      <a
+                        className={styles.navListItemMobile}
+                        onClick={handleClose}
+                      >
+                        Tjenesten
+                      </a>
                     </Link>
                   </div>
 
                   <div>
                     <Link href="/hvem-er-whee">
-                      <a className={styles.navListItemMobile}>Hvem er Whee!?</a>
+                      <a
+                        className={styles.navListItemMobile}
+                        onClick={handleClose}
+                      >
+                        Hvem er Whee!?
+                      </a>
                     </Link>
                   </div>
                   <div>
                     <Link href="/personvern-og-cookies">
-                      <a className={styles.navListItemMobile}>
+                      <a
+                        className={styles.navListItemMobile}
+                        onClick={handleClose}
+                      >
                         Personvern og cookies
                       </a>
                     </Link>
