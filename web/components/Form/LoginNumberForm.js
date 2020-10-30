@@ -43,6 +43,7 @@ const LoginNumberForm = ({ passChildData }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           name="number"
+          type="tel"
           label="Ditt mobilnummer"
           widthCharacters="12"
           maxLength="8"
