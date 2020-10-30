@@ -104,7 +104,7 @@ const MobileMenu = () => {
               <nav className={styles.mobileFlex}>
                 <div className={styles.logoWrapMobile}>
                   <Link href="/">
-                    <a title="Til forsiden">
+                    <a title="Til forsiden" role="link" onClick={handleClose}>
                       <Logo color="#fffcf4" />
                     </a>
                   </Link>
