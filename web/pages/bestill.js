@@ -90,7 +90,8 @@ const sanityQuery = `*[_type == "page" && slug.current == "bestill"]{
   intro,
   content[]{
     ...,
-    "faq": title, faq[]->{_id, title, richText, "category": category[]->{title}}
+    "faq": title, faq[]->{_id, title, richText, "category": category[]->{title}},
+    "image": image{..., asset->{_id, metadata{dimensions, lqip}}},   
   },
   headerMedia,
   seo

@@ -101,7 +101,8 @@ const query = `*[_type == "page" && slug.current == $slug]{
   intro,
   content[]{
     ...,
-    "faq": title, faq[]->{_id, title, richText, "category": category[]->{title}}
+    "faq": title, faq[]->{_id, title, richText, "category": category[]->{title}},
+    "image": image{..., asset->{_id, metadata{dimensions, lqip}}},   
   },
   headerMedia,
   seo
