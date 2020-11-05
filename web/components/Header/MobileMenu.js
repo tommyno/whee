@@ -114,7 +114,9 @@ const MobileMenu = () => {
 
                 <div>
                   <Button link="/forhandsbestill" menu>
-                    <span className="text-button">Forhåndsbestill nå!</span>
+                    <span className="text-button" onClick={handleClose}>
+                      Forhåndsbestill nå!
+                    </span>
                   </Button>
                 </div>
 
