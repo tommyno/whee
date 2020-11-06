@@ -10,7 +10,8 @@ const Section = ({
   limitedWidth,
   noLimit,
   center,
-  children
+  children,
+  ...rest
 }) => {
   const sectionClassOuter = classNames({
     [styles.outer]: true,
@@ -26,7 +27,7 @@ const Section = ({
     [styles[`inner-center`]]: center
   });
   return (
-    <section className={sectionClassOuter}>
+    <section className={sectionClassOuter} {...rest}>
       <div className={sectionClassInner}>{children}</div>
     </section>
   );

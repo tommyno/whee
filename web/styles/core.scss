@@ -1,4 +1,9 @@
 // Globals
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--color-cream);
   color: var(--color-midnight);

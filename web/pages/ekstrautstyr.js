@@ -10,6 +10,7 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import CardGrid from "components/CardGrid";
 import ProductCard from "components/ProductCard";
+import ShoppingCart from "components/ShoppingCart";
 
 import CartContext, { CartProvider } from "context/cart";
 
@@ -44,14 +45,7 @@ const Products = ({ page }) => {
         </CardGrid>
       </Section>
 
-      <Section inner="none" limitedWidth>
-        <h2>Handlekurv</h2>
-        {cart.state.map(({ title: itemTitle, quantity, price, id }) => (
-          <p key={id}>
-            {quantity} x {itemTitle}, {price * quantity},-
-          </p>
-        ))}
-      </Section>
+      {cart.state.length > 0 && <ShoppingCart items={cart.state} />}
 
       <Footer />
     </>
