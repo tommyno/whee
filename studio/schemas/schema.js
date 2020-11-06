@@ -9,6 +9,7 @@ import page from "./documents/page";
 import frontpage from "./documents/frontpage";
 import faq from "./documents/faq";
 import faqCategory from "./documents/faqCategory";
+import products from "./documents/products";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -17,5 +18,5 @@ export default createSchema({
 
   // Then proceed to concatenate our document types
   // to the ones provided by any plugins that are installed
-  types: [...schemaTypes, frontpage, page, faq, faqCategory],
+  types: [...schemaTypes, frontpage, page, faq, faqCategory, products],
 });
