@@ -18,6 +18,10 @@ const Products = ({ page }) => {
   const { title = "", intro = "", productList = [] } = page;
   const cart = React.useContext(CartContext);
 
+  const handleSubmit = () => {
+    console.log("submit ekstrautstyr");
+  };
+
   return (
     <>
       <Seo page={{ title: "Ekstrautstyr" }} noindex nofollow />
@@ -37,7 +41,7 @@ const Products = ({ page }) => {
         )}
       </Section>
 
-      <Section inner="none" limitedWidth>
+      <Section inner="small" limitedWidth>
         <CardGrid>
           {productList.map((item) => (
             <ProductCard data={item} key={item._key} />
@@ -45,7 +49,9 @@ const Products = ({ page }) => {
         </CardGrid>
       </Section>
 
-      {cart.state.length > 0 && <ShoppingCart items={cart.state} />}
+      {cart.state.length > 0 && (
+        <ShoppingCart items={cart.state} handleSubmit={handleSubmit} />
+      )}
 
       <Footer />
     </>

@@ -122,7 +122,7 @@ Footer.defaultProps = {
 };
 
 Footer.propTypes = {
-  frontpage: PropTypes.string,
+  frontpage: PropTypes.bool,
   slug: PropTypes.string
 };
 

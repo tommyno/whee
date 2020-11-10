@@ -6,7 +6,7 @@ import PortableText from "components/PortableText";
 
 import styles from "./Box.module.scss";
 
-const Box = ({ data }) => {
+const Box = ({ data, children }) => {
   const { richText, bgColor } = data;
 
   const boxClass = classNames({
@@ -17,17 +17,24 @@ const Box = ({ data }) => {
   return (
     <article className={boxClass}>
       <Flow blockContent className={boxClass}>
-        <PortableText blocks={richText} />
+        {richText && <PortableText blocks={richText} />}
+        {children}
       </Flow>
     </article>
   );
+};
+
+Box.defaultProps = {
+  data: {},
+  children: []
 };
 
 Box.propTypes = {
   data: PropTypes.shape({
     bgColor: PropTypes.string,
     richText: PropTypes.array
-  }).isRequired
+  }),
+  children: PropTypes.node
 };
 
 export default Box;
