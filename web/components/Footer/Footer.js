@@ -1,16 +1,19 @@
 import Link from "next/link";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import { Section, Grid, Flow } from "components/Layout";
 import Button from "components/Button";
 
 import styles from "./Footer.module.scss";
 
-const Footer = ({ frontpage }) => {
+const Footer = ({ frontpage, slug }) => {
   const footerClass = classNames({
     [styles.footer]: true,
     [styles[`footer-frontpage`]]: frontpage
   });
+
+  const isHiddenImage = slug === "bestilt";
 
   return (
     <>
@@ -24,7 +27,7 @@ const Footer = ({ frontpage }) => {
       )}
       <footer className={footerClass}>
         {/* Footer image for other pages */}
-        {!frontpage && (
+        {!frontpage && !isHiddenImage && (
           <img
             src="/images/footer-slim.png"
             alt=""
@@ -111,6 +114,16 @@ const Footer = ({ frontpage }) => {
       </footer>
     </>
   );
+};
+
+Footer.defaultProps = {
+  frontpage: false,
+  slug: ""
+};
+
+Footer.propTypes = {
+  frontpage: PropTypes.string,
+  slug: PropTypes.string
 };
 
 export default Footer;

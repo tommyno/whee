@@ -85,7 +85,7 @@ const DynamicPage = ({ page, slug }) => {
         ))}
       </article>
 
-      <Footer />
+      <Footer slug={slug} />
     </>
   );
 };
