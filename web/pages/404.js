@@ -4,7 +4,7 @@ import { Section, Block, Flow } from "components/Layout";
 import Footer from "components/Footer";
 import Header from "components/Header";
 
-const OrderPage = () => {
+const ErrorPage = () => {
   return (
     <>
       <Seo page={{ title: "Denne siden finnes ikke - 404" }} noindex nofollow />
@@ -23,13 +23,15 @@ const OrderPage = () => {
               </a>{" "}
               så hjelper vi deg.
             </p>
+            <img src="/images/404.png" alt="Mann på sykkel, mister hatt" />
           </Flow>
         </Block>
       </Section>
 
-      <Footer />
+      {/* Hacky slugname to remove footer image */}
+      <Footer slug="bestilt" />
     </>
   );
 };
 
-export default OrderPage;
+export default ErrorPage;
