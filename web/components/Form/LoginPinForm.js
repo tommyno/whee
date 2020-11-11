@@ -56,7 +56,7 @@ const LoginPinForm = ({ loginToken }) => {
         <Input
           name="pin"
           type="tel"
-          label="Din engangskode"
+          label="Engangskode fra SMS"
           widthCharacters="12"
           maxLength="6"
           register={register({

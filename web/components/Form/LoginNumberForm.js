@@ -75,7 +75,7 @@ const LoginNumberForm = ({ passChildData }) => {
             isSubmitting={formState.isSubmitting}
             errors={errors}
           >
-            Send meg en engangskode
+            Send engangskode på SMS
           </Button>
         </Block>
       </form>
