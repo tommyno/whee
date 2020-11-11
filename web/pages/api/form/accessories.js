@@ -1,4 +1,4 @@
-// Get user profile
+// Form for "bestill ekstrautstyr"
 import Cookies from "cookies";
 import jwt from "jsonwebtoken";
 
@@ -43,33 +43,38 @@ export default async (req, res) => {
 
     // Return only the data we need to expose
     const result = await response.json();
-    const {
-      Fornavn: firstName = "",
-      Etternavn: lastName = "",
-      Mobil: mobile = "",
-      Epost: email = "",
-      Adresse: adress = "",
-      Postnummer: zipcode = "",
-      Sted: city = "",
-      "Registrert dato": created = "",
-      Status: status = "",
-      Ekstrautstyr: accessories = ""
-    } = result?.records[0]?.fields;
+    const { guid } = result?.records[0]?.fields;
+
+    // Get form data
+    const { accessories } = req.body;
+
+    // Format data for Airtable
+    const bodyData = JSON.stringify({
+      fields: {
+        Ekstrautstyr: accessories
+      }
+    });
+
+    // Add ordered accessories to user profile
+    const urlPatch = `https://api.airtable.com/v0/${base}/${table}/${guid}`;
+
+    const responsePatch = await fetch(urlPatch, {
+      method: "patch",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`
+      },
+      body: bodyData
+    });
+
+    // Handle errors
+    if (!responsePatch.ok) {
+      throw new Error(`${response.status}: ${response.statusText}`);
+    }
 
     // All good
-    res.status(200).json({
-      firstName,
-      lastName,
-      email,
-      mobile,
-      adress,
-      zipcode,
-      city,
-      created,
-      status,
-      accessories
-    });
+    res.status(200).json({ message: "Success! Accessories added to user." });
   } catch (error) {
-    res.status(401).json({ message: error });
+    res.status(500).json({ message: error.message });
   }
 };

@@ -16,8 +16,10 @@ const MyPage = ({ user }) => {
     mobile,
     adress,
     zipcode,
+    city,
     created,
-    status
+    status,
+    accessories
   } = user;
 
   // Format date
@@ -43,20 +45,25 @@ const MyPage = ({ user }) => {
       <Section limitedWidth outer="firstSection">
         <Block bottom={7}>
           <Flow>
-            <h1>Velkommen {firstName}</h1>
+            <h1>Hei {firstName}!</h1>
             <h2 className="h3">Personalia</h2>
             <p>
               {firstName} {lastName}
               <br />
+              {adress}
+              <br />
+              {zipcode} {city}
+              <br />
+              <br />
               {mobile}
               <br />
               {email}
-              <br />
-              {adress}
-              <br />
-              {zipcode}
-              <br />
             </p>
+
+            <h2 className="h3" id="ekstrautstyr">
+              Ekstrautstyr
+            </h2>
+            <p>{accessories}</p>
 
             <h2 className="h3">Status på sykkel</h2>
             <p>{status}</p>

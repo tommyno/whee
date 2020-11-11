@@ -54,4 +54,9 @@
   @media (min-width: 768px) {
     margin-top: -16px;
   }
+
+  // Remove padding introduced by Box Flow
+  > p {
+    margin-top: 0;
+  }
 }

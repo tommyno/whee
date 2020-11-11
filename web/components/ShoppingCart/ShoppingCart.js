@@ -1,17 +1,25 @@
 import PropTypes from "prop-types";
 
 import { Block, Section } from "components/Layout";
-import Button from "components/Button";
 import Box from "components/Box";
+import AccessoriesForm from "components/Form/AccessoriesForm";
 
 import styles from "./ShoppingCart.module.scss";
 
-const ShoppingCart = ({ items, handleSubmit }) => {
+const ShoppingCart = ({ items }) => {
   // Calculate total price
   const totalPrice = items.reduce(
     (total, current) => total + current.price * current.quantity,
     0
   );
+
+  // Transform shopping cart list to a string, used in form
+  const orderString = items
+    .map(
+      ({ title: itemTitle, quantity, price }) =>
+        `${quantity} x ${itemTitle}, ${price * quantity},-`
+    )
+    .join("\r\n");
 
   return (
     <>
@@ -49,9 +57,7 @@ const ShoppingCart = ({ items, handleSubmit }) => {
                 </p>
               </Block>
 
-              <Button type="submit" primary onClick={handleSubmit}>
-                Send bestilling
-              </Button>
+              <AccessoriesForm items={orderString} />
             </div>
           </Box>
         </Section>
@@ -61,8 +67,7 @@ const ShoppingCart = ({ items, handleSubmit }) => {
 };
 
 ShoppingCart.propTypes = {
-  items: PropTypes.array.isRequired,
-  handleSubmit: PropTypes.func.isRequired
+  items: PropTypes.array.isRequired
 };
 
 export default ShoppingCart;

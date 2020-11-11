@@ -18,10 +18,6 @@ const Products = ({ page }) => {
   const { title = "", intro = "", productList = [] } = page;
   const cart = React.useContext(CartContext);
 
-  const handleSubmit = () => {
-    console.log("submit ekstrautstyr");
-  };
-
   return (
     <>
       <Seo page={{ title: "Ekstrautstyr" }} noindex nofollow />
@@ -49,9 +45,7 @@ const Products = ({ page }) => {
         </CardGrid>
       </Section>
 
-      {cart.state.length > 0 && (
-        <ShoppingCart items={cart.state} handleSubmit={handleSubmit} />
-      )}
+      {cart.state.length > 0 && <ShoppingCart items={cart.state} />}
 
       <Footer />
     </>
