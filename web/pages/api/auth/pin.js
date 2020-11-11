@@ -54,9 +54,9 @@ export default async (req, res) => {
       // Set the cookie to a value
       cookies.set("authToken", authToken, {
         maxAge: 1000 * 60 * 60 * 24 * 30, // expire in 30 days,
-        secure: !process.env.IS_LOCALHOST, // Disable for localhost dev
+        secure: true, // Disable for localhost dev
         httpOnly: true,
-        SameSite: "lax",
+        SameSite: "true", // = "strict"
         path: "/",
         overwrite: true
       });
