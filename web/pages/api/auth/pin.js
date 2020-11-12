@@ -49,14 +49,14 @@ export default async (req, res) => {
         { expiresIn: "30 days" }
       );
 
-      // Create a cookies object
-      const cookies = new Cookies(req, res);
+      // Create a cookies object, and override secure (https://github.com/pillarjs/cookies/issues/51#issuecomment-568182639)
+      const cookies = new Cookies(req, res, { secure: true });
       // Set the cookie to a value
       cookies.set("authToken", authToken, {
         maxAge: 1000 * 60 * 60 * 24 * 30, // expire in 30 days,
-        secure: true, // Disable for localhost dev
+        secure: !process.env.IS_LOCALHOST, // Disable for localhost dev
         httpOnly: true,
-        SameSite: "true", // = "strict"
+        SameSite: true, // = "strict"
         path: "/",
         overwrite: true
       });
