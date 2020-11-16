@@ -1,30 +1,20 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
 import { Block } from "components/Layout";
 import Button from "components/Button";
 import Input from "components/Form/Input";
 
-const LoginPinForm = ({ loginToken }) => {
-  const { requestId, token } = loginToken;
+const LoginStep1 = ({ passChildData }) => {
   const [errorMessage, setErrorMessage] = useState(false);
-  const router = useRouter();
 
   const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
     setErrorMessage(false);
 
-    // Prepare data object
-    const loginData = {
-      pin: data.pin,
-      requestId,
-      token
-    };
-
-    const url = `/api/auth/pin`;
+    const url = `/api/auth/login/step1`;
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -32,16 +22,14 @@ const LoginPinForm = ({ loginToken }) => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(loginData)
+        body: JSON.stringify(data)
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        // All good
-        // Forward to /min-side
-        console.log("Suksess, du er nå logget inn", result);
-        router.push("/min-side");
+        // Phone number is validated, return result and show form step 2 (pin)
+        passChildData(result);
       } else {
         setErrorMessage(result.message);
       }
@@ -54,23 +42,24 @@ const LoginPinForm = ({ loginToken }) => {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
-          name="pin"
+          name="phone"
           type="tel"
-          label="Engangskode fra SMS"
+          label="Ditt mobilnummer"
           widthCharacters="12"
-          maxLength="6"
+          maxLength="8"
           register={register({
-            required: "Skriv din engangskode, 6 siffer",
+            required: "Skriv ditt mobilnummer, 8 siffer",
             pattern: {
               value: /^[0-9]*$/,
-              message: "Skriv din engangskode, 6 siffer"
+              message: "Skriv ditt mobilnummer, 8 siffer"
             },
             minLength: {
-              value: 6,
-              message: "Skriv din engangskode, 6 siffer"
+              value: 8,
+              message: "Skriv ditt mobilnummer, 8 siffer"
             }
           })}
-          error={errors.pin}
+          error={errors.phone}
+          autoFocus
         />
 
         {errorMessage && (
@@ -87,7 +76,7 @@ const LoginPinForm = ({ loginToken }) => {
             isSubmitting={formState.isSubmitting}
             errors={errors}
           >
-            Logg inn
+            Send engangskode på SMS
           </Button>
         </Block>
       </form>
@@ -95,11 +84,8 @@ const LoginPinForm = ({ loginToken }) => {
   );
 };
 
-LoginPinForm.propTypes = {
-  loginToken: PropTypes.shape({
-    requestId: PropTypes.string.isRequired,
-    token: PropTypes.string.isRequired
-  }).isRequired
+LoginStep1.propTypes = {
+  passChildData: PropTypes.any.isRequired
 };
 
-export default LoginPinForm;
+export default LoginStep1;

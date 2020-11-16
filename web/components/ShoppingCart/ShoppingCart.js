@@ -6,7 +6,7 @@ import AccessoriesForm from "components/Form/AccessoriesForm";
 
 import styles from "./ShoppingCart.module.scss";
 
-const ShoppingCart = ({ items }) => {
+const ShoppingCart = ({ items, email }) => {
   // Calculate total price
   const totalPrice = items.reduce(
     (total, current) => total + current.price * current.quantity,
@@ -53,7 +53,7 @@ const ShoppingCart = ({ items }) => {
               <Block top={6} bottom={5}>
                 <p>
                   Vi monterer kostnadsfritt utstyret på sykkelen din. Faktura
-                  sendes til <strong>din@epost.no</strong>
+                  sendes på e-post til: <strong>{email}</strong>.
                 </p>
               </Block>
 
@@ -67,7 +67,8 @@ const ShoppingCart = ({ items }) => {
 };
 
 ShoppingCart.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  email: PropTypes.string.isRequired
 };
 
 export default ShoppingCart;

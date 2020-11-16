@@ -16,7 +16,7 @@ const AccessoriesForm = ({ items }) => {
   const onSubmit = async () => {
     setErrorMessage(false);
 
-    const url = `/api/form/accessories`;
+    const url = `/api/order/accessories`;
     try {
       const response = await fetch(url, {
         method: "PATCH",

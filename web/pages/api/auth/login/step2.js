@@ -1,38 +1,32 @@
-// Verify a users sms token (one time password)
-import jwt from "jsonwebtoken";
+// Login step 2 - Verify otp sent by sms and create a jwt cookie
 import Cookies from "cookies";
+import jwt from "jsonwebtoken";
+import getUserFromAirtable from "utils/api/getUserFromAirtable";
 
 export default async (req, res) => {
   try {
-    // Get user pin and data
+    // Get otp and data
     const {
-      body: { pin = "", requestId = "", token = "" }
+      body: { otp = "", requestId = "", phoneJwt = "" }
     } = req;
 
-    // Throw error if pin or requestId is missing or malformed
+    // Throw error if otp or requestId is missing or malformed
     // eslint-disable-next-line no-restricted-globals
-    if (!pin || pin.length !== 6 || isNaN(pin) || !requestId || !token) {
+    if (!otp || otp.length !== 6 || isNaN(otp) || !requestId || !phoneJwt) {
       throw new Error("Koden mangler eller har feil format (6 siffer)");
     }
 
-    // Throw error if jwt token with mobile number has been tampered or has expired
+    // Verify temp jwt
     let decoded;
     try {
-      decoded = jwt.verify(token, process.env.JWT_SECRET);
+      decoded = jwt.verify(phoneJwt, process.env.JWT_SECRET);
     } catch (error) {
-      console.error("jwt token error:", error);
-      throw new Error("Engangskoden er utløpt eller ugyldig.");
+      throw new Error("Koden er utløpt eller ugyldig.");
     }
+    const { phone } = decoded;
 
-    if (!decoded) {
-      throw new Error("Engangskoden er utløpt eller ugyldig.");
-    }
-
-    // Extract verified number from decoded jwt
-    const { number } = decoded;
-
-    // Check if pin is verified
-    const nexmoUrl = `https://api.nexmo.com/verify/check/json?&api_key=${process.env.NEXMO_API_KEY}&api_secret=${process.env.NEXMO_API_SECRET}&request_id=${requestId}&code=${pin}`;
+    // Check if otp is verified
+    const nexmoUrl = `https://api.nexmo.com/verify/check/json?&api_key=${process.env.NEXMO_API_KEY}&api_secret=${process.env.NEXMO_API_SECRET}&request_id=${requestId}&code=${otp}`;
     const nexmoResponse = await fetch(nexmoUrl);
     const nexmoResult = await nexmoResponse.json();
 
@@ -40,10 +34,17 @@ export default async (req, res) => {
     // TODO: Add handlers for different Nexmo status codes...
     // Nexmo status codes: https://help.nexmo.com/hc/en-us/articles/360025561931-Verify-Response-Codes
     if (nexmoResult.status === "0") {
-      // Create a JWT token with mobile number
+      // Fetch additional user info to be used in JWT cookie
+      const airtableResult = await getUserFromAirtable(phone);
+
+      // Grab user data from Airtable
+      const { id: userId, fields } = airtableResult.records[0];
+      const { Fornavn: firstName, Etternavn: lastName, Epost: email } = fields;
+
+      // Create a signed JWT token with user info
       const authToken = jwt.sign(
         {
-          data: { number }
+          data: { phone, firstName, lastName, email, userId }
         },
         process.env.JWT_SECRET,
         { expiresIn: "30 days" }

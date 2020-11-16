@@ -100,8 +100,8 @@ const sanityQuery = `*[_type == "page" && slug.current == "bestill"]{
 export async function getServerSideProps({ query }) {
   const { id = "" } = query;
 
-  // Fetch customer data
-  const url = `${process.env.BASEURL}/api/user/order/${id}`;
+  // Fetch data about "interessent"
+  const url = `${process.env.BASEURL}/api/preorder/user/${id}`;
   const response = await fetch(url);
   let result = {};
   if (response.ok) {

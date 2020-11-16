@@ -1,32 +1,16 @@
 // Get user profile
-import Cookies from "cookies";
-import jwt from "jsonwebtoken";
+import verifyUser from "utils/api/verifyUser";
 
 export default async (req, res) => {
   try {
-    // Get auth token from cookie
-    const cookies = new Cookies(req, res);
-    const authToken = cookies.get("authToken");
-
-    // Verify auth token
-    // Throw error if jwt token with mobile number has been tampered or has expired
-    let decoded;
-    try {
-      decoded = jwt.verify(authToken, process.env.JWT_SECRET);
-    } catch (error) {
-      throw new Error("Ugyldig token");
-    }
-    if (!decoded) {
-      throw new Error("Ugyldig token");
-    }
-
-    // Extract verified number from decoded jwt
-    const { number } = decoded?.data;
+    // Get user id
+    const decoded = await verifyUser(req, res);
+    const { userId } = decoded.data;
 
     // Get data from Airtable
     const base = "appvw0UePoh0VxvkB";
     const table = "Kunder";
-    const url = `https://api.airtable.com/v0/${base}/${table}?filterByFormula=Mobil%3D${number}`;
+    const url = `https://api.airtable.com/v0/${base}/${table}/${userId}`;
 
     const response = await fetch(url, {
       method: "get",
@@ -41,27 +25,27 @@ export default async (req, res) => {
       throw new Error(`${response.status}: ${response.statusText}`);
     }
 
-    // Return only the data we need to expose
+    // Return only the data we want to expose
     const result = await response.json();
     const {
       Fornavn: firstName = "",
       Etternavn: lastName = "",
-      Mobil: mobile = "",
       Epost: email = "",
+      Mobil: phone = "",
       Adresse: adress = "",
       Postnummer: zipcode = "",
       Sted: city = "",
       "Registrert dato": created = "",
       Status: status = "",
       Ekstrautstyr: accessories = ""
-    } = result?.records[0]?.fields;
+    } = result.fields;
 
     // All good
     res.status(200).json({
       firstName,
       lastName,
       email,
-      mobile,
+      phone,
       adress,
       zipcode,
       city,
@@ -70,6 +54,7 @@ export default async (req, res) => {
       accessories
     });
   } catch (error) {
+    console.log("error", error);
     res.status(401).json({ message: error });
   }
 };

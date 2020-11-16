@@ -18,7 +18,7 @@ const Form = () => {
   const onSubmit = async (data) => {
     setIsError(false);
 
-    const url = "/api/form/signup";
+    const url = "/api/preorder/bike";
     const response = await postData(url, data);
     if (response) {
       // Show thank you message

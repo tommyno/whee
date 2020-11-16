@@ -23,11 +23,11 @@ const Unsubscribe = ({ updated }) => {
                 syklist rykker frem.
               </h2>
               <p>
-                Dersom du gjorde dette ved en feil, gi oss et vink på{" "}
+                Gjorde du dette ved en feil? Gi oss et vink på{" "}
                 <a href="mailto:hei@whee.no" className="link">
                   hei@whee.no
-                </a>{" "}
-                så snart som mulig, så hjelper vi deg tilbake på listen.
+                </a>
+                , så hjelper vi deg tilbake på listen.
               </p>
             </Flow>
           )}
@@ -58,7 +58,7 @@ export async function getServerSideProps({ query }) {
   let updated = false;
 
   // Update customer status to inactive
-  const url = `${process.env.BASEURL}/api/user/unsubscribe/${id}`;
+  const url = `${process.env.BASEURL}/api/preorder/unsubscribe/${id}`;
   const response = await fetch(url);
 
   // Customer is found and updated

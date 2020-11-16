@@ -13,7 +13,7 @@ export default async (req, res) => {
     // Format data for Airtable
     const bodyData = JSON.stringify({
       fields: {
-        Status: "inaktiv"
+        Status: "Avventer"
       }
     });
 

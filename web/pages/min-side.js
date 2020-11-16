@@ -13,7 +13,7 @@ const MyPage = ({ user }) => {
     firstName,
     lastName,
     email,
-    mobile,
+    phone,
     adress,
     zipcode,
     city,
@@ -55,7 +55,7 @@ const MyPage = ({ user }) => {
               {zipcode} {city}
               <br />
               <br />
-              {mobile}
+              {phone}
               <br />
               {email}
             </p>

@@ -3,13 +3,13 @@ import { useState } from "react";
 import { Section, Block } from "components/Layout";
 import Footer from "components/Footer";
 import Header from "components/Header";
-import LoginNumberForm from "components/Form/LoginNumberForm";
-import LoginPinForm from "components/Form/LoginPinForm";
+import LoginStep1 from "components/Form/LoginStep1";
+import LoginStep2 from "components/Form/LoginStep2";
 
 const Login = () => {
-  // Get jwt token (with mobile number) and requestId from step 1 form
+  // Get temp jwt token (with mobile number) and requestId from step 1
   // This is passed together with the form in step 2
-  const [loginToken, setLoginToken] = useState({});
+  const [tempToken, setTempToken] = useState({});
 
   return (
     <>
@@ -22,15 +22,15 @@ const Login = () => {
           </Block>
 
           <Block bottom={7}>
-            {!loginToken?.token ? (
+            {!tempToken?.phoneJwt ? (
               <>
                 {/* Step 1 - Enter mobile number */}
-                <LoginNumberForm passChildData={setLoginToken} />
+                <LoginStep1 passChildData={setTempToken} />
               </>
             ) : (
               <>
                 {/* Step 2 - Enter pin verification */}
-                <LoginPinForm loginToken={loginToken} />
+                <LoginStep2 tempToken={tempToken} />
               </>
             )}
           </Block>

@@ -48,7 +48,7 @@ const OrderBikeForm = ({ initialValues }) => {
   const onSubmit = async (data) => {
     setIsError(false);
 
-    const url = "/api/form/order";
+    const url = "/api/order/bike";
     const response = await postData(url, data);
     if (response) {
       // Redirect to thank you page

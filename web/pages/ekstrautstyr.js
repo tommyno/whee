@@ -14,7 +14,7 @@ import ShoppingCart from "components/ShoppingCart";
 
 import CartContext, { CartProvider } from "context/cart";
 
-const Products = ({ page }) => {
+const Products = ({ page, email }) => {
   const { title = "", intro = "", productList = [] } = page;
   const cart = React.useContext(CartContext);
 
@@ -45,7 +45,9 @@ const Products = ({ page }) => {
         </CardGrid>
       </Section>
 
-      {cart.state.length > 0 && <ShoppingCart items={cart.state} />}
+      {cart.state.length > 0 && (
+        <ShoppingCart items={cart.state} email={email} />
+      )}
 
       <Footer />
     </>
@@ -63,12 +65,15 @@ export async function getServerSideProps(ctx) {
   const { cookie = "" } = ctx.req.headers;
 
   // Verify user
-  const url = `${process.env.BASEURL}/api/user/verify`;
+  const url = `${process.env.BASEURL}/api/auth/verify`;
   const response = await fetch(url, {
     headers: {
       cookie
     }
   });
+
+  const result = await response.json();
+  const { email } = result;
 
   // Not authenticated
   // Client side
@@ -90,13 +95,15 @@ export async function getServerSideProps(ctx) {
 
   return {
     props: {
-      page
+      page,
+      email
     }
   };
 }
 
 Products.propTypes = {
-  page: PropTypes.object.isRequired
+  page: PropTypes.object.isRequired,
+  email: PropTypes.string.isRequired
 };
 
 const Wrapper = (props) => {

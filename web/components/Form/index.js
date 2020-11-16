@@ -1,3 +1,3 @@
-import Form from "./Form";
+import PreorderForm from "./PreorderForm";
 
-export default Form;
+export default PreorderForm;
