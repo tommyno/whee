@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import { Block, Section } from "components/Layout";
 import Box from "components/Box";
-import AccessoriesForm from "components/Form/AccessoriesForm";
+import Accessories from "forms/Accessories";
 
 import styles from "./ShoppingCart.module.scss";
 
@@ -57,7 +57,7 @@ const ShoppingCart = ({ items, email }) => {
                 </p>
               </Block>
 
-              <AccessoriesForm items={orderString} />
+              <Accessories items={orderString} />
             </div>
           </Box>
         </Section>

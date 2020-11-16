@@ -8,7 +8,7 @@ import Seo from "utils/seo";
 import { Section, Block } from "components/Layout";
 import CmsBlock from "components/CmsBlock";
 import HeaderMedia from "components/HeaderMedia";
-import PreorderForm from "components/Form/PreorderForm";
+import Preorder from "forms/Preorder";
 import Footer from "components/Footer";
 import Header from "components/Header";
 
@@ -68,7 +68,7 @@ const DynamicPage = ({ page, slug }) => {
         {/* Show form for "Fortroppen" page */}
         {slug === "forhandsbestill" && (
           <Section limitedWidth>
-            <PreorderForm />
+            <Preorder />
           </Section>
         )}
 

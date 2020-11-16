@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Section, Block } from "components/Layout";
 import Footer from "components/Footer";
 import Header from "components/Header";
-import LoginStep1 from "components/Form/LoginStep1";
-import LoginStep2 from "components/Form/LoginStep2";
+import LoginStep1 from "forms/LoginStep1";
+import LoginStep2 from "forms/LoginStep2";
 
 const Login = () => {
   // Get temp jwt token (with mobile number) and requestId from step 1

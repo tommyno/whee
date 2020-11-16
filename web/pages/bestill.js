@@ -7,7 +7,7 @@ import Seo from "utils/seo";
 import CmsBlock from "components/CmsBlock";
 import HeaderMedia from "components/HeaderMedia";
 import { Section, Block, Flow } from "components/Layout";
-import OrderBikeForm from "components/Form/OrderBikeForm";
+import OrderBike from "forms/OrderBike";
 import Footer from "components/Footer";
 import Header from "components/Header";
 
@@ -68,7 +68,7 @@ const OrderPage = ({ page = {}, user = {} }) => {
           ))}
 
           <Section limitedWidth>
-            <OrderBikeForm
+            <OrderBike
               initialValues={{
                 firstName,
                 lastName,

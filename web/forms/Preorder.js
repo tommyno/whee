@@ -5,11 +5,11 @@ import postData from "utils/postData";
 
 import { Flow, Block } from "components/Layout";
 import Button from "components/Button";
-import Input from "./Input";
-import InputHoneypot from "./InputHoneypot";
-import Textarea from "./Textarea";
+import Input from "components/Form/Input";
+import InputHoneypot from "components/Form/InputHoneypot";
+import Textarea from "components/Form/Textarea";
 
-const Form = () => {
+const Preorder = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -98,4 +98,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Preorder;

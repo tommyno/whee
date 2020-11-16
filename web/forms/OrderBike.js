@@ -7,12 +7,12 @@ import postData from "utils/postData";
 
 import { Block } from "components/Layout";
 import Button from "components/Button";
-import Input from "./Input";
-import InputHoneypot from "./InputHoneypot";
-import Textarea from "./Textarea";
-import styles from "./Input.module.scss";
+import Input from "components/Form/Input";
+import InputHoneypot from "components/Form/InputHoneypot";
+import Textarea from "components/Form/Textarea";
+import styles from "components/Form/Input.module.scss";
 
-const OrderBikeForm = ({ initialValues }) => {
+const OrderBike = ({ initialValues }) => {
   const [isError, setIsError] = useState(false);
   const [city, setCity] = useState("");
 
@@ -188,12 +188,12 @@ const OrderBikeForm = ({ initialValues }) => {
   );
 };
 
-OrderBikeForm.defaultProps = {
+OrderBike.defaultProps = {
   initialValues: {}
 };
 
-OrderBikeForm.propTypes = {
+OrderBike.propTypes = {
   initialValues: PropTypes.object
 };
 
-export default OrderBikeForm;
+export default OrderBike;
