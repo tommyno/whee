@@ -91,8 +91,8 @@ const DynamicPage = ({ page, slug }) => {
 };
 
 // Find all pages - needed to build everything static
-// Exclude "bestill" page - since this should be SSR (this is a next.js bug)
-const queryAllPages = `*[_type == "page" && slug.current != '' && slug.current != "bestill"] 
+
+const queryAllPages = `*[_type == "page" && slug.current != ''] 
 {'slug': slug.current}`;
 
 // Get data for this particular page based on slug
