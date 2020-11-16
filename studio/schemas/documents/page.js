@@ -6,6 +6,7 @@ import headerMedia from "../parts/headerMedia";
 import image from "../parts/image";
 import video from "../parts/video";
 import list from "../parts/list";
+import listWithNumbers from "../parts/listWithNumbers";
 import richText from "../parts/richText";
 import twoRows from "../parts/twoRows";
 import hero from "../parts/hero";
@@ -26,7 +27,7 @@ export default {
       name: "content",
       type: "array",
       title: "Innholdsseksjoner",
-      of: [richText, video, image, list, twoRows, hero, faq, divider, box],
+      of: [richText, video, image, list, listWithNumbers, twoRows, hero, faq, divider, box],
     },
     seo,
   ],

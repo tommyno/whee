@@ -5,10 +5,12 @@ import PortableText from "components/PortableText";
 import Image from "components/Image";
 import Video from "components/Video";
 import Card from "components/Card";
+import Grid from "components/Layout/Grid";
 import CardGrid from "components/CardGrid";
 import TwoRows from "components/TwoRows";
 import Hero from "components/Hero";
 import Box from "components/Box";
+import CardWithNumber from "components/CardWithNumber";
 
 // Format content from Sanity CMS
 const CmsBlock = ({ data }) => {
@@ -85,6 +87,19 @@ const CmsBlock = ({ data }) => {
     );
   }
 
+  // List with numbers
+  if (block === "listWithNumbers") {
+    return (
+      <Section inner="none" limitedWidth>
+        <Grid>
+          {data.listWithNumbersItem.map((item, index) => (
+            <CardWithNumber data={item} key={item._key} index={index + 1} />
+          ))}
+        </Grid>
+      </Section>
+    );
+  }
+
   // Divider
   if (block === "divider") {
     return (
@@ -126,7 +141,8 @@ CmsBlock.propTypes = {
     altText: PropTypes.string,
     videoUrl: PropTypes.string,
     alternating: PropTypes.bool,
-    listItem: PropTypes.array
+    listItem: PropTypes.array,
+    listWithNumbersItem: PropTypes.array
   }).isRequired
 };
 
