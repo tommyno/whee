@@ -90,7 +90,7 @@ const CmsBlock = ({ data }) => {
   // List with numbers
   if (block === "listWithNumbers") {
     return (
-      <Section inner="none" limitedWidth>
+      <Section inner="none">
         <Grid>
           {data.listWithNumbersItem.map((item, index) => (
             <CardWithNumber data={item} key={item._key} index={index + 1} />
