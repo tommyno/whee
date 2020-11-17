@@ -155,8 +155,8 @@ const OrderBike = ({ initialValues }) => {
 
         <Textarea
           name="message"
-          label="Valgfri beskjed"
-          placeholder="Er det noe du vil fortelle oss?"
+          label="Hva skal du frakte med sykkelen?"
+          placeholder="For eksempel antall barn og alder. Vi hjelper deg med å velge riktig ekstrautstyr til sykkelen."
           register={register()}
         />
 
