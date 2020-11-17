@@ -52,6 +52,11 @@ svg {
   color: var(--color-red);
 }
 
+// Hack to remove flow margin
+.no-margin-top {
+  margin-top: 0 !important;
+}
+
 // Divider
 hr {
   height: 18px;

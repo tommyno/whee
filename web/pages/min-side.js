@@ -3,9 +3,10 @@ import Router from "next/router";
 
 import Seo from "utils/seo";
 
-import { Section, Block, Flow } from "components/Layout";
+import { Section, Flow, Block } from "components/Layout";
 import Footer from "components/Footer";
 import Button from "components/Button";
+import Box from "components/Box";
 
 const MyPage = ({ user }) => {
   const {
@@ -40,40 +41,86 @@ const MyPage = ({ user }) => {
       <Seo page={{ title: "Min side" }} noindex nofollow />
 
       <Section limitedWidth outer="firstSection">
-        <Block bottom={7}>
-          <Flow>
-            <h1>Hei {firstName}!</h1>
-            <h2 className="h3">Personalia</h2>
-            <p>
-              {firstName} {lastName}
-              <br />
-              {adress}
-              <br />
-              {zipcode} {city}
-              <br />
-              <br />
-              {phone}
-              <br />
-              {email}
-            </p>
+        <h1>Hei {firstName}!</h1>
+      </Section>
 
-            <h2 className="h3" id="ekstrautstyr">
-              Ekstrautstyr
-            </h2>
-            <p>{accessories}</p>
+      <Section limitedWidth>
+        <Box data={{ bgColor: "peach" }}>
+          <div>
+            <h2>Din sykkel</h2>
 
-            <h2 className="h3">Status på sykkel</h2>
-            <p>{status}</p>
+            <h3>Modell</h3>
+            <p className="no-margin-top">Kettler Familiano</p>
 
-            <h2 className="h3">Kunde siden</h2>
-            <p>{formattedDate}</p>
-          </Flow>
-          <Block top={7}>
-            <Button type="button" onClick={handleLogout}>
-              Logg ut
+            {accessories && (
+              <>
+                <h3 id="ekstrautstyr">Ekstrautstyr</h3>
+                <p className="no-margin-top">
+                  {accessories.split("\n").map((item) => {
+                    return (
+                      <span key={item}>
+                        {item}
+                        <br />
+                      </span>
+                    );
+                  })}
+                </p>
+              </>
+            )}
+
+            <h3>Status på sykkel</h3>
+            <p className="no-margin-top">{status}</p>
+          </div>
+        </Box>
+
+        {!accessories && (
+          <Block top={6}>
+            <Button link="/ekstrautstyr" primary>
+              <span className="text-button">Bestill ekstrautstyr</span>
             </Button>
           </Block>
-        </Block>
+        )}
+      </Section>
+
+      <Section limitedWidth>
+        <Flow>
+          <h2>Personalia</h2>
+
+          <h3>Adresse</h3>
+          <p className="no-margin-top">
+            {firstName} {lastName}
+            <br />
+            {adress}
+            <br />
+            {zipcode} {city}
+          </p>
+
+          <h3>Mobil</h3>
+          <p className="no-margin-top">{phone}</p>
+
+          <h3>Epost</h3>
+          <p className="no-margin-top">{email}</p>
+
+          <p>
+            Er noe av informasjonen feil eller utdatert? Gi oss et vink på{" "}
+            <a href="mailto:hei@whee.no" className="link">
+              hei@whee.no
+            </a>{" "}
+            så hjelper vi deg.
+          </p>
+        </Flow>
+      </Section>
+
+      {/* // This has no value now */}
+      {/* <Section limitedWidth>
+        <h2>Kunde siden</h2>
+        <p>{formattedDate}</p>
+      </Section> */}
+
+      <Section limitedWidth>
+        <Button type="button" onClick={handleLogout}>
+          Logg ut
+        </Button>
       </Section>
 
       <Footer />
