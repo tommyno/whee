@@ -26,6 +26,9 @@ const DesktopMenu = () => {
               <Link href="/tjenesten">
                 <a className={styles.navListItem}>Tjenesten</a>
               </Link>
+              <Link href="/min-side">
+                <a className={styles.navListItem}>Min side</a>
+              </Link>
             </nav>
           </Flex>
         </Section>

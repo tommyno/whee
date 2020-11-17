@@ -141,6 +141,16 @@ const MobileMenu = () => {
                       </a>
                     </Link>
                   </div>
+                  <div>
+                    <Link href="/min-side">
+                      <a
+                        className={styles.navListItemMobile}
+                        onClick={handleClose}
+                      >
+                        Min side
+                      </a>
+                    </Link>
+                  </div>
 
                   <div>
                     <Link href="/hvem-er-whee">
