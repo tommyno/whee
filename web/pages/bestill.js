@@ -9,7 +9,6 @@ import HeaderMedia from "components/HeaderMedia";
 import { Section, Block, Flow } from "components/Layout";
 import OrderBike from "forms/OrderBike";
 import Footer from "components/Footer";
-import Header from "components/Header";
 
 const OrderPage = ({ page = {}, user = {} }) => {
   const { firstName = "", lastName = "", email = "" } = user;
@@ -18,8 +17,6 @@ const OrderPage = ({ page = {}, user = {} }) => {
   return (
     <>
       <Seo page={page} />
-
-      <Header />
 
       {/* Simple check to hide this page for others than direct link from email */}
       {!firstName && (
@@ -43,25 +40,13 @@ const OrderPage = ({ page = {}, user = {} }) => {
         <article>
           <Section outer="firstSection" limitedWidth>
             <Block bottom={7}>
-              <h1 data-animate-in data-animation-order="1">
-                Hei {firstName}!
-              </h1>
+              <h1>Hei {firstName}!</h1>
             </Block>
 
-            {intro && (
-              <p className="h2" data-animate-in data-animation-order="2">
-                {intro}
-              </p>
-            )}
+            {intro && <p className="h2">{intro}</p>}
           </Section>
 
-          {!!headerMedia.length && (
-            <HeaderMedia
-              data={headerMedia}
-              data-animate-in
-              data-animation-order="3"
-            />
-          )}
+          {!!headerMedia.length && <HeaderMedia data={headerMedia} />}
 
           {content.map((item) => (
             <CmsBlock data={item} key={item._key} />

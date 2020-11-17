@@ -40,7 +40,11 @@ const LoginStep1 = ({ passChildData }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        data-animate-in
+        data-animation-order="1"
+      >
         <Input
           name="phone"
           type="tel"

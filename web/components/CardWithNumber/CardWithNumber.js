@@ -26,8 +26,7 @@ const CardWithNumber = ({ data = {}, index }) => {
 CardWithNumber.propTypes = {
   data: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    image: PropTypes.object.isRequired
+    text: PropTypes.string.isRequired
   }).isRequired,
   index: PropTypes.number.isRequired
 };

@@ -55,7 +55,11 @@ const LoginStep2 = ({ tempToken }) => {
       <Block bottom={6}>
         <p>Sjekk telefonen din, og skriv inn engangskoden.</p>
       </Block>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        data-animate-in
+        data-animation-order="1"
+      >
         <Input
           name="otp"
           type="tel"

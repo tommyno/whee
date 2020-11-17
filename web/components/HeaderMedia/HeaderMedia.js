@@ -11,11 +11,7 @@ const HeaderMedia = ({ data }) => {
   if (block === "video") {
     return (
       <Section inner="none">
-        <Video
-          url={data[0].videoUrl}
-          data-animate-in
-          data-animation-order="3"
-        />
+        <Video url={data[0].videoUrl} />
       </Section>
     );
   }
@@ -23,7 +19,7 @@ const HeaderMedia = ({ data }) => {
   if (block === "image") {
     return (
       <Section inner="none">
-        <Image imageObject={data[0]} data-animate-in data-animation-order="3" />
+        <Image imageObject={data[0]} />
       </Section>
     );
   }

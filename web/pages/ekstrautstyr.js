@@ -7,7 +7,7 @@ import Seo from "utils/seo";
 
 import { Section, Block } from "components/Layout";
 import Footer from "components/Footer";
-import Header from "components/Header";
+
 import CardGrid from "components/CardGrid";
 import ProductCard from "components/ProductCard";
 import ShoppingCart from "components/ShoppingCart";
@@ -21,20 +21,10 @@ const Products = ({ page, email }) => {
   return (
     <>
       <Seo page={{ title: "Ekstrautstyr" }} noindex nofollow />
-      <Header />
+
       <Section limitedWidth outer="firstSection">
-        <Block bottom={7}>
-          {title && (
-            <h1 data-animate-in data-animation-order="1">
-              {title}
-            </h1>
-          )}
-        </Block>
-        {intro && (
-          <p className="h2" data-animate-in data-animation-order="2">
-            {intro}
-          </p>
-        )}
+        <Block bottom={7}>{title && <h1>{title}</h1>}</Block>
+        {intro && <p className="h2">{intro}</p>}
       </Section>
 
       <Section inner="small" limitedWidth>

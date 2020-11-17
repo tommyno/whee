@@ -4,14 +4,11 @@ import Seo from "utils/seo";
 
 import { Section, Block, Flow } from "components/Layout";
 import Footer from "components/Footer";
-import Header from "components/Header";
 
 const Unsubscribe = ({ updated }) => {
   return (
     <>
       <Seo page={{ title: "Avventer" }} noindex nofollow />
-
-      <Header />
 
       <Section limitedWidth>
         <Block bottom={7}>

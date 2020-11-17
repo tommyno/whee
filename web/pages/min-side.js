@@ -5,7 +5,6 @@ import Seo from "utils/seo";
 
 import { Section, Block, Flow } from "components/Layout";
 import Footer from "components/Footer";
-import Header from "components/Header";
 import Button from "components/Button";
 
 const MyPage = ({ user }) => {
@@ -39,8 +38,6 @@ const MyPage = ({ user }) => {
   return (
     <>
       <Seo page={{ title: "Min side" }} noindex nofollow />
-
-      <Header />
 
       <Section limitedWidth outer="firstSection">
         <Block bottom={7}>

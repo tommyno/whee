@@ -5,7 +5,6 @@ import sanity from "settings/client";
 import Seo from "utils/seo";
 
 import Footer from "components/Footer";
-import Header from "components/Header";
 import CmsBlock from "components/CmsBlock";
 import Hero from "components/Hero";
 import { Section } from "components/Layout";
@@ -16,13 +15,14 @@ const Frontpage = ({ page }) => {
   return (
     <>
       <Seo page={page} isFrontpage />
-      <Header />
+
       <Section inner="none" outer="none" center>
         <Hero data={frontpageHero} frontpage />
       </Section>
       {content.map((item) => (
         <CmsBlock data={item} key={item._key} />
       ))}
+
       <Footer frontpage />
     </>
   );

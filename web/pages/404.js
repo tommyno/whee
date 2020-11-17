@@ -2,14 +2,11 @@ import Seo from "utils/seo";
 
 import { Section, Block, Flow } from "components/Layout";
 import Footer from "components/Footer";
-import Header from "components/Header";
 
 const ErrorPage = () => {
   return (
     <>
       <Seo page={{ title: "Denne siden finnes ikke - 404" }} noindex nofollow />
-
-      <Header />
 
       <Section limitedWidth outer="firstSection">
         <Block bottom={7}>

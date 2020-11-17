@@ -5,6 +5,8 @@ import { DefaultSeo } from "next-seo";
 
 import * as gtag from "utils/gtag";
 
+import Header from "components/Header";
+
 import "../styles/main.scss";
 
 // eslint-disable-next-line react/prop-types
@@ -62,7 +64,10 @@ function MyApp({ Component, pageProps }) {
         }}
       />
 
-      <Component {...pageProps} />
+      <Header />
+      <div data-animate-in key={router.asPath}>
+        <Component {...pageProps} path={router.asPath} />
+      </div>
     </>
   );
 }

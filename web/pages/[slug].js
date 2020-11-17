@@ -10,7 +10,6 @@ import CmsBlock from "components/CmsBlock";
 import HeaderMedia from "components/HeaderMedia";
 import Preorder from "forms/Preorder";
 import Footer from "components/Footer";
-import Header from "components/Header";
 
 const DynamicPage = ({ page, slug }) => {
   const { title, intro, content = [], headerMedia = [] } = page;
@@ -47,22 +46,10 @@ const DynamicPage = ({ page, slug }) => {
     <>
       <Seo page={page} />
 
-      <Header />
-
       <article>
         <Section limitedWidth outer="firstSection">
-          <Block bottom={7}>
-            {title && (
-              <h1 data-animate-in data-animation-order="1">
-                {title}
-              </h1>
-            )}
-          </Block>
-          {intro && (
-            <p className="h2" data-animate-in data-animation-order="2">
-              {intro}
-            </p>
-          )}
+          <Block bottom={7}>{title && <h1>{title}</h1>}</Block>
+          {intro && <p className="h2">{intro}</p>}
         </Section>
 
         {/* Show form for "Fortroppen" page */}
@@ -72,13 +59,7 @@ const DynamicPage = ({ page, slug }) => {
           </Section>
         )}
 
-        {!!headerMedia.length && (
-          <HeaderMedia
-            data={headerMedia}
-            data-animate-in
-            data-animation-order="3"
-          />
-        )}
+        {!!headerMedia.length && <HeaderMedia data={headerMedia} />}
 
         {content.map((item) => (
           <CmsBlock data={item} key={item._key} />
