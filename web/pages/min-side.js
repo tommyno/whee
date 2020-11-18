@@ -73,13 +73,13 @@ const MyPage = ({ user }) => {
           </div>
         </Box>
 
-        {!accessories && (
+        {/* {!accessories && (
           <Block top={6}>
             <Button link="/ekstrautstyr" primary>
               <span className="text-button">Bestill ekstrautstyr</span>
             </Button>
           </Block>
-        )}
+        )} */}
       </Section>
 
       <Section limitedWidth>
