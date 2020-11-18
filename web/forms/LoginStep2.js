@@ -41,7 +41,7 @@ const LoginStep2 = ({ tempToken }) => {
         // All good
         // Forward to /min-side
         console.log("Suksess, du er nå logget inn", result);
-        router.push("/min-side");
+        router.push("/min-side").then(() => window.scrollTo(0, 0));
       } else {
         setErrorMessage(result.message);
       }

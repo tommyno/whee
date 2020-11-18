@@ -61,7 +61,7 @@ const OrderBike = ({ initialValues, preorderId }) => {
         }
 
         // Redirect to thank you page
-        router.push("/bestilt");
+        router.push("/bestilt").then(() => window.scrollTo(0, 0));
       } else {
         // Show error and enable form
         setIsError(true);

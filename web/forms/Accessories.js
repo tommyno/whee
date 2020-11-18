@@ -34,7 +34,7 @@ const AccessoriesForm = ({ items }) => {
       if (response.ok) {
         // Forward to /min-side
         console.log("Suksess, du har nå bestilt ekstrautstyr");
-        router.push("/min-side");
+        router.push("/min-side").then(() => window.scrollTo(0, 0));
       } else {
         setErrorMessage(result.message);
       }
