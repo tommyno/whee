@@ -102,7 +102,7 @@ const MyPage = ({ user }) => {
           <p className="no-margin-top">{email}</p>
 
           <p>
-            Er noe av informasjonen feil eller utdatert? Gi oss et vink på{" "}
+            Er informasjonen feil eller utdatert? Si fra til{" "}
             <a href="mailto:hei@whee.no" className="link">
               hei@whee.no
             </a>{" "}

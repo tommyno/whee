@@ -12,7 +12,7 @@ import InputHoneypot from "components/Form/InputHoneypot";
 import Textarea from "components/Form/Textarea";
 import styles from "components/Form/Input.module.scss";
 
-const OrderBike = ({ initialValues }) => {
+const OrderBike = ({ initialValues, preorderId }) => {
   const [isError, setIsError] = useState(false);
   const [city, setCity] = useState("");
 
@@ -48,14 +48,26 @@ const OrderBike = ({ initialValues }) => {
   const onSubmit = async (data) => {
     setIsError(false);
 
-    const url = "/api/order/bike";
-    const response = await postData(url, data);
-    if (response) {
-      // Redirect to thank you page
-      router.push("/bestilt");
-    } else {
-      // Show error and enable form
-      setIsError(true);
+    try {
+      const url = "/api/order/bike";
+      const response = await postData(url, data);
+      if (response) {
+        // Update status in interesseliste to "Bestilt"
+        const preorderUrl = `/api/preorder/ordered/${preorderId}`;
+        const preorderResponse = await fetch(preorderUrl);
+
+        if (!preorderResponse.ok) {
+          throw new Error("Kunne ikke oppdatere interessenten.");
+        }
+
+        // Redirect to thank you page
+        router.push("/bestilt");
+      } else {
+        // Show error and enable form
+        setIsError(true);
+      }
+    } catch (error) {
+      console.log("catch error", error);
     }
   };
 
@@ -193,7 +205,8 @@ OrderBike.defaultProps = {
 };
 
 OrderBike.propTypes = {
-  initialValues: PropTypes.object
+  initialValues: PropTypes.object,
+  preorderId: PropTypes.string.isRequired
 };
 
 export default OrderBike;

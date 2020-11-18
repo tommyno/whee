@@ -11,7 +11,7 @@ import OrderBike from "forms/OrderBike";
 import Footer from "components/Footer";
 
 const OrderPage = ({ page = {}, user = {} }) => {
-  const { firstName = "", lastName = "", email = "" } = user;
+  const { firstName = "", lastName = "", email = "", preorderId } = user;
   const { intro = "", content = [], headerMedia = [] } = page;
 
   return (
@@ -59,6 +59,7 @@ const OrderPage = ({ page = {}, user = {} }) => {
                 lastName,
                 email
               }}
+              preorderId={preorderId}
             />
           </Section>
         </article>
@@ -98,7 +99,8 @@ export async function getServerSideProps({ query }) {
     props: {
       page,
       user: {
-        ...result
+        ...result,
+        preorderId: id
       }
     }
   };

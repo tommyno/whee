@@ -1,4 +1,4 @@
-// Keep position by user by id
+// Update user to ordered
 export default async (req, res) => {
   try {
     const {
@@ -13,7 +13,7 @@ export default async (req, res) => {
     // Format data for Airtable
     const bodyData = JSON.stringify({
       fields: {
-        Status: "Avventer komplett sykkel"
+        Status: "Bestilt sykkel"
       }
     });
 
