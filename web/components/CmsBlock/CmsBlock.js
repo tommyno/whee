@@ -5,12 +5,11 @@ import PortableText from "components/PortableText";
 import Image from "components/Image";
 import Video from "components/Video";
 import Card from "components/Card";
-import Grid from "components/Layout/Grid";
 import CardGrid from "components/CardGrid";
 import TwoRows from "components/TwoRows";
 import Hero from "components/Hero";
 import Box from "components/Box";
-import CardWithNumber from "components/CardWithNumber";
+import ListWithNumbers from "components/ListWithNumbers";
 
 // Format content from Sanity CMS
 const CmsBlock = ({ data }) => {
@@ -21,7 +20,7 @@ const CmsBlock = ({ data }) => {
     // Sanity wraps large content in a div, but not single content. Logic needed to target flow content.
     const isWrappedInDiv = data.richText.length > 1;
     return (
-      <Section inner="none" limitedWidth>
+      <Section limitedWidth>
         <Flow blockContent={isWrappedInDiv}>
           <PortableText blocks={data.richText} />
         </Flow>
@@ -32,7 +31,7 @@ const CmsBlock = ({ data }) => {
   // Image
   if (block === "image") {
     return (
-      <Section inner="none" center>
+      <Section center>
         <Image imageObject={data} />
       </Section>
     );
@@ -41,7 +40,7 @@ const CmsBlock = ({ data }) => {
   // Video
   if (block === "video") {
     return (
-      <Section inner="none">
+      <Section>
         <Video url={data.videoUrl} />
       </Section>
     );
@@ -50,7 +49,7 @@ const CmsBlock = ({ data }) => {
   // Two rows
   if (block === "twoRows") {
     return (
-      <Section inner="none">
+      <Section>
         <TwoRows data={data} />
       </Section>
     );
@@ -59,7 +58,7 @@ const CmsBlock = ({ data }) => {
   // Box
   if (block === "box") {
     return (
-      <Section inner="none" limitedWidth center>
+      <Section limitedWidth center>
         <Box data={data} />
       </Section>
     );
@@ -68,7 +67,7 @@ const CmsBlock = ({ data }) => {
   // Hero
   if (block === "hero") {
     return (
-      <Section inner="none" limitedWidth center>
+      <Section limitedWidth center>
         <Hero data={data} />
       </Section>
     );
@@ -77,7 +76,7 @@ const CmsBlock = ({ data }) => {
   // List
   if (block === "list") {
     return (
-      <Section inner="none" limitedWidth>
+      <Section limitedWidth>
         <CardGrid reverse={data.alternating}>
           {data.listItem.map((item) => (
             <Card data={item} key={item._key} />
@@ -90,12 +89,8 @@ const CmsBlock = ({ data }) => {
   // List with numbers
   if (block === "listWithNumbers") {
     return (
-      <Section inner="none">
-        <Grid>
-          {data.listWithNumbersItem.map((item, index) => (
-            <CardWithNumber data={item} key={item._key} index={index + 1} />
-          ))}
-        </Grid>
+      <Section limitedWidth>
+        <ListWithNumbers data={data} />
       </Section>
     );
   }
@@ -103,7 +98,7 @@ const CmsBlock = ({ data }) => {
   // Divider
   if (block === "divider") {
     return (
-      <Section inner="none" outer="large" limitedWidth>
+      <Section outer="large" limitedWidth>
         <hr />
       </Section>
     );
@@ -114,7 +109,7 @@ const CmsBlock = ({ data }) => {
     const { faq = [], text = "" } = data;
 
     return (
-      <Section inner="none" limitedWidth>
+      <Section limitedWidth>
         <Flow>
           {text && <h2>{text}</h2>}
           {faq.map((item) => {

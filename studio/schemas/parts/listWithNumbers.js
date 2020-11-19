@@ -1,10 +1,11 @@
 import listWithNumbersItem from "./listWithNumbersItem";
+import title from "./title";
 
 export default {
   name: "listWithNumbers",
   title: "Liste med 1-2-3",
   type: "object",
-  fields: [listWithNumbersItem],
+  fields: [title, listWithNumbersItem],
   preview: {
     select: {
       blocks: "listWithNumbersItem",
