@@ -112,7 +112,7 @@ const MobileMenu = () => {
                   </Link>
                 </div>
 
-                <div>
+                <div data-animate-down data-animation-order="1">
                   <Button link="/forhandsbestill" menu>
                     <span className="text-button" onClick={handleClose}>
                       Forhåndsbestill nå!
@@ -121,7 +121,7 @@ const MobileMenu = () => {
                 </div>
 
                 <div>
-                  <div>
+                  <div data-animate-down data-animation-order="2">
                     <Link href="/sykkelen">
                       <a
                         className={styles.navListItemMobile}
@@ -131,7 +131,7 @@ const MobileMenu = () => {
                       </a>
                     </Link>
                   </div>
-                  <div>
+                  <div data-animate-down data-animation-order="3">
                     <Link href="/tjenesten">
                       <a
                         className={styles.navListItemMobile}
@@ -141,7 +141,7 @@ const MobileMenu = () => {
                       </a>
                     </Link>
                   </div>
-                  <div>
+                  <div data-animate-down data-animation-order="4">
                     <Link href="/min-side">
                       <a
                         className={styles.navListItemMobile}
@@ -152,7 +152,7 @@ const MobileMenu = () => {
                     </Link>
                   </div>
 
-                  <div>
+                  <div data-animate-down data-animation-order="5">
                     <Link href="/hvem-er-whee">
                       <a
                         className={styles.navListItemMobile}
@@ -162,7 +162,7 @@ const MobileMenu = () => {
                       </a>
                     </Link>
                   </div>
-                  <div>
+                  <div data-animate-down data-animation-order="6">
                     <Link href="/personvern-og-cookies">
                       <a
                         className={styles.navListItemMobile}
@@ -175,16 +175,16 @@ const MobileMenu = () => {
                 </div>
 
                 <div>
-                  <p>
+                  <p data-animate-down data-animation-order="7">
                     <a href="mailto:hei@whee.no" className="link-underline">
                       hei@whee.no
                     </a>
                   </p>
-                  <p>
+                  <p data-animate-down data-animation-order="8">
                     <a href="tel:22120068">22 12 00 68</a>
                   </p>
 
-                  <Block top={5}>
+                  <Block top={5} data-animate-in data-animation-order="8">
                     <div className={styles.some}>
                       <a
                         href="https://www.instagram.com/wheebike/"

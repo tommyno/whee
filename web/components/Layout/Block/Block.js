@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import styles from "./Block.module.scss";
 
-const Block = ({ top, bottom, left, right, children }) => {
+const Block = ({ top, bottom, left, right, children, ...rest }) => {
   const blockClass = classNames({
     [styles.block]: true,
     [styles[`-top-${top}`]]: top,
@@ -11,7 +11,11 @@ const Block = ({ top, bottom, left, right, children }) => {
     [styles[`-left-${left}`]]: left,
     [styles[`-right-${right}`]]: right
   });
-  return <div className={blockClass}>{children}</div>;
+  return (
+    <div className={blockClass} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 Block.defaultProps = {
