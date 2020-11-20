@@ -60,15 +60,15 @@
   left: 0;
   z-index: 9;
   text-align: center;
-  padding: 16px 16px 24px 16px;
+  padding: 16px var(--page-gutter);
   font-size: 22px;
   line-height: 2;
 }
 
 .logoWrapMobile {
   display: block;
-  margin: 0 auto;
-  width: 144px;
+  width: 80px;
+  line-height: 1;
 }
 
 .logoWrapMobileBar {
@@ -94,7 +94,7 @@
 
 .menuButton {
   position: absolute;
-  right: 16px;
+  right: var(--page-gutter);
   top: 16px;
   z-index: 99;
 }
