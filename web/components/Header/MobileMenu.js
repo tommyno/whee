@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
+import useBodyFreeze from "hooks/useBodyFreeze";
+
 import { Block, Flex } from "components/Layout";
 import Button from "components/Button";
-
 import Logo from "components/Logo";
 
 import styles from "./Header.module.scss";
@@ -13,21 +14,15 @@ import styles from "./Header.module.scss";
 const MobileMenu = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleClose = () => {
-    setIsMobileMenuOpen(false);
-    // Need a better solution for this
-    // document.body.style.overflow = "unset";
-  };
-
-  const handleOpen = () => {
-    setIsMobileMenuOpen(true);
-    // Need a better solution for this
-    // document.body.style.overflow = "hidden";
-  };
-
   const CloseButton = () => {
     return (
-      <button className={styles.menuButton} type="button" onClick={handleClose}>
+      <button
+        className={styles.menuButton}
+        type="button"
+        onClick={() => {
+          setIsMobileMenuOpen(!isMobileMenuOpen);
+        }}
+      >
         <svg
           width="27"
           height="27"
@@ -52,7 +47,12 @@ const MobileMenu = () => {
 
   const OpenButton = () => {
     return (
-      <button type="button" onClick={handleOpen}>
+      <button
+        type="button"
+        onClick={() => {
+          setIsMobileMenuOpen(!isMobileMenuOpen);
+        }}
+      >
         <span className={styles.menuButtonText}>Meny</span>
         <svg
           width="31"
@@ -81,6 +81,150 @@ const MobileMenu = () => {
     );
   };
 
+  const OpenMenu = () => {
+    useBodyFreeze();
+    return (
+      <>
+        <div className={styles.headerMobile}>
+          <CloseButton />
+          <nav className={styles.mobileFlex}>
+            <div className={styles.logoWrapMobile}>
+              <Link href="/">
+                {/* eslint-disable-next-line jsx-a11y/interactive-supports-focus */}
+                <a
+                  title="Til forsiden"
+                  role="link"
+                  onClick={() => {
+                    setIsMobileMenuOpen(!isMobileMenuOpen);
+                  }}
+                >
+                  <Logo color="#fffcf4" />
+                </a>
+              </Link>
+            </div>
+
+            <div data-animate-down data-animation-order="1">
+              <Button link="/forhandsbestill" menu>
+                <span
+                  className="text-button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(!isMobileMenuOpen);
+                  }}
+                >
+                  Forhåndsbestill nå!
+                </span>
+              </Button>
+            </div>
+
+            <div>
+              <div data-animate-down data-animation-order="2">
+                <Link href="/sykkelen">
+                  <a
+                    className={styles.navListItemMobile}
+                    onClick={() => {
+                      setIsMobileMenuOpen(!isMobileMenuOpen);
+                    }}
+                  >
+                    Sykkelen
+                  </a>
+                </Link>
+              </div>
+              <div data-animate-down data-animation-order="3">
+                <Link href="/tjenesten">
+                  <a
+                    className={styles.navListItemMobile}
+                    onClick={() => {
+                      setIsMobileMenuOpen(!isMobileMenuOpen);
+                    }}
+                  >
+                    Tjenesten
+                  </a>
+                </Link>
+              </div>
+              <div data-animate-down data-animation-order="4">
+                <Link href="/min-side">
+                  <a
+                    className={styles.navListItemMobile}
+                    onClick={() => {
+                      setIsMobileMenuOpen(!isMobileMenuOpen);
+                    }}
+                  >
+                    Min side
+                  </a>
+                </Link>
+              </div>
+
+              <div data-animate-down data-animation-order="5">
+                <Link href="/hvem-er-whee">
+                  <a
+                    className={styles.navListItemMobile}
+                    onClick={() => {
+                      setIsMobileMenuOpen(!isMobileMenuOpen);
+                    }}
+                  >
+                    Hvem er Whee!?
+                  </a>
+                </Link>
+              </div>
+              <div data-animate-down data-animation-order="6">
+                <Link href="/personvern-og-cookies">
+                  <a
+                    className={styles.navListItemMobile}
+                    onClick={() => {
+                      setIsMobileMenuOpen(!isMobileMenuOpen);
+                    }}
+                  >
+                    Personvern og cookies
+                  </a>
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <p data-animate-down data-animation-order="7">
+                <a href="mailto:hei@whee.no" className="link-underline">
+                  hei@whee.no
+                </a>
+              </p>
+              <p data-animate-down data-animation-order="8">
+                <a href="tel:22120068">22 12 00 68</a>
+              </p>
+
+              <Block top={5} data-animate-in data-animation-order="8">
+                <div className={styles.some}>
+                  <a
+                    href="https://www.instagram.com/wheebike/"
+                    title="Whee! på Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src="/images/instagram.svg" alt="Instagram ikon" />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/wheebike/"
+                    title="Whee! på Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src="/images/facebook.svg" alt="Facebook ikon" />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/c/wheebike"
+                    title="Whee! på YouTube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src="/images/youtube.svg" alt="Youtube ikon" />
+                  </a>
+                </div>
+              </Block>
+            </div>
+          </nav>
+        </div>
+      </>
+    );
+  };
+
   return (
     <>
       <header className={styles.headerMobileWrap}>
@@ -99,124 +243,7 @@ const MobileMenu = () => {
         )}
 
         {/* Show open mobile menu */}
-        {isMobileMenuOpen && (
-          <>
-            <div className={styles.headerMobile}>
-              <CloseButton />
-              <nav className={styles.mobileFlex}>
-                <div className={styles.logoWrapMobile}>
-                  <Link href="/">
-                    <a title="Til forsiden" role="link" onClick={handleClose}>
-                      <Logo color="#fffcf4" />
-                    </a>
-                  </Link>
-                </div>
-
-                <div data-animate-down data-animation-order="1">
-                  <Button link="/forhandsbestill" menu>
-                    <span className="text-button" onClick={handleClose}>
-                      Forhåndsbestill nå!
-                    </span>
-                  </Button>
-                </div>
-
-                <div>
-                  <div data-animate-down data-animation-order="2">
-                    <Link href="/sykkelen">
-                      <a
-                        className={styles.navListItemMobile}
-                        onClick={handleClose}
-                      >
-                        Sykkelen
-                      </a>
-                    </Link>
-                  </div>
-                  <div data-animate-down data-animation-order="3">
-                    <Link href="/tjenesten">
-                      <a
-                        className={styles.navListItemMobile}
-                        onClick={handleClose}
-                      >
-                        Tjenesten
-                      </a>
-                    </Link>
-                  </div>
-                  <div data-animate-down data-animation-order="4">
-                    <Link href="/min-side">
-                      <a
-                        className={styles.navListItemMobile}
-                        onClick={handleClose}
-                      >
-                        Min side
-                      </a>
-                    </Link>
-                  </div>
-
-                  <div data-animate-down data-animation-order="5">
-                    <Link href="/hvem-er-whee">
-                      <a
-                        className={styles.navListItemMobile}
-                        onClick={handleClose}
-                      >
-                        Hvem er Whee!?
-                      </a>
-                    </Link>
-                  </div>
-                  <div data-animate-down data-animation-order="6">
-                    <Link href="/personvern-og-cookies">
-                      <a
-                        className={styles.navListItemMobile}
-                        onClick={handleClose}
-                      >
-                        Personvern og cookies
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-
-                <div>
-                  <p data-animate-down data-animation-order="7">
-                    <a href="mailto:hei@whee.no" className="link-underline">
-                      hei@whee.no
-                    </a>
-                  </p>
-                  <p data-animate-down data-animation-order="8">
-                    <a href="tel:22120068">22 12 00 68</a>
-                  </p>
-
-                  <Block top={5} data-animate-in data-animation-order="8">
-                    <div className={styles.some}>
-                      <a
-                        href="https://www.instagram.com/wheebike/"
-                        title="Whee! på Instagram"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img src="/images/instagram.svg" alt="Instagram ikon" />
-                      </a>
-                      <a
-                        href="https://www.facebook.com/wheebike/"
-                        title="Whee! på Facebook"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img src="/images/facebook.svg" alt="Facebook ikon" />
-                      </a>
-                      <a
-                        href="https://www.youtube.com/c/wheebike"
-                        title="Whee! på YouTube"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img src="/images/youtube.svg" alt="Youtube ikon" />
-                      </a>
-                    </div>
-                  </Block>
-                </div>
-              </nav>
-            </div>
-          </>
-        )}
+        {isMobileMenuOpen && <OpenMenu />}
       </header>
       <div className={styles.headerShadowMobile} />
       <div className={styles.headerBoxMobile} />
