@@ -7,11 +7,15 @@ import { Flow, Block } from "components/Layout";
 
 const Hero = ({ data = {}, frontpage }) => {
   const { image = {}, intro = "", button = {}, richText = {} } = data;
-  const imageWidth = frontpage ? "1000" : "800";
+  const imageWidth = frontpage ? "1340" : "800";
 
   return (
     <Flow>
-      <Image imageObject={image} maxImageWidth={imageWidth} />
+      <Image
+        imageObject={image}
+        maxImageWidth={imageWidth}
+        imageLoading="eager"
+      />
 
       {intro && <p className="h2">{intro}</p>}
 
