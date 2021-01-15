@@ -57,4 +57,5 @@ Frontpage.propTypes = {
     frontpageHero: PropTypes.object
   }).isRequired
 };
+
 export default Frontpage;
