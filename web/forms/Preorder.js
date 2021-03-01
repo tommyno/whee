@@ -33,13 +33,16 @@ const Preorder = () => {
   if (isFormSubmitted) {
     return (
       <Flow>
-        <h2>Tusen takk for din forhåndsbestilling!</h2>
+        <h2>Tusen takk for registreringen!</h2>
         <p>
-          Du står nå på ventelisten, og vil om få dager motta en e-post med
-          kønummer og mer informasjon fra oss.
+          Vi har sendt deg en e-postbekreftelse. Husk å legge oss til som
+          kontakt, så vi ikke havner i spamfilteret.
         </p>
-        <p>Snart kan du suse avgårde på din egen Whee!</p>
-        <img src="/images/thank-you-image.png" alt="Takk for din påmelding!" />
+        <p>Du hører fra oss, når vi har sykler klare.</p>
+        <img
+          src="/images/thank-you-image.png"
+          alt="Takk for din registrering!"
+        />
       </Flow>
     );
   }
