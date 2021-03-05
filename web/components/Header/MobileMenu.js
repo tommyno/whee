@@ -142,6 +142,18 @@ const MobileMenu = () => {
                 </Link>
               </div>
               <div data-animate-down data-animation-order="4">
+                <Link href="/fix">
+                  <a
+                    className={styles.navListItemMobile}
+                    onClick={() => {
+                      setIsMobileMenuOpen(!isMobileMenuOpen);
+                    }}
+                  >
+                    Vask og service
+                  </a>
+                </Link>
+              </div>
+              <div data-animate-down data-animation-order="5">
                 <Link href="/min-side">
                   <a
                     className={styles.navListItemMobile}
@@ -154,7 +166,7 @@ const MobileMenu = () => {
                 </Link>
               </div>
 
-              <div data-animate-down data-animation-order="5">
+              <div data-animate-down data-animation-order="6">
                 <Link href="/hvem-er-whee">
                   <a
                     className={styles.navListItemMobile}
@@ -166,7 +178,7 @@ const MobileMenu = () => {
                   </a>
                 </Link>
               </div>
-              <div data-animate-down data-animation-order="6">
+              <div data-animate-down data-animation-order="7">
                 <Link href="/personvern-og-cookies">
                   <a
                     className={styles.navListItemMobile}
@@ -181,16 +193,16 @@ const MobileMenu = () => {
             </div>
 
             <div>
-              <p data-animate-down data-animation-order="7">
+              <p data-animate-down data-animation-order="8">
                 <a href="mailto:hei@whee.no" className="link-underline">
                   hei@whee.no
                 </a>
               </p>
-              <p data-animate-down data-animation-order="8">
+              <p data-animate-down data-animation-order="9">
                 <a href="tel:22120068">22 12 00 68</a>
               </p>
 
-              <Block top={5} data-animate-in data-animation-order="8">
+              <Block top={5} data-animate-in data-animation-order="9">
                 <div className={styles.some}>
                   <a
                     href="https://www.instagram.com/wheebike/"
