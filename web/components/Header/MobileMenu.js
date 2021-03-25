@@ -154,16 +154,14 @@ const MobileMenu = () => {
                 </Link>
               </div>
               <div data-animate-down data-animation-order="5">
-                <Link href="/min-side">
-                  <a
-                    className={styles.navListItemMobile}
-                    onClick={() => {
-                      setIsMobileMenuOpen(!isMobileMenuOpen);
-                    }}
-                  >
-                    Min side
-                  </a>
-                </Link>
+                <a
+                  className={styles.navListItemMobile}
+                  href="https://www.wheestore.no/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Nettbutikk
+                </a>
               </div>
 
               <div data-animate-down data-animation-order="6">

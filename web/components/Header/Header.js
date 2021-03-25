@@ -29,9 +29,15 @@ const DesktopMenu = () => {
               <Link href="/fix">
                 <a className={styles.navListItem}>Vask og service</a>
               </Link>
-              <Link href="/min-side">
-                <a className={styles.navListItem}>Min side</a>
-              </Link>
+
+              <a
+                className={styles.navListItem}
+                href="https://www.wheestore.no/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Nettbutikk
+              </a>
             </nav>
           </Flex>
         </Section>
